@@ -27,10 +27,10 @@ export const MODULE_SOURCE: Record<string, string> = {
   payments: "portal (Stripe)", cohort: "bq (retention_cohort)", reports: "bq + crm", linkedin2: "",
 };
 
-export interface ModuleResult { d: any; f: number; freshness: string; source: string; live: boolean }
+export interface ModuleResult { mod: string; d: any; f: number; freshness: string; source: string; live: boolean }
 
 function mock(client: ClientRec, moduleKey: string, range: DateRange): ModuleResult {
-  return { d: DATA[moduleKey], f: client.f * range.factor, freshness: "sample data", source: MODULE_SOURCE[moduleKey] || "—", live: false };
+  return { mod: moduleKey, d: DATA[moduleKey], f: client.f * range.factor, freshness: "sample data", source: MODULE_SOURCE[moduleKey] || "—", live: false };
 }
 
 async function post(path: string, body: unknown): Promise<any> {
@@ -79,7 +79,7 @@ export async function getModuleDataAsync(client: ClientRec, moduleKey: string, r
   if (live) {
     try {
       const kpis = await liveKpis(moduleKey, range, conns);
-      if (kpis) return { d: { ...DATA[moduleKey], kpis }, f: 1, freshness: "LIVE · just now", source: MODULE_SOURCE[moduleKey] || "—", live: true };
+      if (kpis) return { mod: moduleKey, d: { ...DATA[moduleKey], kpis }, f: 1, freshness: "LIVE · just now", source: MODULE_SOURCE[moduleKey] || "—", live: true };
       return { ...mock(client, moduleKey, range), freshness: "sample (live not mapped for this module)" };
     } catch {
       return { ...mock(client, moduleKey, range), freshness: "sample (live source unreachable)" };

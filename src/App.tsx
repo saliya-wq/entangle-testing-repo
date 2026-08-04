@@ -30,6 +30,9 @@ const NAV: { group: string; items: [string, string, string][] }[] = [
 const LABELS: Record<string, string> = { campaign: "Campaign Performance", googleAds: "Google Ads", fbAds: "Facebook Ads", fbPage: "Facebook Page", igOrganic: "Instagram", linkedin: "LinkedIn", ga4: "Web Analytics", callTracking: "Call Tracking", pipeline: "Pipeline (CRM)", speedToLead: "Speed-to-Lead", showRate: "Show-Rate", attribution: "Attribution & ROI", yoy: "YoY Trading", ecommerce: "Ecommerce", payments: "Payments", cohort: "Cohort & LTV", reports: "Report Templates" };
 const VIEWS: Record<string, (p: { d: any; f: number }) => JSX.Element> = { campaign: CampaignView, googleAds: GoogleAdsView, fbAds: FbAdsView, fbPage: FbPageView, igOrganic: IgView, linkedin: LinkedInView, ga4: Ga4View, callTracking: CallTrackingView, pipeline: PipelineView, speedToLead: SpeedToLeadView, showRate: ShowRateView, attribution: AttributionView, yoy: YoyView, ecommerce: EcommerceView, payments: PaymentsView, cohort: CohortView, reports: ReportsView };
 
+/* App version — bump the patch (1.0.1, 1.0.2, …) on every release. */
+const VERSION = "1.0.1";
+
 /* ---------- multi-tenant: roles, subscriptions, admin ---------- */
 const ALL_MODULES = NAV.flatMap((s) => s.items);
 const VIA_LABEL: Record<string, string> = { crm: "Entangle CRM", portal: "Portal API", meta: "Meta", google: "Google", bq: "BigQuery" };
@@ -281,6 +284,7 @@ function Portal({ user, ops, setOps, onLogout, theme, setTheme }: { user: any; o
           {isAdmin && navBtn("__admin__", "Admin Panel", "⚙️", mod === "__admin__")}
           <div className="flex items-center gap-2 border-t px-2 pt-3 text-[11px] text-muted-foreground">
             <span className="h-2 w-2 rounded-full bg-success" /> Recharts + shadcn/ui
+            <span className="ml-auto font-medium tabular-nums">V{VERSION}</span>
           </div>
         </div>
       </aside>
@@ -322,14 +326,14 @@ function Portal({ user, ops, setOps, onLogout, theme, setTheme }: { user: any; o
           </div>
           {mod === "__admin__" ? (
             <AdminPanel client={client} ops={ops} setOps={setOps} />
-          ) : loading ? (
+          ) : loading || !result || result.mod !== mod ? (
             <div className="py-24 text-center text-sm text-muted-foreground">Loading…</div>
-          ) : result ? (
+          ) : (
             <>
               {insights.length > 0 && <InsightsPanel insights={insights} live={result.live} />}
               {View && <View key={mod + client + rangeKey + (result.live ? "live" : "")} d={result.d} f={result.f} />}
             </>
-          ) : null}
+          )}
         </div>
       </main>
     </div>
