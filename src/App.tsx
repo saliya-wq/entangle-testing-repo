@@ -10,7 +10,7 @@ import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
-import { LogOut } from "lucide-react";
+import { LogOut, Menu, Pin, PinOff } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { SOURCE_CATALOG, RANGES, loadOps, saveOps as persistOps } from "@/lib/store";
 import { getModuleDataAsync, MODULE_SOURCE, type ModuleResult } from "@/lib/provider";
@@ -31,7 +31,7 @@ const LABELS: Record<string, string> = { campaign: "Campaign Performance", googl
 const VIEWS: Record<string, (p: { d: any; f: number }) => JSX.Element> = { campaign: CampaignView, googleAds: GoogleAdsView, fbAds: FbAdsView, fbPage: FbPageView, igOrganic: IgView, linkedin: LinkedInView, ga4: Ga4View, callTracking: CallTrackingView, pipeline: PipelineView, speedToLead: SpeedToLeadView, showRate: ShowRateView, attribution: AttributionView, yoy: YoyView, ecommerce: EcommerceView, payments: PaymentsView, cohort: CohortView, reports: ReportsView };
 
 /* App version — bump the patch (1.0.1, 1.0.2, …) on every release. */
-const VERSION = "1.0.1";
+const VERSION = "1.0.2";
 
 /* ---------- multi-tenant: roles, subscriptions, admin ---------- */
 const ALL_MODULES = NAV.flatMap((s) => s.items);
@@ -231,6 +231,9 @@ function Portal({ user, ops, setOps, onLogout, theme, setTheme }: { user: any; o
   const [live, setLive] = useState(false);
   const [result, setResult] = useState<ModuleResult | null>(null);
   const [loading, setLoading] = useState(false);
+  const [pinned, setPinned] = useState(false);
+  const [hovering, setHovering] = useState(false);
+  const sidebarOpen = pinned || hovering;
   useEffect(() => {
     if (mod === "__admin__") { setResult(null); return; }
     let alive = true; setLoading(true);
@@ -252,12 +255,30 @@ function Portal({ user, ops, setOps, onLogout, theme, setTheme }: { user: any; o
   );
 
   return (
-    <div className="app-grid grid min-h-screen grid-cols-[264px_1fr] bg-background">
-      <aside className="no-print sticky top-0 flex h-screen flex-col gap-1 overflow-y-auto border-r bg-card p-4">
-        <div className="px-2 pb-4 pt-1">
-          <img src="/assets/entangle-logotype-dark.svg" alt="Entangle" className="logo-dark h-[21px] w-auto" />
-          <img src="/assets/entangle-logotype-light.svg" alt="Entangle" className="logo-light h-[21px] w-auto" />
-          <div className="mt-1 text-[8px] font-semibold uppercase tracking-wider text-muted-foreground">{isAdmin ? "Admin Console" : "Client Portal"}</div>
+    <div className="app-grid relative min-h-screen bg-background">
+      {/* hover hot-zone at the left edge reveals the auto-hidden sidebar */}
+      <div className="no-print fixed left-0 top-0 z-30 h-screen w-3" onMouseEnter={() => setHovering(true)} aria-hidden />
+      <aside
+        onMouseEnter={() => setHovering(true)}
+        onMouseLeave={() => setHovering(false)}
+        className={cn(
+          "no-print fixed left-0 top-0 z-40 flex h-screen w-[264px] flex-col gap-1 overflow-y-auto border-r bg-card p-4 transition-transform duration-200 ease-out",
+          sidebarOpen ? "translate-x-0 shadow-2xl" : "-translate-x-full"
+        )}
+      >
+        <div className="flex items-start justify-between px-2 pb-4 pt-1">
+          <div>
+            <img src="/assets/entangle-logotype-dark.svg" alt="Entangle" className="logo-dark h-[21px] w-auto" />
+            <img src="/assets/entangle-logotype-light.svg" alt="Entangle" className="logo-light h-[21px] w-auto" />
+            <div className="mt-1 text-[8px] font-semibold uppercase tracking-wider text-muted-foreground">{isAdmin ? "Admin Console" : "Client Portal"}</div>
+          </div>
+          <button
+            onClick={() => setPinned((p) => !p)}
+            title={pinned ? "Unpin sidebar (auto-hide)" : "Pin sidebar open"}
+            className="grid h-7 w-7 shrink-0 place-items-center rounded-md text-muted-foreground hover:bg-muted hover:text-foreground"
+          >
+            {pinned ? <PinOff className="h-4 w-4" /> : <Pin className="h-4 w-4" />}
+          </button>
         </div>
         {isAdmin && (
           <div className="px-1 pb-2">
@@ -289,8 +310,16 @@ function Portal({ user, ops, setOps, onLogout, theme, setTheme }: { user: any; o
         </div>
       </aside>
 
-      <main className="min-w-0">
+      <main className={cn("min-w-0 transition-[padding] duration-200 ease-out", pinned && "pl-[264px]")}>
         <header className="no-print sticky top-0 z-20 flex items-center gap-4 border-b bg-background/80 px-6 py-3 backdrop-blur">
+          <button
+            onMouseEnter={() => setHovering(true)}
+            onClick={() => setPinned((p) => !p)}
+            title={pinned ? "Unpin sidebar (auto-hide)" : "Pin sidebar open"}
+            className="grid h-9 w-9 shrink-0 place-items-center rounded-lg border hover:bg-muted"
+          >
+            <Menu className="h-4 w-4" />
+          </button>
           <div>
             <div className="text-[11px] font-semibold uppercase tracking-wide text-primary">{mod === "__admin__" ? "Settings" : group}</div>
             <h1 className="text-lg font-bold tracking-tight">{mod === "__admin__" ? "Admin Panel" : LABELS[mod]}</h1>
