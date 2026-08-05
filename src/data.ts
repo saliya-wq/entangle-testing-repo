@@ -1,3 +1,5 @@
+import { campaignKpis, ga4Kpis, ecomKpis, kpi, cpm, cpc } from "./lib/metrics";
+
 export const CLIENTS = [
   { id: "aquapulse", name: "Aqua Pulse Spas", initials: "AP", f: 1 },
   { id: "cfyah", name: "Care For You at Home", initials: "CF", f: 0.42 },
@@ -7,14 +9,8 @@ export const AX = ["Jul 1", "Jul 5", "Jul 9", "Jul 13", "Jul 17", "Jul 21", "Jul
 
 export const DATA: Record<string, any> = {
   campaign: {
-    kpis: [
-      { l: "Total Ad Spend", v: 40170, fmt: "$", d: 5.2, dir: "up", hero: true },
-      { l: "Total Reach", v: 578000, fmt: "c", d: 18, dir: "up" },
-      { l: "Conversions", v: 698, fmt: "n", d: 12.1, dir: "up" },
-      { l: "Attributed Revenue", v: 177584, fmt: "$", d: 16.4, dir: "up" },
-      { l: "Blended ROAS", v: 4.4, fmt: "x", d: 9.6, dir: "up", rate: true },
-      { l: "Cost / Conv.", v: 57.6, fmt: "$", d: 4.1, dir: "down", rate: true, good: "down" },
-    ],
+    // KPIs derived in metrics.campaignKpis() from the channel breakdown below.
+    base: { reach: 578000, prior: { spend: 38184, conv: 623, rev: 152563, reach: 489830 } },
     mix: { labels: ["Meta Ads", "Google Ads"], data: [21760, 18410] },
     channels: [
       { ch: "Google Ads", spend: 18410, conv: 386, roas: 4.8, rev: 88368 },
@@ -31,6 +27,7 @@ export const DATA: Record<string, any> = {
       { l: "CTR", v: 3.16, fmt: "%", d: 4.2, dir: "up", rate: true },
       { l: "ROAS", v: 4.1, fmt: "x", d: 9.2, dir: "up", rate: true },
     ],
+    base: { spend: 21760, impressions: 1240000, clicks: 39210, prior: { spend: 20400, impressions: 1180000, clicks: 37000 } },
     spend: { spend: [2280, 2410, 2540, 2460, 2680, 2810, 2960, 3120], results: [34, 38, 41, 39, 44, 49, 54, 58] },
     reach: { reach: [38000, 44000, 49000, 53000, 58000, 63000, 69000, 74000], impr: [92000, 108000, 121000, 133000, 146000, 160000, 175000, 190000] },
     campaigns: [
@@ -96,6 +93,7 @@ export const DATA: Record<string, any> = {
   },
   googleAds: {
     kpis: [{ l: "Cost", v: 18410, fmt: "$", d: 4.1, dir: "up", hero: true }, { l: "Impressions", v: 412000, fmt: "c", d: 9.2, dir: "up" }, { l: "Clicks", v: 14200, fmt: "n", d: 8.6, dir: "up" }, { l: "CTR", v: 3.45, fmt: "%", d: 2.1, dir: "up", rate: true }, { l: "Avg. CPC", v: 1.3, fmt: "$2", d: 3.4, dir: "down", rate: true, good: "down" }, { l: "Conversions", v: 386, fmt: "n", d: 12.4, dir: "up" }, { l: "Cost / Conv.", v: 47.7, fmt: "$", d: 5.2, dir: "down", rate: true, good: "down" }, { l: "ROAS", v: 4.8, fmt: "x", d: 11, dir: "up", rate: true }],
+    base: { spend: 18410, impressions: 412000, clicks: 14200, prior: { spend: 17680, impressions: 405000 } },
     trend: { cost: [560, 610, 640, 600, 680, 720, 760, 800], conv: [38, 42, 45, 43, 48, 52, 56, 62] },
     campaigns: [{ name: "Search — Brand", status: "on", cost: 2100, clicks: 1800, ctr: 8.2, conv: 142, cpa: 14.8, roas: 9.6 }, { name: "Search — Non-brand", status: "on", cost: 5400, clicks: 3900, ctr: 3.1, conv: 96, cpa: 56.3, roas: 3.8 }, { name: "Performance Max", status: "on", cost: 6200, clicks: 4600, ctr: 2.9, conv: 104, cpa: 59.6, roas: 4.4 }, { name: "Shopping", status: "on", cost: 3410, clicks: 2600, ctr: 3.4, conv: 38, cpa: 89.7, roas: 3.1 }, { name: "Display — Remarketing", status: "off", cost: 1300, clicks: 1300, ctr: 0.9, conv: 6, cpa: 216.7, roas: 1.4 }],
     keywords: [{ kw: "outdoor spa", clicks: 1240, cpc: 1.85, conv: 88, qs: 9 }, { kw: "swim spa australia", clicks: 980, cpc: 2.1, conv: 64, qs: 8 }, { kw: "plunge pool cost", clicks: 760, cpc: 1.6, conv: 41, qs: 7 }, { kw: "hot tub sale", clicks: 640, cpc: 1.42, conv: 52, qs: 9 }, { kw: "spa pool installation", clicks: 520, cpc: 2.35, conv: 22, qs: 6 }],
@@ -120,7 +118,8 @@ export const DATA: Record<string, any> = {
     demo: { labels: ["18-24", "25-34", "35-44", "45-54", "55-64", "65+"], women: [5, 15, 18, 14, 9, 4], men: [3, 8, 9, 7, 4, 2] },
   },
   ga4: {
-    kpis: [{ l: "Users", v: 42800, fmt: "c", d: 8.6, dir: "up", hero: true }, { l: "Sessions", v: 61200, fmt: "c", d: 7.8, dir: "up" }, { l: "Engagement Rate", v: 62, fmt: "%", d: 3.1, dir: "up", rate: true }, { l: "Avg. Engagement", v: 142, fmt: "sec", d: 5.1, dir: "up", rate: true }, { l: "Conversions", v: 1240, fmt: "n", d: 9.4, dir: "up" }, { l: "Bounce Rate", v: 38, fmt: "%", d: 4.2, dir: "down", rate: true, good: "down" }],
+    // KPIs derived in metrics.ga4Kpis() from base + the funnel below.
+    base: { users: 42800, sessions: 61200, engagementRate: 62, avgEngagementSec: 142, conversions: 1240, bounceRate: 38, revenue: 245626, prior: { users: 39411, sessions: 56772, conversions: 1133, revenue: 219000, addToCarts: 8600, checkouts: 2760, engagementRate: 60, bounceRate: 40 } },
     users: { nw: [1680, 1740, 1820, 1780, 1910, 2040, 2160, 2280], ret: [920, 980, 1040, 1010, 1120, 1180, 1250, 1320] },
     channels: [{ ch: "Organic Search", sess: 22100, cr: 5.9, rev: 76923 }, { ch: "Paid Search", sess: 14200, cr: 6.4, rev: 88368 }, { ch: "Paid Social", sess: 11800, cr: 4.1, rev: 54131 }, { ch: "Direct", sess: 8400, cr: 3.6, rev: 17094 }, { ch: "Referral", sess: 4700, cr: 3.1, rev: 9110 }],
     devices: { labels: ["Mobile", "Desktop", "Tablet"], data: [61, 33, 6] },
@@ -165,7 +164,8 @@ export const DATA: Record<string, any> = {
     category: [{ cat: "Swim Spas", ty: 452000, ly: 372000 }, { cat: "Plunge Pools", ty: 278000, ly: 224000 }, { cat: "Hot Tubs", ty: 158000, ly: 148000 }, { cat: "Accessories", ty: 73000, ly: 58000 }],
   },
   ecommerce: {
-    kpis: [{ l: "Total Sales", v: 284900, fmt: "$", d: 16.4, dir: "up", hero: true }, { l: "Orders", v: 1846, fmt: "n", d: 12.1, dir: "up" }, { l: "Avg. Order Value", v: 154, fmt: "$", d: 3.8, dir: "up", rate: true }, { l: "Conversion Rate", v: 3.1, fmt: "%", d: 2.4, dir: "up", rate: true }, { l: "New Customers", v: 1240, fmt: "n", d: 9.4, dir: "up" }, { l: "Refunds", v: 6420, fmt: "$", d: 2.1, dir: "down", good: "down" }],
+    // KPIs derived in metrics.ecomKpis() from channel sales + custMix below.
+    base: { orders: 1846, visitors: 61200, marginPct: 62, refunds: 6420, prior: { sales: 244760, orders: 1647, visitors: 57000, newC: 1134, returningC: 554, refunds: 6560, marginPct: 60 } },
     sales: { gross: [7800, 8200, 8600, 8300, 9100, 9600, 10200, 10800], net: [7500, 7900, 8300, 8000, 8800, 9300, 9900, 10500] },
     channels: { labels: ["Online Store", "Retail Express POS", "Marketplace"], data: [186000, 74000, 24900] },
     products: [{ name: "Aurora Swim Spa 6.0", units: 64, revenue: 96000, stock: 12 }, { name: "Plunge Pro Compact", units: 98, revenue: 58800, stock: 8 }, { name: "Hydro Hot Tub 5-seat", units: 72, revenue: 43200, stock: 20 }, { name: "Cover & Cushion Kit", units: 420, revenue: 29400, stock: 140 }],
@@ -192,3 +192,21 @@ export const DATA: Record<string, any> = {
     kpi: { period: "July 2026", icon: "🎯", rows: [{ n: "Monthly Revenue", a: "$177.6K", t: "$200K", pct: 89, s: "On track" }, { n: "Blended ROAS", a: "4.4x", t: "4.0x", pct: 100, s: "Achieved" }, { n: "Conversions", a: "698", t: "750", pct: 93, s: "On track" }, { n: "Cost / Conversion", a: "$57.60", t: "≤ $60", pct: 100, s: "Achieved" }, { n: "Meta Leads", a: "312", t: "400", pct: 78, s: "At risk" }] },
   },
 };
+
+/* ---- Derive KPI cards from base inputs (single source of truth) ----
+   Headline cards are computed from the same sub-data the pages render,
+   so a card always reconciles with the table/chart beneath it. */
+DATA.campaign.kpis = campaignKpis(DATA.campaign);
+DATA.ga4.kpis = ga4Kpis(DATA.ga4);
+DATA.ecommerce.kpis = ecomKpis(DATA.ecommerce);
+
+// Essential ad efficiency cards (CPM / CPC) derived from spend & delivery.
+{
+  const g = DATA.googleAds.base;
+  DATA.googleAds.kpis.push(kpi("CPM", cpm(g.spend, g.impressions), "$2", { good: "down", prior: cpm(g.prior.spend, g.prior.impressions) }));
+  const f = DATA.fbAds.base;
+  DATA.fbAds.kpis.push(
+    kpi("CPM", cpm(f.spend, f.impressions), "$2", { good: "down", prior: cpm(f.prior.spend, f.prior.impressions) }),
+    kpi("CPC", cpc(f.spend, f.clicks), "$2", { good: "down", prior: cpc(f.prior.spend, f.prior.clicks) }),
+  );
+}
