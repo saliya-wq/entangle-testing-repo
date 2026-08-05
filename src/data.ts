@@ -218,10 +218,10 @@ DATA.ecommerce.kpis = ecomKpis(DATA.ecommerce);
 // Essential ad efficiency cards (CPM / CPC) derived from spend & delivery.
 {
   const g = DATA.googleAds.base;
-  DATA.googleAds.kpis.push(kpi("CPM", cpm(g.spend, g.impressions), "$2", { good: "down", prior: cpm(g.prior.spend, g.prior.impressions) }));
+  DATA.googleAds.kpis.push(kpi("CPM", cpm(g.spend, g.impressions), "$2", { rate: true, good: "down", prior: cpm(g.prior.spend, g.prior.impressions) }));
   const f = DATA.fbAds.base;
   DATA.fbAds.kpis.push(
-    kpi("CPM", cpm(f.spend, f.impressions), "$2", { good: "down", prior: cpm(f.prior.spend, f.prior.impressions) }),
-    kpi("CPC", cpc(f.spend, f.clicks), "$2", { good: "down", prior: cpc(f.prior.spend, f.prior.clicks) }),
+    kpi("CPM", cpm(f.spend, f.impressions), "$2", { rate: true, good: "down", prior: cpm(f.prior.spend, f.prior.impressions) }),
+    kpi("CPC", cpc(f.spend, f.clicks), "$2", { rate: true, good: "down", prior: cpc(f.prior.spend, f.prior.clicks) }),
   );
 }

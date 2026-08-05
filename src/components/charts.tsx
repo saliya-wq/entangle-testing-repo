@@ -17,9 +17,22 @@ const grid = { stroke: "hsl(var(--border))", strokeDasharray: "3 3" };
 
 /* ---------- KPI ---------- */
 export interface Kpi { l: string; v: number | string; fmt?: string; d?: number; dir?: string; good?: string; rate?: boolean; hero?: boolean }
+
+// Literal class map so Tailwind's JIT keeps these; interpolated names would be purged.
+const LG_COLS: Record<number, string> = {
+  1: "lg:grid-cols-1", 2: "lg:grid-cols-2", 3: "lg:grid-cols-3",
+  4: "lg:grid-cols-4", 5: "lg:grid-cols-5", 6: "lg:grid-cols-6",
+};
+/** Pick the column count that leaves the fewest empty cells in the last row
+    (densest wins on ties) so KPI grids stay balanced for 6/8/9-card modules. */
+function balancedCols(n: number): string {
+  const cols = n <= 4 ? n : [6, 5, 4].map((c) => ({ c, e: (c - (n % c)) % c })).sort((a, b) => a.e - b.e || b.c - a.c)[0].c;
+  return LG_COLS[cols] || "lg:grid-cols-6";
+}
+
 export function KpiRow({ items, f }: { items: Kpi[]; f: number }) {
   return (
-    <div className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-6">
+    <div className={cn("grid grid-cols-2 gap-3 md:grid-cols-3", balancedCols(items.length))}>
       {items.map((k, i) => {
         const up = k.good === "down" ? k.dir === "down" : k.dir === "up";
         return (
