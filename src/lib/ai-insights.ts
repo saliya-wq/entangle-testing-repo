@@ -13,7 +13,13 @@ export interface AiInsightPayload {
   trend: { name: string; first: number; last: number } | null;
 }
 
-export async function fetchAiInsights(payload: AiInsightPayload, timeoutMs = 12000): Promise<Insight[] | null> {
+/* Tiny in-memory cache (per page session). Keyed by the caller's cacheKey —
+   the same module/client/range yields identical sample KPIs, so its insights
+   are stable and needn't re-hit the API. Only successful results are cached. */
+const cache = new Map<string, Insight[]>();
+
+export async function fetchAiInsights(payload: AiInsightPayload, cacheKey?: string, timeoutMs = 12000): Promise<Insight[] | null> {
+  if (cacheKey && cache.has(cacheKey)) return cache.get(cacheKey)!;
   try {
     const ctrl = new AbortController();
     const timer = setTimeout(() => ctrl.abort(), timeoutMs);
@@ -28,9 +34,11 @@ export async function fetchAiInsights(payload: AiInsightPayload, timeoutMs = 120
     const data = await r.json();
     const arr = Array.isArray(data?.insights) ? data.insights : null;
     if (!arr || !arr.length) return null;
-    return arr
+    const insights: Insight[] = arr
       .filter((i: any) => i && typeof i.text === "string")
       .map((i: any) => ({ kind: i.kind === "up" || i.kind === "down" ? i.kind : "info", text: i.text }));
+    if (cacheKey) cache.set(cacheKey, insights);
+    return insights;
   } catch {
     return null;
   }

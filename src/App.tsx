@@ -36,7 +36,7 @@ const LABELS: Record<string, string> = { campaign: "Campaign Performance", googl
 const VIEWS: Record<string, (p: { d: any; f: number }) => JSX.Element> = { campaign: CampaignView, googleAds: GoogleAdsView, fbAds: FbAdsView, fbPage: FbPageView, igOrganic: IgView, linkedin: LinkedInView, ga4: Ga4View, callTracking: CallTrackingView, pipeline: PipelineView, speedToLead: SpeedToLeadView, showRate: ShowRateView, attribution: AttributionView, yoy: YoyView, ecommerce: EcommerceView, payments: PaymentsView, cohort: CohortView, reports: ReportsView };
 
 /* App version — bump the patch (1.0.1, 1.0.2, …) on every release. */
-const VERSION = "1.0.8";
+const VERSION = "1.0.9";
 
 /* ---------- multi-tenant: roles, subscriptions, admin ---------- */
 const ALL_MODULES = NAV.flatMap((s) => s.items);
@@ -262,7 +262,8 @@ function Portal({ user, ops, setOps, onLogout, theme, setTheme }: { user: any; o
     }));
     const s: any = result.d?.trend?.spend || result.d?.trend?.cost || result.d?.sales?.gross || result.d?.users?.nw || result.d?.spend?.spend || null;
     const trend = Array.isArray(s) && s.length > 1 ? { name: LABELS[mod] || "Trend", first: s[0], last: s[s.length - 1] } : null;
-    fetchAiInsights({ moduleLabel: LABELS[mod] || mod, rangeLabel: range.label, currency: c.currency, kpis, targets, trend }).then((ai) => {
+    const cacheKey = `${mod}|${client}|${range.key}|${range.factor}|${result.live ? "live" : "sample"}`;
+    fetchAiInsights({ moduleLabel: LABELS[mod] || mod, rangeLabel: range.label, currency: c.currency, kpis, targets, trend }, cacheKey).then((ai) => {
       if (alive && ai && ai.length) { setInsights(ai); setInsightSource("ai"); }
     });
     return () => { alive = false; };
