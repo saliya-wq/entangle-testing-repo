@@ -14,6 +14,7 @@ import { LogOut, Menu, Pin, PinOff } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { SOURCE_CATALOG, RANGES, loadOps, saveOps as persistOps } from "@/lib/store";
 import { DateRangePicker, compareLabel, type CompareMode } from "@/components/date-range";
+import { ATTR_MODELS, attribute, attributeAll, type AttrModel } from "@/lib/attribution";
 import type { DateRange } from "@/lib/model";
 import { getModuleDataAsync, MODULE_SOURCE, type ModuleResult } from "@/lib/provider";
 import { generateInsights, type Insight } from "@/lib/insights";
@@ -33,7 +34,7 @@ const LABELS: Record<string, string> = { campaign: "Campaign Performance", googl
 const VIEWS: Record<string, (p: { d: any; f: number }) => JSX.Element> = { campaign: CampaignView, googleAds: GoogleAdsView, fbAds: FbAdsView, fbPage: FbPageView, igOrganic: IgView, linkedin: LinkedInView, ga4: Ga4View, callTracking: CallTrackingView, pipeline: PipelineView, speedToLead: SpeedToLeadView, showRate: ShowRateView, attribution: AttributionView, yoy: YoyView, ecommerce: EcommerceView, payments: PaymentsView, cohort: CohortView, reports: ReportsView };
 
 /* App version — bump the patch (1.0.1, 1.0.2, …) on every release. */
-const VERSION = "1.0.4";
+const VERSION = "1.0.5";
 
 /* ---------- multi-tenant: roles, subscriptions, admin ---------- */
 const ALL_MODULES = NAV.flatMap((s) => s.items);
@@ -442,13 +443,86 @@ function FbAdsView({ d, f }: { d: any; f: number }) {
   );
 }
 
+/* ================= Attribution models (multi-touch) ================= */
+function AttributionModels({ d, f }: { d: any; f: number }) {
+  const [model, setModel] = useState<AttrModel>("linear");
+  const attr = attribute(d.paths, model);
+  const all = attributeAll(d.paths);
+  const totalRev = attr.reduce((a, x) => a + x.revenue, 0) || 1;
+  const spendOf = (ch: string) => d.channels.find((x: any) => x.ch === ch)?.spend ?? 0;
+  const channels = Object.keys(all);
+  const topPaths = [...d.paths].sort((a: any, b: any) => b.conv - a.conv);
+  const active = ATTR_MODELS.find((m) => m.key === model)!;
+  return (
+    <div className="space-y-4">
+      <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
+        {ATTR_MODELS.map((m) => (
+          <button key={m.key} onClick={() => setModel(m.key)}
+            className={cn("rounded-lg border p-3 text-left transition-colors", model === m.key ? "border-primary bg-primary/10" : "hover:bg-muted")}>
+            <div className={cn("text-sm font-semibold", model === m.key && "text-primary")}>{m.label}</div>
+            <div className="mt-0.5 text-[11px] leading-tight text-muted-foreground">{m.desc}</div>
+          </button>
+        ))}
+      </div>
+
+      <Grid2>
+        <ChartCard title={`Attributed revenue by channel — ${active.label}`}>
+          <BarH labels={attr.map((a) => a.channel)} data={A(attr.map((a) => a.revenue), f)} />
+        </ChartCard>
+        <TableCard title="Channel economics (selected model)">
+          <Table>
+            <TableHeader><TableRow><TableHead>Channel</TableHead><TableHead className="text-right">Attr. Revenue</TableHead><TableHead className="text-right">Share</TableHead><TableHead className="text-right">Spend</TableHead><TableHead className="text-right">ROAS</TableHead></TableRow></TableHeader>
+            <TableBody>{attr.map((a, i) => { const sp = spendOf(a.channel); return (
+              <TableRow key={i}>
+                <TableCell className="font-medium">{a.channel}</TableCell>
+                <TableCell className={num()}>{money(scale(a.revenue, f))}</TableCell>
+                <TableCell className={num()}>{Math.round((a.revenue / totalRev) * 100)}%</TableCell>
+                <TableCell className={num()}>{sp ? money(scale(sp, f)) : "—"}</TableCell>
+                <TableCell className={num()}>{sp ? (a.revenue / sp).toFixed(1) + "x" : "—"}</TableCell>
+              </TableRow>
+            ); })}</TableBody>
+          </Table>
+        </TableCard>
+      </Grid2>
+
+      <TableCard title="Model comparison — attributed revenue by channel" >
+        <Table>
+          <TableHeader><TableRow><TableHead>Channel</TableHead>{ATTR_MODELS.map((m) => <TableHead key={m.key} className="text-right">{m.label}</TableHead>)}</TableRow></TableHeader>
+          <TableBody>{channels.map((ch, i) => (
+            <TableRow key={i}>
+              <TableCell className="font-medium">{ch}</TableCell>
+              {ATTR_MODELS.map((m) => <TableCell key={m.key} className={cn(num(), model === m.key && "bg-primary/5 font-semibold")}>{money(scale(all[ch][m.key], f))}</TableCell>)}
+            </TableRow>
+          ))}</TableBody>
+        </Table>
+      </TableCard>
+
+      <TableCard title="Top conversion paths — the journeys credit is split across">
+        <Table>
+          <TableHeader><TableRow><TableHead>Journey (touchpoints)</TableHead><TableHead className="text-right">Conversions</TableHead><TableHead className="text-right">Revenue</TableHead></TableRow></TableHeader>
+          <TableBody>{topPaths.map((p: any, i: number) => (
+            <TableRow key={i}>
+              <TableCell><div className="flex flex-wrap items-center gap-1">{p.path.map((ch: string, j: number) => (
+                <span key={j} className="flex items-center gap-1"><Badge variant="muted">{ch}</Badge>{j < p.path.length - 1 && <span className="text-muted-foreground">→</span>}</span>
+              ))}</div></TableCell>
+              <TableCell className={num()}>{scale(p.conv, f)}</TableCell>
+              <TableCell className={num()}>{money(scale(p.rev, f))}</TableCell>
+            </TableRow>
+          ))}</TableBody>
+        </Table>
+      </TableCard>
+    </div>
+  );
+}
+
 /* ================= Attribution & ROI ================= */
 function AttributionView({ d, f }: { d: any; f: number }) {
   const chNames = d.channels.map((x: any) => x.ch);
   const spendVsRev = <GroupBar labels={chNames} groups={[{ name: "Spend", data: A(d.channels.map((x: any) => x.spend), f) }, { name: "Revenue", data: A(d.channels.map((x: any) => x.rev), f) }]} />;
   return (
     <Tabs defaultValue="overview" className="space-y-4">
-      <TabsList><TabsTrigger value="overview">Overview</TabsTrigger><TabsTrigger value="spendrev">Spend → Revenue</TabsTrigger><TabsTrigger value="funnel">Spend-to-Close Funnel</TabsTrigger><TabsTrigger value="geo">Closes by Geo</TabsTrigger><TabsTrigger value="roi">ROI by Campaign</TabsTrigger></TabsList>
+      <TabsList><TabsTrigger value="overview">Overview</TabsTrigger><TabsTrigger value="models">Attribution Models</TabsTrigger><TabsTrigger value="spendrev">Spend → Revenue</TabsTrigger><TabsTrigger value="funnel">Spend-to-Close Funnel</TabsTrigger><TabsTrigger value="geo">Closes by Geo</TabsTrigger><TabsTrigger value="roi">ROI by Campaign</TabsTrigger></TabsList>
+      <TabsContent value="models"><AttributionModels d={d} f={f} /></TabsContent>
       <TabsContent value="overview" className="space-y-4">
         <KpiRow items={d.kpis} f={f} />
         <Grid2>

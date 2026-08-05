@@ -58,6 +58,21 @@ export const DATA: Record<string, any> = {
       { s: "Bookings", v: 342 }, { s: "Closes", v: 195 },
     ],
     revenue: 177584,
+    // Multi-touch journeys (conv sums to 195, rev to 177,584 — matches the headline).
+    paths: [
+      { path: ["Meta Ads", "Google Ads", "Direct"], conv: 34, rev: 31280 },
+      { path: ["Google Ads", "Email", "Direct"], conv: 22, rev: 20240 },
+      { path: ["Meta Ads", "Meta Ads", "Google Ads"], conv: 18, rev: 17640 },
+      { path: ["Organic", "Google Ads"], conv: 20, rev: 18000 },
+      { path: ["Google Ads"], conv: 16, rev: 12800 },
+      { path: ["Meta Ads", "Referral", "Google Ads", "Direct"], conv: 12, rev: 13200 },
+      { path: ["Email", "Meta Ads"], conv: 14, rev: 11200 },
+      { path: ["Organic", "Email", "Direct"], conv: 10, rev: 8500 },
+      { path: ["Referral", "Google Ads"], conv: 15, rev: 14250 },
+      { path: ["Meta Ads"], conv: 18, rev: 14400 },
+      { path: ["Direct"], conv: 8, rev: 6400 },
+      { path: ["Google Ads", "Meta Ads"], conv: 8, rev: 9674 },
+    ],
     geo: [
       { r: "Queensland", closes: 78, rev: 71034 }, { r: "New South Wales", closes: 52, rev: 47320 },
       { r: "Victoria", closes: 38, rev: 34600 }, { r: "Western Australia", closes: 16, rev: 14560 },
