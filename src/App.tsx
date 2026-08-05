@@ -36,7 +36,7 @@ const LABELS: Record<string, string> = { campaign: "Campaign Performance", googl
 const VIEWS: Record<string, (p: { d: any; f: number }) => JSX.Element> = { campaign: CampaignView, googleAds: GoogleAdsView, fbAds: FbAdsView, fbPage: FbPageView, igOrganic: IgView, linkedin: LinkedInView, ga4: Ga4View, callTracking: CallTrackingView, pipeline: PipelineView, speedToLead: SpeedToLeadView, showRate: ShowRateView, attribution: AttributionView, yoy: YoyView, ecommerce: EcommerceView, payments: PaymentsView, cohort: CohortView, reports: ReportsView };
 
 /* App version — bump the patch (1.0.1, 1.0.2, …) on every release. */
-const VERSION = "1.0.10";
+const VERSION = "1.0.11";
 
 /* ---------- multi-tenant: roles, subscriptions, admin ---------- */
 const ALL_MODULES = NAV.flatMap((s) => s.items);
@@ -382,6 +382,11 @@ function Portal({ user, ops, setOps, onLogout, theme, setTheme }: { user: any; o
             )}
             {mod !== "__admin__" && (
               <Button variant="outline" size="sm" onClick={() => window.print()}>Export PDF</Button>
+            )}
+            {mod !== "__admin__" && (
+              <Badge variant={c.aiInsights ? "success" : "secondary"} title={c.aiInsights ? "Claude-powered AI insights are enabled for this client" : "AI insights disabled — using built-in rules"}>
+                {c.aiInsights ? "✨ AI on" : "AI off"}
+              </Badge>
             )}
             <div className="flex items-center gap-2 border-l pl-3">
               <div className="grid h-8 w-8 place-items-center rounded-lg text-xs font-bold text-white" style={{ background: c.brandColor }}>{c.initials}</div>
