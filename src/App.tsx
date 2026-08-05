@@ -19,6 +19,7 @@ import { ATTR_MODELS, attribute, attributeAll, type AttrModel } from "@/lib/attr
 import type { DateRange } from "@/lib/model";
 import { getModuleDataAsync, MODULE_SOURCE, type ModuleResult } from "@/lib/provider";
 import { generateInsights, type Insight } from "@/lib/insights";
+import { fetchAiInsights } from "@/lib/ai-insights";
 import type { OpsState } from "@/lib/model";
 import { cn } from "@/lib/utils";
 
@@ -35,7 +36,7 @@ const LABELS: Record<string, string> = { campaign: "Campaign Performance", googl
 const VIEWS: Record<string, (p: { d: any; f: number }) => JSX.Element> = { campaign: CampaignView, googleAds: GoogleAdsView, fbAds: FbAdsView, fbPage: FbPageView, igOrganic: IgView, linkedin: LinkedInView, ga4: Ga4View, callTracking: CallTrackingView, pipeline: PipelineView, speedToLead: SpeedToLeadView, showRate: ShowRateView, attribution: AttributionView, yoy: YoyView, ecommerce: EcommerceView, payments: PaymentsView, cohort: CohortView, reports: ReportsView };
 
 /* App version — bump the patch (1.0.1, 1.0.2, …) on every release. */
-const VERSION = "1.0.7";
+const VERSION = "1.0.8";
 
 /* ---------- multi-tenant: roles, subscriptions, admin ---------- */
 const ALL_MODULES = NAV.flatMap((s) => s.items);
@@ -66,12 +67,12 @@ function ThemeSwitcher({ theme, setTheme }: { theme: string; setTheme: (t: strin
 }
 
 /* ================= AI Insights panel ================= */
-function InsightsPanel({ insights, live }: { insights: Insight[]; live: boolean }) {
+function InsightsPanel({ insights, source }: { insights: Insight[]; source: "ai" | "rules" }) {
   return (
     <Card className="mb-4 border-primary/30 bg-primary/[0.03]">
       <CardHeader className="flex-row items-center justify-between space-y-0 pb-2">
         <CardTitle className="text-[15px]">✨ AI Insights</CardTitle>
-        <Badge variant={live ? "success" : "secondary"}>{live ? "live" : "sample"}</Badge>
+        <Badge variant={source === "ai" ? "success" : "secondary"}>{source === "ai" ? "Claude" : "rules"}</Badge>
       </CardHeader>
       <CardContent className="space-y-1.5">
         {insights.map((i, idx) => (
@@ -247,7 +248,26 @@ function Portal({ user, ops, setOps, onLogout, theme, setTheme }: { user: any; o
     return () => { alive = false; };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [mod, client, range.key, range.factor, live]);
-  const insights = result ? generateInsights(mod, result.d, result.f, ops.targets[client] || [], range.factor) : [];
+  const [insights, setInsights] = useState<Insight[]>([]);
+  const [insightSource, setInsightSource] = useState<"ai" | "rules">("rules");
+  useEffect(() => {
+    if (!result || mod === "__admin__") { setInsights([]); return; }
+    const targets = ops.targets[client] || [];
+    // Instant deterministic insights, then upgrade to Claude in the background.
+    setInsights(generateInsights(mod, result.d, result.f, targets, range.factor));
+    setInsightSource("rules");
+    let alive = true;
+    const kpis = (Array.isArray(result.d?.kpis) ? result.d.kpis : []).map((k: any) => ({
+      l: k.l, v: typeof k.v === "number" ? scale(k.v, result.f, k.rate) : k.v, fmt: k.fmt, d: k.d, dir: k.dir, good: k.good, rate: k.rate,
+    }));
+    const s: any = result.d?.trend?.spend || result.d?.trend?.cost || result.d?.sales?.gross || result.d?.users?.nw || result.d?.spend?.spend || null;
+    const trend = Array.isArray(s) && s.length > 1 ? { name: LABELS[mod] || "Trend", first: s[0], last: s[s.length - 1] } : null;
+    fetchAiInsights({ moduleLabel: LABELS[mod] || mod, rangeLabel: range.label, currency: c.currency, kpis, targets, trend }).then((ai) => {
+      if (alive && ai && ai.length) { setInsights(ai); setInsightSource("ai"); }
+    });
+    return () => { alive = false; };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [result, mod, client, range.key, range.factor]);
 
   const onClient = (v: string) => {
     setClient(v);
@@ -370,7 +390,7 @@ function Portal({ user, ops, setOps, onLogout, theme, setTheme }: { user: any; o
             <div className="py-24 text-center text-sm text-muted-foreground">Loading…</div>
           ) : (
             <GranularityProvider value={granularity}>
-              {insights.length > 0 && <InsightsPanel insights={insights} live={result.live} />}
+              {insights.length > 0 && <InsightsPanel insights={insights} source={insightSource} />}
               {View && <View key={mod + client + range.key + range.factor + (result.live ? "live" : "")} d={result.d} f={result.f} />}
             </GranularityProvider>
           )}
