@@ -80,8 +80,8 @@ function genClient(name: string, i: number): { client: ClientRec; subs: string[]
     website: slug + pick(TLDS), manager: pick(MANAGERS), contact: "hello@" + slug + ".com.au",
     brandColor: pick(COLORS), f: +(0.2 + rnd() * 2.9).toFixed(2),
   };
-  // subscriptions: core always + random extras
-  const subs = MODULE_KEYS.filter((k) => ["campaign", "ga4", "reports"].includes(k) || chance(0.55));
+  // subscriptions: core always + random extras (speedToLead is core so it's on by default)
+  const subs = MODULE_KEYS.filter((k) => ["campaign", "ga4", "reports", "speedToLead"].includes(k) || chance(0.55));
   // connections: ga4 + meta usually connected; others random
   const connections: Connection[] = SOURCE_CATALOG.filter((s) => ["ga4", "meta"].includes(s.key) || chance(0.5)).map((s) => {
     const r = rnd();
@@ -112,7 +112,7 @@ function seed(): OpsState {
   return { clients, users, subs, connections, targets, schedules, audit: [] };
 }
 
-const KEY = "dbm-ops-v3";
+const KEY = "dbm-ops-v4";
 export function loadOps(): OpsState {
   try { const raw = localStorage.getItem(KEY); if (raw) return JSON.parse(raw); } catch { /* ignore */ }
   const s = seed();

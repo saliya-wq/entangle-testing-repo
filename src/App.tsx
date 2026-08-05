@@ -13,6 +13,8 @@ import { Switch } from "@/components/ui/switch";
 import { LogOut, Menu, Pin, PinOff } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { SOURCE_CATALOG, RANGES, loadOps, saveOps as persistOps } from "@/lib/store";
+import { DateRangePicker, compareLabel, type CompareMode } from "@/components/date-range";
+import type { DateRange } from "@/lib/model";
 import { getModuleDataAsync, MODULE_SOURCE, type ModuleResult } from "@/lib/provider";
 import { generateInsights, type Insight } from "@/lib/insights";
 import type { OpsState } from "@/lib/model";
@@ -31,7 +33,7 @@ const LABELS: Record<string, string> = { campaign: "Campaign Performance", googl
 const VIEWS: Record<string, (p: { d: any; f: number }) => JSX.Element> = { campaign: CampaignView, googleAds: GoogleAdsView, fbAds: FbAdsView, fbPage: FbPageView, igOrganic: IgView, linkedin: LinkedInView, ga4: Ga4View, callTracking: CallTrackingView, pipeline: PipelineView, speedToLead: SpeedToLeadView, showRate: ShowRateView, attribution: AttributionView, yoy: YoyView, ecommerce: EcommerceView, payments: PaymentsView, cohort: CohortView, reports: ReportsView };
 
 /* App version — bump the patch (1.0.1, 1.0.2, …) on every release. */
-const VERSION = "1.0.2";
+const VERSION = "1.0.3";
 
 /* ---------- multi-tenant: roles, subscriptions, admin ---------- */
 const ALL_MODULES = NAV.flatMap((s) => s.items);
@@ -223,8 +225,9 @@ function Portal({ user, ops, setOps, onLogout, theme, setTheme }: { user: any; o
   const subs: string[] = ops.subs[client] || [];
   const firstMod = () => ALL_MODULES.find(([k]) => (ops.subs[client] || []).includes(k))?.[0] ?? "campaign";
   const [mod, setMod] = useState<string>(isAdmin ? "__admin__" : firstMod());
-  const [rangeKey, setRangeKey] = useState("30d");
-  const range = RANGES.find((r) => r.key === rangeKey)!;
+  const [range, setRange] = useState<DateRange>(RANGES[1]);
+  const [compare, setCompare] = useState<CompareMode>("off");
+  const cmpLabel = compareLabel(compare, range);
   const c = ops.clients.find((x) => x.id === client) ?? ops.clients[0];
   const group = NAV.find((s) => s.items.some((it) => it[0] === mod))?.group ?? "";
   const View = mod !== "__admin__" ? VIEWS[mod] : null;
@@ -240,7 +243,7 @@ function Portal({ user, ops, setOps, onLogout, theme, setTheme }: { user: any; o
     getModuleDataAsync(c, mod, range, live, ops.connections[client] || []).then((r) => { if (alive) { setResult(r); setLoading(false); } });
     return () => { alive = false; };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [mod, client, rangeKey, live]);
+  }, [mod, client, range.key, range.factor, live]);
   const insights = result ? generateInsights(mod, result.d, result.f, ops.targets[client] || [], range.factor) : [];
 
   const onClient = (v: string) => {
@@ -323,17 +326,12 @@ function Portal({ user, ops, setOps, onLogout, theme, setTheme }: { user: any; o
           <div>
             <div className="text-[11px] font-semibold uppercase tracking-wide text-primary">{mod === "__admin__" ? "Settings" : group}</div>
             <h1 className="text-lg font-bold tracking-tight">{mod === "__admin__" ? "Admin Panel" : LABELS[mod]}</h1>
-            {result && <div className="mt-0.5 text-[11px] text-muted-foreground">{c.currency} · {range.label} · {result.freshness} · via {result.source}</div>}
+            {result && <div className="mt-0.5 text-[11px] text-muted-foreground">{c.currency} · {range.label}{cmpLabel ? ` · vs ${cmpLabel}` : ""} · {result.freshness} · via {result.source}</div>}
           </div>
           <div className="ml-auto flex items-center gap-3">
             <ThemeSwitcher theme={theme} setTheme={setTheme} />
             {mod !== "__admin__" && (
-              <div className="w-40">
-                <Select value={rangeKey} onValueChange={setRangeKey}>
-                  <SelectTrigger><SelectValue /></SelectTrigger>
-                  <SelectContent>{RANGES.map((r) => <SelectItem key={r.key} value={r.key}>{r.label}</SelectItem>)}</SelectContent>
-                </Select>
-              </div>
+              <DateRangePicker range={range} compare={compare} onRange={setRange} onCompare={setCompare} />
             )}
             {mod !== "__admin__" && (
               <label className="flex items-center gap-2 text-xs text-muted-foreground"><Switch checked={live} onCheckedChange={setLive} /> Live</label>
@@ -360,7 +358,7 @@ function Portal({ user, ops, setOps, onLogout, theme, setTheme }: { user: any; o
           ) : (
             <>
               {insights.length > 0 && <InsightsPanel insights={insights} live={result.live} />}
-              {View && <View key={mod + client + rangeKey + (result.live ? "live" : "")} d={result.d} f={result.f} />}
+              {View && <View key={mod + client + range.key + range.factor + (result.live ? "live" : "")} d={result.d} f={result.f} />}
             </>
           )}
         </div>

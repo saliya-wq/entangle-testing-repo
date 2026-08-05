@@ -66,10 +66,12 @@ export interface Target {
 
 /* 5. Cross-cutting: date range */
 export interface DateRange {
-  key: "7d" | "30d" | "qtd" | "ytd";
+  key: "7d" | "30d" | "qtd" | "ytd" | "custom" | (string & {});
   label: string;
   days: number;
   factor: number;             // demo scaling for the mock provider
+  start?: string;             // ISO date (custom ranges only)
+  end?: string;               // ISO date (custom ranges only)
 }
 
 /* 6. Audit log */
