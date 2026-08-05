@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { CLIENTS, AX, DATA } from "@/data";
-import { KpiRow, TrendChart, BarH, GroupBar, Donut, DonutLegend, ChartCard, Grid2, TableCard, num } from "@/components/charts";
+import { KpiRow, TrendChart, BarH, GroupBar, Donut, DonutLegend, ChartCard, Grid2, TableCard, num, GranularityProvider } from "@/components/charts";
+import { GRANULARITIES, type Granularity } from "@/lib/timeseries";
 import { GoogleAdsView, FbPageView, IgView, Ga4View, CallTrackingView, PipelineView, SpeedToLeadView, ShowRateView, YoyView, EcommerceView, PaymentsView, ReportsView, LinkedInView } from "@/modules/views";
 import { A, money, scale } from "@/lib/format";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
@@ -34,7 +35,7 @@ const LABELS: Record<string, string> = { campaign: "Campaign Performance", googl
 const VIEWS: Record<string, (p: { d: any; f: number }) => JSX.Element> = { campaign: CampaignView, googleAds: GoogleAdsView, fbAds: FbAdsView, fbPage: FbPageView, igOrganic: IgView, linkedin: LinkedInView, ga4: Ga4View, callTracking: CallTrackingView, pipeline: PipelineView, speedToLead: SpeedToLeadView, showRate: ShowRateView, attribution: AttributionView, yoy: YoyView, ecommerce: EcommerceView, payments: PaymentsView, cohort: CohortView, reports: ReportsView };
 
 /* App version — bump the patch (1.0.1, 1.0.2, …) on every release. */
-const VERSION = "1.0.5";
+const VERSION = "1.0.6";
 
 /* ---------- multi-tenant: roles, subscriptions, admin ---------- */
 const ALL_MODULES = NAV.flatMap((s) => s.items);
@@ -228,6 +229,7 @@ function Portal({ user, ops, setOps, onLogout, theme, setTheme }: { user: any; o
   const [mod, setMod] = useState<string>(isAdmin ? "__admin__" : firstMod());
   const [range, setRange] = useState<DateRange>(RANGES[1]);
   const [compare, setCompare] = useState<CompareMode>("off");
+  const [granularity, setGranularity] = useState<Granularity>("weekly");
   const cmpLabel = compareLabel(compare, range);
   const c = ops.clients.find((x) => x.id === client) ?? ops.clients[0];
   const group = NAV.find((s) => s.items.some((it) => it[0] === mod))?.group ?? "";
@@ -335,6 +337,16 @@ function Portal({ user, ops, setOps, onLogout, theme, setTheme }: { user: any; o
               <DateRangePicker range={range} compare={compare} onRange={setRange} onCompare={setCompare} />
             )}
             {mod !== "__admin__" && (
+              <div className="flex overflow-hidden rounded-lg border" title="Chart granularity">
+                {GRANULARITIES.map((gr) => (
+                  <button key={gr.key} onClick={() => setGranularity(gr.key)} title={gr.label}
+                    className={cn("h-9 w-8 text-xs font-semibold transition-colors", granularity === gr.key ? "bg-primary text-primary-foreground" : "hover:bg-muted")}>
+                    {gr.short}
+                  </button>
+                ))}
+              </div>
+            )}
+            {mod !== "__admin__" && (
               <label className="flex items-center gap-2 text-xs text-muted-foreground"><Switch checked={live} onCheckedChange={setLive} /> Live</label>
             )}
             {mod !== "__admin__" && (
@@ -357,10 +369,10 @@ function Portal({ user, ops, setOps, onLogout, theme, setTheme }: { user: any; o
           ) : loading || !result || result.mod !== mod ? (
             <div className="py-24 text-center text-sm text-muted-foreground">Loading…</div>
           ) : (
-            <>
+            <GranularityProvider value={granularity}>
               {insights.length > 0 && <InsightsPanel insights={insights} live={result.live} />}
               {View && <View key={mod + client + range.key + range.factor + (result.live ? "live" : "")} d={result.d} f={result.f} />}
-            </>
+            </GranularityProvider>
           )}
         </div>
       </main>

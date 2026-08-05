@@ -2,9 +2,15 @@ import {
   ResponsiveContainer, ComposedChart, Area, Line, BarChart, Bar, PieChart, Pie, Cell,
   XAxis, YAxis, CartesianGrid, Tooltip,
 } from "recharts";
+import { createContext, useContext } from "react";
 import { chartColors, fmtVal, scale } from "@/lib/format";
 import { cn } from "@/lib/utils";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
+import { applyGranularity, type Granularity } from "@/lib/timeseries";
+
+/* Trend charts read the active granularity from here; the Portal provides it. */
+export const GranularityCtx = createContext<Granularity>("weekly");
+export const GranularityProvider = GranularityCtx.Provider;
 
 const axis = { tickLine: false, axisLine: false, tick: { fontSize: 11, fill: "hsl(var(--muted-foreground))" } };
 const grid = { stroke: "hsl(var(--border))", strokeDasharray: "3 3" };
@@ -79,7 +85,9 @@ export function ChartCard({ title, desc, legend, children }: { title: string; de
 /* ---------- Trend (Area for series 0, Line for series 1; optional dual axis) ---------- */
 export function TrendChart({ labels, series, dual, height = 260 }: { labels: string[]; series: { name: string; data: number[] }[]; dual?: boolean; height?: number }) {
   const C = chartColors();
-  const rows = labels.map((l, i) => { const o: any = { name: l }; series.forEach((s, si) => (o["s" + si] = s.data[i])); return o; });
+  const g = useContext(GranularityCtx);
+  const t = g === "weekly" ? { labels, series } : applyGranularity(series, g);
+  const rows = t.labels.map((l, i) => { const o: any = { name: l }; t.series.forEach((s, si) => (o["s" + si] = s.data[i])); return o; });
   return (
     <ResponsiveContainer width="100%" height={height}>
       <ComposedChart data={rows} margin={{ left: -12, right: 8, top: 8 }}>
