@@ -36,7 +36,7 @@ const LABELS: Record<string, string> = { campaign: "Campaign Performance", googl
 const VIEWS: Record<string, (p: { d: any; f: number }) => JSX.Element> = { campaign: CampaignView, googleAds: GoogleAdsView, fbAds: FbAdsView, fbPage: FbPageView, igOrganic: IgView, linkedin: LinkedInView, ga4: Ga4View, callTracking: CallTrackingView, pipeline: PipelineView, speedToLead: SpeedToLeadView, showRate: ShowRateView, attribution: AttributionView, yoy: YoyView, ecommerce: EcommerceView, payments: PaymentsView, cohort: CohortView, reports: ReportsView };
 
 /* App version — bump the patch (1.0.1, 1.0.2, …) on every release. */
-const VERSION = "1.0.9";
+const VERSION = "1.0.10";
 
 /* ---------- multi-tenant: roles, subscriptions, admin ---------- */
 const ALL_MODULES = NAV.flatMap((s) => s.items);
@@ -123,6 +123,7 @@ function AdminPanel({ client, ops, setOps }: { client: string; ops: OpsState; se
   };
   const setTarget = (kpi: string, value: number) => setOps({ ...ops, targets: { ...ops.targets, [client]: targets.map((t) => t.kpi === kpi ? { ...t, value } : t) } });
   const setField = (field: string, val: string) => setOps({ ...ops, clients: ops.clients.map((x) => x.id === client ? { ...x, [field]: val } : x) });
+  const setAi = (v: boolean) => setOps({ ...ops, clients: ops.clients.map((x) => x.id === client ? { ...x, aiInsights: v } : x) });
   const schedules: any[] = (ops.schedules && ops.schedules[client]) || [];
   const setSchedules = (list: any[]) => setOps({ ...ops, schedules: { ...(ops.schedules || {}), [client]: list } });
   const addSchedule = () => setSchedules([...schedules, { id: "s-" + Date.now(), report: "Monthly", cadence: "1st of month", recipients: cRec.contact, format: "PDF", nextRun: "next cycle", active: true }]);
@@ -214,7 +215,15 @@ function AdminPanel({ client, ops, setOps }: { client: string; ops: OpsState; se
             <label className="block"><span className="mb-1 block text-xs font-medium text-muted-foreground">Status</span>
               <Select value={cRec.status} onValueChange={(v) => setField("status", v)}><SelectTrigger><SelectValue /></SelectTrigger><SelectContent><SelectItem value="active">Active</SelectItem><SelectItem value="paused">Paused</SelectItem><SelectItem value="churned">Churned</SelectItem></SelectContent></Select>
             </label>
-          </div></CardContent>
+          </div>
+          <div className="mt-4 flex items-center justify-between rounded-xl border p-3">
+            <div>
+              <div className="text-sm font-medium">✨ AI Insights (Claude)</div>
+              <div className="text-[11px] text-muted-foreground">When on, this client's dashboards use the Claude-powered insights agent. When off, they get the built-in rules-based insights.</div>
+            </div>
+            <Switch checked={!!cRec.aiInsights} onCheckedChange={setAi} />
+          </div>
+          </CardContent>
         </Card>
       </TabsContent>
     </Tabs>
@@ -256,6 +265,7 @@ function Portal({ user, ops, setOps, onLogout, theme, setTheme }: { user: any; o
     // Instant deterministic insights, then upgrade to Claude in the background.
     setInsights(generateInsights(mod, result.d, result.f, targets, range.factor));
     setInsightSource("rules");
+    if (!c.aiInsights) return; // client hasn't opted into Claude AI insights
     let alive = true;
     const kpis = (Array.isArray(result.d?.kpis) ? result.d.kpis : []).map((k: any) => ({
       l: k.l, v: typeof k.v === "number" ? scale(k.v, result.f, k.rate) : k.v, fmt: k.fmt, d: k.d, dir: k.dir, good: k.good, rate: k.rate,
@@ -268,7 +278,7 @@ function Portal({ user, ops, setOps, onLogout, theme, setTheme }: { user: any; o
     });
     return () => { alive = false; };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [result, mod, client, range.key, range.factor]);
+  }, [result, mod, client, range.key, range.factor, c.aiInsights]);
 
   const onClient = (v: string) => {
     setClient(v);

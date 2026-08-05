@@ -79,6 +79,7 @@ function genClient(name: string, i: number): { client: ClientRec; subs: string[]
     plan: pick(PLANS), industry: pick(INDUSTRIES), timezone: pick(TIMEZONES), currency: pick(CURRENCIES),
     website: slug + pick(TLDS), manager: pick(MANAGERS), contact: "hello@" + slug + ".com.au",
     brandColor: pick(COLORS), f: +(0.2 + rnd() * 2.9).toFixed(2),
+    aiInsights: i < 3, // opt-in: the 3 canonical demo clients start enabled; others off
   };
   // subscriptions: core always + random extras (speedToLead is core so it's on by default)
   const subs = MODULE_KEYS.filter((k) => ["campaign", "ga4", "reports", "speedToLead"].includes(k) || chance(0.55));
@@ -112,7 +113,7 @@ function seed(): OpsState {
   return { clients, users, subs, connections, targets, schedules, audit: [] };
 }
 
-const KEY = "dbm-ops-v4";
+const KEY = "dbm-ops-v5";
 export function loadOps(): OpsState {
   try { const raw = localStorage.getItem(KEY); if (raw) return JSON.parse(raw); } catch { /* ignore */ }
   const s = seed();

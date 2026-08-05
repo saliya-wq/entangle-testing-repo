@@ -34,6 +34,7 @@ export interface ClientRec {
   contact: string;            // client primary contact email
   brandColor: string;         // white-label
   f: number;                  // demo scale factor (removed once live)
+  aiInsights?: boolean;       // per-client opt-in for Claude-powered AI insights
 }
 
 /* 3. Data-source connection */
