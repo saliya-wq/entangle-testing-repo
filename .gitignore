@@ -7,3 +7,4 @@ dist-ssr
 .vercel
 .env*
 *.docx
+.bq-demo

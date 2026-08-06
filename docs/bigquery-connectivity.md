@@ -187,3 +187,62 @@ maintenance grows painful, swap individual sources onto Fivetran/Airbyte later �
 - **Streaming vs batch** — WildJar calls and Stripe events benefit from webhook →
   streaming insert (near-real-time); everything else can be daily batch.
 - **BI Engine budget** — enable if aggregate query latency is a UX problem after caching.
+
+---
+
+## Tenant isolation (ISO 27001)
+
+Do **not** co-mingle clients in one table filtered by `client_id`. BigQuery offers four isolation levels; we use **dataset-per-client**, the strongest boundary short of project-per-tenant:
+
+| Model | Boundary | Fit |
+|---|---|---|
+| Shared table + `client_id` | logical only (row-access policies / authorized views) | weakest; a query bug or IAM slip can cross tenants |
+| Table per client | table names, but IAM is dataset-wide | little audit benefit; skip |
+| **Dataset per client** ✅ | **IAM grantable per dataset** | strong, auditable, manageable at our scale |
+| Project per client | project-level IAM/billing/logs | strongest, heaviest — reserve for a client that demands it |
+
+**Each client gets its own dataset** — `client_<slug>` (production) — and the retrieval API resolves the dataset from the **authenticated** client via an **allowlist**, never from raw request input (BigQuery query params bind values, not identifiers, so the dataset name must be validated, not interpolated from the user). Also enable **Cloud Audit Logs → BigQuery Data Access** for per-dataset access logging, set each dataset's **location** for residency, and protect any PII columns with **column-level policy tags**. Row-level security keys off the querying principal — since the API queries as one service account it can't distinguish tenants, which is exactly why dataset-per-client is cleaner.
+
+The admin "all clients" view becomes a `UNION` across datasets (or a nightly rollup) — the one cost of this model.
+
+---
+
+## Demo-data lifecycle (seed now, remove cleanly later)
+
+To validate the whole **BigQuery → API → dashboard** pull chain before any real source is connected, seed the deterministic sample data (`src/data.ts`) into BigQuery, **isolated and triple-tagged as demo** so it can be dropped with zero risk to production data:
+
+1. **`demo_client_<slug>` datasets** (the `demo_` prefix keeps demo separate from the un-prefixed `client_<slug>` production datasets).
+2. **`env=demo` dataset label** — so demo datasets can be enumerated/dropped by label, not from memory.
+3. **`is_demo = TRUE` column** on every row — for the case where demo and real ever share a table during transition.
+4. **Optional table TTL** (`BQ_TTL_DAYS`) — demo tables self-expire.
+
+### Push (a BigQuery LOAD JOB — *not* Data Transfer Service)
+
+> DTS pulls **from** Google SaaS / warehouses **into** BigQuery on a schedule; it cannot ingest our own app data. Our demo data goes in via `bq load`. DTS is for later — the real Google Ads feed (and GA4 via native export).
+
+```bash
+npm run seed:bq                 # writes .bq-demo/ (NDJSON per client/table + schemas + load.sh); no GCP needed
+export GCP_PROJECT=your-project-id
+bash .bq-demo/load.sh           # creates env=demo datasets and bq-loads the NDJSON
+```
+
+Mart tables seeded: **`marts_kpis`** (every module's KPI cards, per client, base values) and **`marts_attribution_paths`** (multi-touch journeys). Charts stay sample until their marts are mapped — matching the base-inputs-not-ratios rule so `metrics.ts`/`attribution.ts` derive consistently.
+
+### Read it back (link to the app)
+
+- **`api/bq/[module].ts`** — Vercel serverless fn using `@google-cloud/bigquery`, authed by env (`GCP_PROJECT` + base64 `GCP_SA_KEY`, decoded at runtime; browser never sees creds). Resolves the client's dataset from the `CLIENT_DATASETS` **allowlist**, runs a parameterised query, returns `{ kpis, paths? }`.
+- **`src/lib/provider.ts`** — `getModuleDataAsync` tries `liveBq()` first when **Live** is on, overlaying the BQ KPIs (and attribution paths) onto the module's sample `d`; falls back to sample if BQ is unconfigured/unreachable.
+- **Vercel env:** set `GCP_PROJECT` and `GCP_SA_KEY` (base64 of a service-account JSON with *BigQuery Data Viewer* + *Job User*). Then toggle **Live** on a seeded client → cards read from BigQuery (`source: bq`, freshness `LIVE · BigQuery`).
+
+### Remove later
+
+```bash
+# drop every demo dataset by label (production client_<slug> datasets untouched)
+for ds in $(bq ls --datasets --filter labels.env:demo --format=json "$GCP_PROJECT" \
+              | jq -r '.[].datasetReference.datasetId'); do
+  bq rm -r -f -d "$GCP_PROJECT:$ds"
+done
+# …or, if demo shared a table with real data:  DELETE FROM `client_x.marts_kpis` WHERE is_demo;
+```
+
+Cutover to live is then: point `provider.ts` / the API allowlist at the `client_<slug>` datasets → drop the `demo_` ones. No migration, no risk.
