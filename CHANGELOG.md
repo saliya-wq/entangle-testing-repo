@@ -46,8 +46,13 @@ New `ClientRec.aiInsights` flag + an admin toggle in **Admin → Client Settings
 ## V1.0.11 — Header AI status indicator
 Read-only **`✨ AI on` / `AI off`** badge in the client-facing header reflecting the opt-in, so the AI status is visible without opening the admin panel.
 
-## V1.0.12 — Hide banner when AI is off *(current)*
+## V1.0.12 — Hide banner when AI is off
 When a client's AI toggle is off, the **AI Insights banner is now hidden entirely** (previously it still showed rules-based insights). The header on/off indicator still shows the status.
+
+## V1.0.13 — Demo data → BigQuery, and read it back *(current)*
+- **Push** (`npm run seed:bq` → `npm run load:bq`, both no-CLI Node scripts): loads the sample data into **per-client `demo_client_<slug>` datasets** (ISO 27001 dataset-per-tenant isolation), labeled `env=demo` with an `is_demo` column on every row — so the demo footprint is triple-tagged and removable in one command. This is a BigQuery **load job**, not Data Transfer Service.
+- **Read back:** `api/bq/[module].ts` (allowlist-gated, service-account via base64 `GCP_SA_KEY`, parameterised query) → `provider.ts` overlays BigQuery KPIs/paths onto the module when **Live** is on, falling back to sample when unconfigured.
+- Now running end-to-end against the real `entangle-signals` project.
 
 ---
 

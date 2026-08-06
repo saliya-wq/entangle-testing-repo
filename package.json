@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "seed:bq": "node scripts/seed-bq.mjs"
+    "seed:bq": "node scripts/seed-bq.mjs",
+    "load:bq": "node scripts/load-bq.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.115.0",
