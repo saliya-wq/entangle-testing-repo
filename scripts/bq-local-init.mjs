@@ -19,15 +19,18 @@ import { BigQuery } from "@google-cloud/bigquery";
 import { readdir, readFile } from "node:fs/promises";
 import path from "node:path";
 
-const PROJECT = process.env.BQ_LOCAL_PROJECT || "entangle-local";
-const ENDPOINT = process.env.BQ_LOCAL_ENDPOINT || "http://localhost:9050";
+/* BQ_ENDPOINT: unset → emulator default; set to "" → REAL BigQuery (uses
+   GOOGLE_APPLICATION_CREDENTIALS). Same tables either way — that's the point. */
+const PROJECT = process.env.BQ_PROJECT || process.env.BQ_LOCAL_PROJECT || "entangle-local";
+const ENDPOINT = process.env.BQ_ENDPOINT ?? process.env.BQ_LOCAL_ENDPOINT ?? "http://localhost:9050";
+const LOCATION = process.env.BQ_LOCATION || undefined; // e.g. australia-southeast1 on real BQ
 const SCHEMA_DIR = path.join(process.cwd(), "local-bq", "schemas", "google_ads");
 
 /* Pilot clients — one dataset each. Extend as clients are provisioned. */
 const CLIENTS = ["aqua-pulse-spas", "care-for-you-at-home", "ms-plus"];
 const datasetOf = (slug) => "client_" + slug.replace(/-/g, "_");
 
-const bq = new BigQuery({ projectId: PROJECT, apiEndpoint: ENDPOINT });
+const bq = new BigQuery({ projectId: PROJECT, ...(ENDPOINT ? { apiEndpoint: ENDPOINT } : {}) });
 
 /* Load every table schema (skip manifest/readme) */
 const files = (await readdir(SCHEMA_DIR)).filter((f) => f.endsWith(".json") && f !== "manifest.json").sort();
@@ -41,8 +44,13 @@ for (const slug of CLIENTS) {
   const dsId = datasetOf(slug);
   const ds = bq.dataset(dsId);
   const [dsExists] = await ds.exists();
-  if (!dsExists) { await bq.createDataset(dsId); console.log(`+ dataset ${dsId}`); }
-  else console.log(`= dataset ${dsId}`);
+  if (!dsExists) {
+    await bq.createDataset(dsId, {
+      ...(LOCATION ? { location: LOCATION } : {}),
+      description: `Entangle per-client Google Ads data (DTS-shaped). Dummy data until the real transfer is linked — ${slug}`,
+    });
+    console.log(`+ dataset ${dsId}${LOCATION ? " (" + LOCATION + ")" : ""}`);
+  } else console.log(`= dataset ${dsId}`);
 
   let created = 0, skipped = 0, failed = 0;
   for (const [table, fields] of Object.entries(schemas)) {

@@ -64,7 +64,10 @@ BigQuery now holds a **`range_key` dimension** — every KPI (and attribution pa
 - **Tooltips:** the header D/W/M/Q/Y buttons now show proper hover labels (Daily/Weekly/Monthly/Quarterly/Annually) instead of the slow native `title`.
 - **Visible effect:** granularity previously only relabelled the x-axis — `resample()` interpolates, which preserves the line's shape, so coarser views looked identical. The **Daily** view now applies a deterministic weekday-seasonality pattern (weekend dips) so fine granularity is visibly detailed vs. the smooth coarser views.
 
-## V1.0.20 — Dashboard reads real windowed data from the local BigQuery replica *(current)*
+## V1.0.21 — Cutover: production reads the real BigQuery marts *(current)*
+The per-client `client_<slug>` datasets now exist in the real `entangle-signals` project (australia-southeast1): all 109 DTS tables created, 28,080 dummy rows loaded via proper load jobs, `fact_ads_campaign_daily` built by the same transform SQL that ran on the emulator. `api/bq/[module].ts` now serves googleAds + campaign from the marts with **real date-range SQL + real previous-window deltas** (`real_window: true`, no scaling factors) — the deployed dashboard's Live mode reads genuinely windowed BigQuery data. Old `demo_client_*` datasets dropped (env=demo label). Modules not yet mapped to a mart return 404 and gracefully fall back to sample.
+
+## V1.0.20 — Dashboard reads real windowed data from the local BigQuery replica
 The local-first redesign's first end-to-end slice: `npm run bq:local` + `bq:init` + `bq:seed-local` + `bq:transform` build a full Google Ads DTS replica (109 tables) with realistic dummy data on a localhost BigQuery emulator; `local-bq/sql/fact_ads_campaign_daily.sql` builds the mart; `npm run dev:api` serves `/api/bq/*` from it with **real date-range SQL and real period-over-period deltas** (no scaling factors); Vite proxies `/api` in dev. `provider.ts` honours a `real_window` marker — mart data renders with `f=1`, the deployed demo API keeps its base+factor behaviour. Google Ads + Campaign modules now render fully from the mart in local dev (`LIVE · BigQuery mart`).
 
 ## V1.0.19 — "By device" donuts respond to the date range

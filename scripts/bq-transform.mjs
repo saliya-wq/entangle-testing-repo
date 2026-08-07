@@ -10,8 +10,9 @@ import { BigQuery } from "@google-cloud/bigquery";
 import { readdir, readFile } from "node:fs/promises";
 import path from "node:path";
 
+/* BQ_ENDPOINT: unset → emulator; "" → REAL BigQuery. */
 const PROJECT = process.env.BQ_PROJECT || "entangle-local";
-const ENDPOINT = process.env.BQ_ENDPOINT || "http://localhost:9050";
+const ENDPOINT = process.env.BQ_ENDPOINT ?? "http://localhost:9050";
 const SQL_DIR = path.join(process.cwd(), "local-bq", "sql");
 const CLIENTS = ["client_aqua_pulse_spas", "client_care_for_you_at_home", "client_ms_plus"];
 
