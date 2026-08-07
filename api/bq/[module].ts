@@ -43,6 +43,7 @@ function coerce(v: any): number | string {
 export default async function handler(req: any, res: any) {
   const moduleKey = String(req.query.module || "").replace(/[^a-zA-Z0-9]/g, "");
   const clientSlug = String(req.query.client || "");
+  const rangeKey = String(req.query.range || "30d").replace(/[^a-z0-9]/g, "") || "30d";
   const dataset = CLIENT_DATASETS[clientSlug]; // allowlist gate — no raw identifier in SQL
   if (!moduleKey) { res.status(400).json({ error: "missing module" }); return; }
   if (!dataset) { res.status(403).json({ error: "unknown client" }); return; }
@@ -55,8 +56,8 @@ export default async function handler(req: any, res: any) {
       query:
         "SELECT label AS l, value AS v, fmt, delta AS d, dir, good, rate, hero " +
         "FROM `" + dataset + ".marts_kpis` " +
-        "WHERE module = @module AND is_demo = TRUE ORDER BY ord",
-      params: { module: moduleKey },
+        "WHERE module = @module AND range_key = @range AND is_demo = TRUE ORDER BY ord",
+      params: { module: moduleKey, range: rangeKey },
     });
     if (!kpiRows.length) { res.status(404).json({ error: "no rows for module", module: moduleKey }); return; }
 
@@ -68,7 +69,8 @@ export default async function handler(req: any, res: any) {
 
     if (moduleKey === "attribution") {
       const [pathRows] = await bq.query({
-        query: "SELECT path, conv, rev FROM `" + dataset + ".marts_attribution_paths` WHERE is_demo = TRUE ORDER BY ord",
+        query: "SELECT path, conv, rev FROM `" + dataset + ".marts_attribution_paths` WHERE range_key = @range AND is_demo = TRUE ORDER BY ord",
+        params: { range: rangeKey },
       });
       out.paths = pathRows.map((r: any) => ({ path: r.path, conv: Number(r.conv), rev: Number(r.rev) }));
     }

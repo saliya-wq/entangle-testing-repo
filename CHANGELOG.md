@@ -54,8 +54,11 @@ When a client's AI toggle is off, the **AI Insights banner is now hidden entirel
 - **Read back:** `api/bq/[module].ts` (allowlist-gated, service-account via base64 `GCP_SA_KEY`, parameterised query) → `provider.ts` overlays BigQuery KPIs/paths onto the module when **Live** is on, falling back to sample when unconfigured.
 - Now running end-to-end against the real `entangle-signals` project.
 
-## V1.0.14 — Reconcile Live vs sample values *(current)*
-The 3 canonical demo clients now use **fixed** scale factors (Aqua Pulse 1, Care For You 0.42, MS Plus 1.8) instead of random, matching the BigQuery seed. So toggling **Live** at the default 30-day range now switches only the *source*, not the numbers — Live (BigQuery) and sample reconcile. (On other date ranges, sample still scales by the range factor while Live stays at the single BQ snapshot — expected, since only one snapshot was loaded.) Seed key → `dbm-ops-v6`.
+## V1.0.14 — Reconcile Live vs sample values
+The 3 canonical demo clients now use **fixed** scale factors (Aqua Pulse 1, Care For You 0.42, MS Plus 1.8) instead of random, matching the BigQuery seed. So toggling **Live** at the default 30-day range now switches only the *source*, not the numbers — Live (BigQuery) and sample reconcile.
+
+## V1.0.15 — Range-aware Live data *(current)*
+BigQuery now holds a **`range_key` dimension** — every KPI (and attribution path) is seeded once per date range (7d/30d/quarter/YTD), values `base × client.f × range.factor`. The `/api/bq` function filters `WHERE range_key = @range` and `provider.ts` passes the selected range. So changing the **date picker now updates the numbers in Live mode**, and Live matches sample on **every** range (not just 30d). BigQuery re-loaded (1,260 KPI rows + 144 path rows across the 3 demo datasets).
 
 ---
 
