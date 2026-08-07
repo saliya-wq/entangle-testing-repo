@@ -1,12 +1,14 @@
 {
   "generated": "2026-08-07",
   "source": "WildJar + CallRail APIs (no native BQ export - schema designed by us)",
+  "note": "Unified fact with a `platform` discriminator ('wildjar'|'callrail'); shared concepts mapped to canonical columns, platform-specific fields NULLable, remainder preserved in wildjar_raw_json / callrail_raw_json. All ids STRING, all durations INT64 seconds, call_date DATE is account-local and is the partition column. Every table carries account_id STRING and ends with _DATA_DATE / _LATEST_DATE.",
+  "totalColumns": 239,
   "tables": [
     {
       "name": "calls_Call",
       "file": "calls_Call.json",
       "kind": "fact",
-      "grain": "one row per call (inbound or outbound) across WildJar + CallRail; PK call_uid = platform || '|' || call_id; partition DATE(call_date), cluster (account_id, call_tracking_number, attribution_source); MUTABLE - MERGE on call_uid, never append-only",
+      "grain": "one row per call (inbound or outbound) across WildJar + CallRail; PK call_uid = platform || '|' || call_id (WildJar uuid / CallRail id); partition call_date, cluster (account_id, call_tracking_number, attribution_source); MUTABLE - MERGE on call_uid over the 30-35 day trailing re-pull window, never append-only",
       "columns": 162
     },
     {

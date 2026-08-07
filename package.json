@@ -12,11 +12,12 @@
     "bq:local": "./local-bq/bin/bigquery-emulator --project=entangle-local --port=9050",
     "bq:init": "node scripts/bq-local-init.mjs",
     "gen:dummy": "node scripts/generate-dummy.mjs",
-    "bq:seed-local": "node scripts/generate-dummy.mjs && node scripts/generate-dummy-meta.mjs && node scripts/generate-dummy-ga4.mjs && node scripts/bq-local-load.mjs",
+    "bq:seed-local": "node scripts/generate-dummy.mjs && node scripts/generate-dummy-meta.mjs && node scripts/generate-dummy-ga4.mjs && node scripts/generate-dummy-calls.mjs && node scripts/bq-local-load.mjs",
     "bq:transform": "node scripts/bq-transform.mjs",
     "dev:api": "node scripts/dev-api.mjs",
     "gen:dummy:meta": "node scripts/generate-dummy-meta.mjs",
-    "gen:dummy:ga4": "node scripts/generate-dummy-ga4.mjs"
+    "gen:dummy:ga4": "node scripts/generate-dummy-ga4.mjs",
+    "gen:dummy:calls": "node scripts/generate-dummy-calls.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.115.0",
