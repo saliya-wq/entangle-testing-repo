@@ -42,7 +42,8 @@ const RANGES = [
   { key: "ytd", factor: 6.4 },
 ];
 const datasetOf = (slug) => "demo_client_" + slug.replace(/-/g, "_"); // BQ dataset ids: no hyphens
-const scale = (v, f, rate) => (rate ? v : Math.round(v * f));
+// Marts store BASE values; the app applies the client × date-range factor at read
+// time (provider.ts), so both KPI cards AND charts respond to the date picker.
 
 /* --- bundle src/data.ts so we can import the DATA object (type-only @ imports are erased) --- */
 await mkdir(OUT, { recursive: true });
@@ -56,30 +57,26 @@ for (const c of DEMO_CLIENTS) {
   const ds = datasetOf(c.slug);
   kpiRows[ds] = [];
   pathRows[ds] = [];
-  for (const range of RANGES) {
-    const f = c.f * range.factor; // rate KPIs ignore this (scale() leaves them as-is)
-    for (const [mod, d] of Object.entries(DATA)) {
-      if (Array.isArray(d?.kpis)) {
-        d.kpis.forEach((k, ord) => {
-          kpiRows[ds].push({
-            client_id: c.slug, module: mod, range_key: range.key, ord,
-            label: k.l,
-            value: String(typeof k.v === "number" ? scale(k.v, f, k.rate) : k.v),
-            fmt: k.fmt ?? null, delta: k.d ?? null, dir: k.dir ?? null,
-            good: k.good ?? null, rate: !!k.rate, hero: !!k.hero,
-            is_demo: true, snapshot_date: SNAPSHOT,
-          });
+  for (const [mod, d] of Object.entries(DATA)) {
+    if (Array.isArray(d?.kpis)) {
+      d.kpis.forEach((k, ord) => {
+        kpiRows[ds].push({
+          client_id: c.slug, module: mod, ord,
+          label: k.l, value: String(k.v), // BASE value (client × range applied at read time)
+          fmt: k.fmt ?? null, delta: k.d ?? null, dir: k.dir ?? null,
+          good: k.good ?? null, rate: !!k.rate, hero: !!k.hero,
+          is_demo: true, snapshot_date: SNAPSHOT,
         });
-      }
-      if (mod === "attribution" && Array.isArray(d?.paths)) {
-        d.paths.forEach((p, ord) => {
-          pathRows[ds].push({
-            client_id: c.slug, range_key: range.key, ord, path: p.path,
-            conv: Math.round(p.conv * f), rev: Math.round(p.rev * f),
-            is_demo: true, snapshot_date: SNAPSHOT,
-          });
+      });
+    }
+    if (mod === "attribution" && Array.isArray(d?.paths)) {
+      d.paths.forEach((p, ord) => {
+        pathRows[ds].push({
+          client_id: c.slug, ord, path: p.path,
+          conv: p.conv, rev: p.rev, // BASE (scaled at read time)
+          is_demo: true, snapshot_date: SNAPSHOT,
         });
-      }
+      });
     }
   }
 }
@@ -87,14 +84,14 @@ for (const c of DEMO_CLIENTS) {
 /* --- schemas (explicit; path is a REPEATED STRING = ARRAY<STRING>) --- */
 const SCHEMAS = {
   marts_kpis: [
-    { name: "client_id", type: "STRING" }, { name: "module", type: "STRING" }, { name: "range_key", type: "STRING" }, { name: "ord", type: "INT64" },
+    { name: "client_id", type: "STRING" }, { name: "module", type: "STRING" }, { name: "ord", type: "INT64" },
     { name: "label", type: "STRING" }, { name: "value", type: "STRING" }, { name: "fmt", type: "STRING" },
     { name: "delta", type: "FLOAT64" }, { name: "dir", type: "STRING" }, { name: "good", type: "STRING" },
     { name: "rate", type: "BOOL" }, { name: "hero", type: "BOOL" },
     { name: "is_demo", type: "BOOL" }, { name: "snapshot_date", type: "DATE" },
   ],
   marts_attribution_paths: [
-    { name: "client_id", type: "STRING" }, { name: "range_key", type: "STRING" }, { name: "ord", type: "INT64" },
+    { name: "client_id", type: "STRING" }, { name: "ord", type: "INT64" },
     { name: "path", type: "STRING", mode: "REPEATED" },
     { name: "conv", type: "INT64" }, { name: "rev", type: "INT64" },
     { name: "is_demo", type: "BOOL" }, { name: "snapshot_date", type: "DATE" },

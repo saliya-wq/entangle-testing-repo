@@ -1,8 +1,27 @@
 import {
-  ResponsiveContainer, ComposedChart, Area, Line, BarChart, Bar, PieChart, Pie, Cell,
+  ComposedChart, Area, Line, BarChart, Bar, PieChart, Pie, Cell,
   XAxis, YAxis, CartesianGrid, Tooltip,
 } from "recharts";
-import { createContext, useContext } from "react";
+import { createContext, useContext, useLayoutEffect, useRef, useState } from "react";
+
+/* Measured chart frame — renders the chart only once its container has a real
+   width, and re-renders on resize. Fixes Recharts painting blank when it mounts
+   inside a hidden tab (its ResizeObserver hadn't measured yet). Replaces
+   ResponsiveContainer with deterministic width so a tab reveal always draws. */
+function ChartBox({ height, children }: { height: number; children: (w: number) => React.ReactNode }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [w, setW] = useState(0);
+  useLayoutEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const measure = () => { const cw = Math.floor(el.clientWidth); if (cw > 0) setW((prev) => (cw !== prev ? cw : prev)); };
+    measure();
+    const ro = new ResizeObserver(measure);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
+  return <div ref={ref} style={{ width: "100%", height }}>{w > 0 ? children(w) : null}</div>;
+}
 import { chartColors, fmtVal, scale } from "@/lib/format";
 import { cn } from "@/lib/utils";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
@@ -103,8 +122,9 @@ export function TrendChart({ labels, series, dual, height = 260 }: { labels: str
   const t = g === "weekly" ? { labels, series } : applyGranularity(series, g);
   const rows = t.labels.map((l, i) => { const o: any = { name: l }; t.series.forEach((s, si) => (o["s" + si] = s.data[i])); return o; });
   return (
-    <ResponsiveContainer width="100%" height={height}>
-      <ComposedChart data={rows} margin={{ left: -12, right: 8, top: 8 }}>
+    <ChartBox height={height}>
+      {(w) => (
+      <ComposedChart width={w} height={height} data={rows} margin={{ left: -12, right: 8, top: 8 }}>
         <defs>
           <linearGradient id="grad0" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stopColor={C[0]} stopOpacity={0.22} />
@@ -121,7 +141,8 @@ export function TrendChart({ labels, series, dual, height = 260 }: { labels: str
           <Line yAxisId={dual ? "right" : "left"} type="monotone" dataKey="s1" name={series[1].name} stroke={C[1]} strokeWidth={2.5} dot={false} />
         )}
       </ComposedChart>
-    </ResponsiveContainer>
+      )}
+    </ChartBox>
   );
 }
 
@@ -130,15 +151,17 @@ export function BarH({ labels, data, color, height = 240 }: { labels: string[]; 
   const C = chartColors();
   const rows = labels.map((l, i) => ({ name: l, v: data[i] }));
   return (
-    <ResponsiveContainer width="100%" height={height}>
-      <BarChart data={rows} layout="vertical" margin={{ left: 8, right: 12 }}>
+    <ChartBox height={height}>
+      {(w) => (
+      <BarChart width={w} height={height} data={rows} layout="vertical" margin={{ left: 8, right: 12 }}>
         <CartesianGrid horizontal={false} {...grid} />
         <XAxis type="number" {...axis} />
         <YAxis type="category" dataKey="name" width={128} {...axis} />
         <Tooltip cursor={{ fill: "hsl(var(--muted))" }} content={<ChartTip />} />
         <Bar dataKey="v" name="Value" fill={color || C[0]} radius={[0, 6, 6, 0]} maxBarSize={22} />
       </BarChart>
-    </ResponsiveContainer>
+      )}
+    </ChartBox>
   );
 }
 
@@ -152,15 +175,17 @@ export function GroupBar({ labels, groups, height = 260 }: { labels: string[]; g
   if (isTime && gran !== "weekly") { const a = applyGranularity(groups, gran); L = a.labels; G = a.series; }
   const rows = L.map((l, i) => { const o: any = { name: l }; G.forEach((gr, gi) => (o["g" + gi] = gr.data[i])); return o; });
   return (
-    <ResponsiveContainer width="100%" height={height}>
-      <BarChart data={rows} margin={{ left: -12, right: 8, top: 8 }}>
+    <ChartBox height={height}>
+      {(w) => (
+      <BarChart width={w} height={height} data={rows} margin={{ left: -12, right: 8, top: 8 }}>
         <CartesianGrid vertical={false} {...grid} />
         <XAxis dataKey="name" {...axis} />
         <YAxis {...axis} />
         <Tooltip cursor={{ fill: "hsl(var(--muted))" }} content={<ChartTip />} />
         {G.map((gr, i) => <Bar key={i} dataKey={"g" + i} name={gr.name} fill={C[i]} radius={[4, 4, 0, 0]} maxBarSize={22} />)}
       </BarChart>
-    </ResponsiveContainer>
+      )}
+    </ChartBox>
   );
 }
 
@@ -169,14 +194,16 @@ export function Donut({ labels, data, height = 240 }: { labels: string[]; data: 
   const C = chartColors();
   const rows = labels.map((l, i) => ({ name: l, value: data[i] }));
   return (
-    <ResponsiveContainer width="100%" height={height}>
-      <PieChart>
+    <ChartBox height={height}>
+      {(w) => (
+      <PieChart width={w} height={height}>
         <Pie data={rows} dataKey="value" nameKey="name" innerRadius="56%" outerRadius="88%" paddingAngle={2} stroke="hsl(var(--card))" strokeWidth={2}>
           {rows.map((_, i) => <Cell key={i} fill={C[i % C.length]} />)}
         </Pie>
         <Tooltip content={<ChartTip />} />
       </PieChart>
-    </ResponsiveContainer>
+      )}
+    </ChartBox>
   );
 }
 

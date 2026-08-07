@@ -76,9 +76,9 @@ async function liveKpis(moduleKey: string, range: DateRange, conns: Connection[]
 
 /** BigQuery marts overlay (headline KPIs + attribution paths for the demo datasets).
     Returns null if BQ isn't configured/reachable or has no rows for this client+module. */
-async function liveBq(moduleKey: string, clientSlug: string, rangeKey: string): Promise<{ kpis: any[]; paths?: any[] } | null> {
+async function liveBq(moduleKey: string, clientSlug: string): Promise<{ kpis: any[]; paths?: any[] } | null> {
   try {
-    const r = await fetch(liveConfig.base + `/api/bq/${moduleKey}?client=${encodeURIComponent(clientSlug)}&range=${encodeURIComponent(rangeKey)}`);
+    const r = await fetch(liveConfig.base + `/api/bq/${moduleKey}?client=${encodeURIComponent(clientSlug)}`);
     if (!r.ok) return null;
     const data = await r.json();
     if (!Array.isArray(data?.kpis) || !data.kpis.length) return null;
@@ -93,9 +93,10 @@ async function liveBq(moduleKey: string, clientSlug: string, rangeKey: string): 
 /** Async entry point used by the UI. */
 export async function getModuleDataAsync(client: ClientRec, moduleKey: string, range: DateRange, live: boolean, conns: Connection[]): Promise<ModuleResult> {
   if (live) {
-    // 1. BigQuery marts (demo data lives in demo_client_<slug>). Overlays onto sample; charts stay sample.
-    const bq = await liveBq(moduleKey, client.slug, range.key);
-    if (bq) return { mod: moduleKey, d: { ...DATA[moduleKey], ...bq }, f: 1, freshness: "LIVE · BigQuery", source: "bq", live: true };
+    // 1. BigQuery marts (demo data lives in demo_client_<slug>). BQ holds BASE values;
+    //    the client × date-range factor is applied here so BOTH cards and charts respond to the range.
+    const bq = await liveBq(moduleKey, client.slug);
+    if (bq) return { mod: moduleKey, d: { ...DATA[moduleKey], ...bq }, f: client.f * range.factor, freshness: "LIVE · BigQuery", source: "bq", live: true };
     // 2. Platform snapshot KPIs (Meta / GA4 / Google) for the mapped modules.
     try {
       const kpis = await liveKpis(moduleKey, range, conns);

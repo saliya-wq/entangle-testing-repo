@@ -64,7 +64,11 @@ BigQuery now holds a **`range_key` dimension** — every KPI (and attribution pa
 - **Tooltips:** the header D/W/M/Q/Y buttons now show proper hover labels (Daily/Weekly/Monthly/Quarterly/Annually) instead of the slow native `title`.
 - **Visible effect:** granularity previously only relabelled the x-axis — `resample()` interpolates, which preserves the line's shape, so coarser views looked identical. The **Daily** view now applies a deterministic weekday-seasonality pattern (weekend dips) so fine granularity is visibly detailed vs. the smooth coarser views.
 
-## V1.0.17 — Donut fill + granularity on time-series bars *(current)*
+## V1.0.18 — Live charts respond to the date range + no-blank-chart hardening *(current)*
+- **Charts render reliably:** replaced Recharts `ResponsiveContainer` with a measured `ChartBox` that renders a chart only once its container has a real width (and re-measures on resize). Fixes charts occasionally painting blank when mounted inside a hidden tab.
+- **Live charts now respond to the date picker:** BigQuery marts now hold **base** values and the app applies the client × date-range factor at read time — so in Live mode *both* the KPI cards and the charts scale with the range (previously only cards did). Live and sample now match on every range. KPI numbers are unchanged (e.g. Total Ad Spend still 9,641 → 257,088 across ranges); they're just computed client-side from a BigQuery base rather than stored per-range. BigQuery re-loaded (315 base KPI rows + 36 path rows). *(In a real deployment, range aggregation moves server-side — SQL over dated rows — once real daily data lands.)*
+
+## V1.0.17 — Donut fill + granularity on time-series bars
 - **Fit:** donut charts now use percentage radii so they scale to fill their card instead of floating as a small fixed circle.
 - **Granularity coverage:** time-series **bar** charts (e.g. "Net new per period", "Reach per post") now respond to D/W/M/Q/Y too — `GroupBar` re-buckets only when its x-axis is the shared time axis, so categorical bars (age/gender, by-channel, months) are correctly left alone. Note: **categorical charts (donuts by device/placement/category, demographics, funnels) don't respond to granularity by design — they have no time axis.**
 
