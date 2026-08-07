@@ -1,0 +1,462 @@
+[
+  {
+    "name": "account_id",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "adset_adlabels",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "adset_asset_feed_id",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "adset_attribution_spec",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "adset_bid_adjustments",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "adset_bid_amount",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "adset_bid_constraints",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "adset_bid_info",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "adset_bid_strategy",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "adset_billing_event",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "adset_brand_safety_config",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "adset_budget_remaining",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "adset_campaign_active_time",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "adset_campaign_attribution",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "adset_configured_status",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "adset_contextual_bundling_spec",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "adset_created_time",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "adset_creative_sequence",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "adset_daily_budget",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "adset_daily_min_spend_target",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "adset_daily_spend_cap",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "adset_destination_type",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "adset_dsa_beneficiary",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "adset_dsa_payor",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "adset_effective_status",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "adset_end_time",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "adset_frequency_control_specs",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "adset_id",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "adset_instagram_user_id",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "adset_is_dynamic_creative",
+    "type": "BOOL",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "adset_is_incremental_attribution_enabled",
+    "type": "BOOL",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "adset_issues_info",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "adset_learning_stage_info_attribution_windows",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "adset_learning_stage_info_conversions",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "adset_learning_stage_info_last_sig_edit_time",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "adset_learning_stage_info_status",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "adset_lifetime_budget",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "adset_lifetime_imps",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "adset_lifetime_min_spend_target",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "adset_lifetime_spend_cap",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "adset_min_budget_spend_percentage",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "adset_multi_optimization_goal_weight",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "adset_name",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "adset_optimization_goal",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "adset_optimization_sub_event",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "adset_pacing_type",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "adset_promoted_object_application_id",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "adset_promoted_object_custom_event_type",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "adset_promoted_object_object_store_url",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "adset_promoted_object_page_id",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "adset_promoted_object_pixel_id",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "adset_recommendations",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "adset_recurring_budget_semantics",
+    "type": "BOOL",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "adset_regional_regulated_categories",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "adset_regional_regulation_identities",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "adset_review_feedback",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "adset_rf_prediction_id",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "adset_schedule",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "adset_source_adset_id",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "adset_start_time",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "adset_status",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "adset_targeting_age_max",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "adset_targeting_age_min",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "adset_targeting_behaviors",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "adset_targeting_cities",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "adset_targeting_countries",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "adset_targeting_custom_audiences",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "adset_targeting_custom_locations",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "adset_targeting_device_platforms",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "adset_targeting_excluded_custom_audiences",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "adset_targeting_facebook_positions",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "adset_targeting_flexible_spec",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "adset_targeting_genders",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "adset_targeting_geo_markets",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "adset_targeting_instagram_positions",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "adset_targeting_interests",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "adset_targeting_json",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "adset_targeting_location_types",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "adset_targeting_optimization_types",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "adset_targeting_page_types",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "adset_targeting_publisher_platforms",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "adset_targeting_regions",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "adset_targeting_targeting_automation",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "adset_targeting_zips",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "adset_time_based_ad_rotation_id_blocks",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "adset_time_based_ad_rotation_intervals",
+    "type": "INT64",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "adset_updated_time",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "adset_use_new_app_click",
+    "type": "BOOL",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "adset_value_rule_set_id",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "campaign_id",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "_DATA_DATE",
+    "type": "DATE",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "_LATEST_DATE",
+    "type": "DATE",
+    "mode": "NULLABLE"
+  }
+]

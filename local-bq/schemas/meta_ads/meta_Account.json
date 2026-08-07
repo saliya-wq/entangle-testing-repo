@@ -1,0 +1,362 @@
+[
+  {
+    "name": "account_act_id",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "account_ad_account_promotable_objects",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "account_age",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "account_agency_client_declaration",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "account_amount_spent",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "account_attribution_spec",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "account_balance",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "account_brand_safety_content_filter_levels",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "account_business_city",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "account_business_country_code",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "account_business_id",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "account_business_name",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "account_business_state",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "account_business_street",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "account_business_street2",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "account_business_zip",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "account_can_create_brand_lift_study",
+    "type": "BOOL",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "account_capabilities",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "account_created_time",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "account_currency",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "account_default_dsa_beneficiary",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "account_default_dsa_payor",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "account_direct_deals_tos_accepted",
+    "type": "BOOL",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "account_disable_reason",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "account_end_advertiser",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "account_end_advertiser_name",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "account_existing_customers",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "account_expired_funding_source_details",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "account_extended_credit_invoice_group_id",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "account_failed_delivery_checks",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "account_fb_entity",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "account_funding_source",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "account_funding_source_details_display_string",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "account_funding_source_details_id",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "account_funding_source_details_type",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "account_has_migrated_permissions",
+    "type": "BOOL",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "account_has_page_authorized_adaccount",
+    "type": "BOOL",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "account_id",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "account_io_number",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "account_is_attribution_spec_system_default",
+    "type": "BOOL",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "account_is_direct_deals_enabled",
+    "type": "BOOL",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "account_is_in_3ds_authorization_enabled_market",
+    "type": "BOOL",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "account_is_notifications_enabled",
+    "type": "BOOL",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "account_is_personal",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "account_is_prepay_account",
+    "type": "BOOL",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "account_is_tax_id_required",
+    "type": "BOOL",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "account_line_numbers",
+    "type": "INT64",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "account_media_agency",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "account_min_campaign_group_spend_cap",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "account_min_daily_budget",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "account_name",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "account_offsite_clo_signal_status",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "account_offsite_pixels_tos_accepted",
+    "type": "BOOL",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "account_opportunity_score",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "account_opportunity_score_weight",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "account_owner_id",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "account_partner",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "account_rf_spec",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "account_show_checkout_experience",
+    "type": "BOOL",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "account_spend_cap",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "account_status",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "account_tax_id",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "account_tax_id_status",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "account_tax_id_type",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "account_timezone_id",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "account_timezone_name",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "account_timezone_offset_hours_utc",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "account_tos_accepted",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "account_user_tasks",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "account_user_tos_accepted",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "_DATA_DATE",
+    "type": "DATE",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "_LATEST_DATE",
+    "type": "DATE",
+    "mode": "NULLABLE"
+  }
+]

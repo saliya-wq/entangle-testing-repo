@@ -24,7 +24,11 @@ import path from "node:path";
 const PROJECT = process.env.BQ_PROJECT || process.env.BQ_LOCAL_PROJECT || "entangle-local";
 const ENDPOINT = process.env.BQ_ENDPOINT ?? process.env.BQ_LOCAL_ENDPOINT ?? "http://localhost:9050";
 const LOCATION = process.env.BQ_LOCATION || undefined; // e.g. australia-southeast1 on real BQ
-const SCHEMA_DIR = path.join(process.cwd(), "local-bq", "schemas", "google_ads");
+const SCHEMA_ROOT = path.join(process.cwd(), "local-bq", "schemas");
+/* Every platform's schema dir. Each client dataset gets ALL of them
+   (ads_* from Google Ads, meta_* from Meta, …) — platform-prefixed tables
+   inside one dataset per client. Limit with SOURCES=google_ads,meta_ads */
+const SOURCES = (process.env.SOURCES || "").split(",").filter(Boolean);
 
 /* Pilot clients — one dataset each. Extend as clients are provisioned. */
 const CLIENTS = ["aqua-pulse-spas", "care-for-you-at-home", "ms-plus"];
@@ -32,13 +36,21 @@ const datasetOf = (slug) => "client_" + slug.replace(/-/g, "_");
 
 const bq = new BigQuery({ projectId: PROJECT, ...(ENDPOINT ? { apiEndpoint: ENDPOINT } : {}) });
 
-/* Load every table schema (skip manifest/readme) */
-const files = (await readdir(SCHEMA_DIR)).filter((f) => f.endsWith(".json") && f !== "manifest.json").sort();
+/* Load every table schema across all platform dirs (skip manifest/readme) */
+const dirs = (await readdir(SCHEMA_ROOT, { withFileTypes: true }))
+  .filter((e) => e.isDirectory() && (!SOURCES.length || SOURCES.includes(e.name)))
+  .map((e) => e.name)
+  .sort();
 const schemas = {};
-for (const f of files) {
-  schemas[f.replace(/\.json$/, "")] = JSON.parse(await readFile(path.join(SCHEMA_DIR, f), "utf8"));
+for (const dir of dirs) {
+  const p = path.join(SCHEMA_ROOT, dir);
+  const files = (await readdir(p)).filter((f) => f.endsWith(".json") && f !== "manifest.json").sort();
+  for (const f of files) {
+    schemas[f.replace(/\.json$/, "")] = JSON.parse(await readFile(path.join(p, f), "utf8"));
+  }
+  console.log(`Loaded ${files.length} schemas from ${dir}`);
 }
-console.log(`Loaded ${Object.keys(schemas).length} table schemas from ${SCHEMA_DIR}`);
+console.log(`Total ${Object.keys(schemas).length} tables per client dataset`);
 
 for (const slug of CLIENTS) {
   const dsId = datasetOf(slug);
@@ -47,7 +59,7 @@ for (const slug of CLIENTS) {
   if (!dsExists) {
     await bq.createDataset(dsId, {
       ...(LOCATION ? { location: LOCATION } : {}),
-      description: `Entangle per-client Google Ads data (DTS-shaped). Dummy data until the real transfer is linked — ${slug}`,
+      description: `Entangle per-client marketing data (ads_* = Google Ads DTS shapes, meta_* = Meta Marketing API). Dummy data until real sources are linked — ${slug}`,
     });
     console.log(`+ dataset ${dsId}${LOCATION ? " (" + LOCATION + ")" : ""}`);
   } else console.log(`= dataset ${dsId}`);

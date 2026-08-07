@@ -1,0 +1,76 @@
+{
+  "generated": "2026-08-07",
+  "source": "Meta Marketing API (no native BQ export - schema designed by us)",
+  "tables": [
+    {
+      "name": "meta_Account",
+      "file": "meta_Account.json",
+      "kind": "snapshot",
+      "grain": "one row per ad account per _DATA_DATE (daily snapshot); PK (account_id, _DATA_DATE); filter _DATA_DATE = _LATEST_DATE for current state",
+      "columns": 72
+    },
+    {
+      "name": "meta_Campaign",
+      "file": "meta_Campaign.json",
+      "kind": "snapshot",
+      "grain": "one row per campaign per _DATA_DATE (daily snapshot); PK (campaign_id, _DATA_DATE); filter _DATA_DATE = _LATEST_DATE for current state",
+      "columns": 46
+    },
+    {
+      "name": "meta_AdSet",
+      "file": "meta_AdSet.json",
+      "kind": "snapshot",
+      "grain": "one row per ad set per _DATA_DATE (daily snapshot); PK (adset_id, _DATA_DATE); carries campaign_id + account_id for joins",
+      "columns": 92
+    },
+    {
+      "name": "meta_Ad",
+      "file": "meta_Ad.json",
+      "kind": "snapshot",
+      "grain": "one row per ad per _DATA_DATE (daily snapshot); PK (ad_id, _DATA_DATE); carries adset_id + campaign_id + account_id for joins",
+      "columns": 39
+    },
+    {
+      "name": "meta_CampaignStats",
+      "file": "meta_CampaignStats.json",
+      "kind": "stats",
+      "grain": "account_id x campaign_id x segments_date x segments_impression_device x segments_device_platform x segments_publisher_platform x segments_platform_position",
+      "columns": 147
+    },
+    {
+      "name": "meta_AdSetStats",
+      "file": "meta_AdSetStats.json",
+      "kind": "stats",
+      "grain": "account_id x campaign_id x adset_id x segments_date x segments_impression_device x segments_device_platform x segments_publisher_platform x segments_platform_position",
+      "columns": 152
+    },
+    {
+      "name": "meta_AdStats",
+      "file": "meta_AdStats.json",
+      "kind": "stats",
+      "grain": "account_id x campaign_id x adset_id x ad_id x segments_date x segments_impression_device x segments_device_platform x segments_publisher_platform x segments_platform_position",
+      "columns": 154
+    },
+    {
+      "name": "meta_CampaignActions",
+      "file": "meta_CampaignActions.json",
+      "kind": "breakdown",
+      "grain": "account_id x campaign_id x segments_date x action_collection x action_type x action-breakdown context keys (action_device, action_destination, action_target_id, action_reaction, action_video_sound, action_video_type, action_canvas_component_name, action_carousel_card_id, action_carousel_card_name, action_converted_product_id, conversion_destination, standard_event_content_type)",
+      "columns": 120
+    },
+    {
+      "name": "meta_CampaignDemographics",
+      "file": "meta_CampaignDemographics.json",
+      "kind": "breakdown",
+      "grain": "account_id x campaign_id x segments_date x segments_age x segments_gender",
+      "columns": 123
+    },
+    {
+      "name": "meta_CampaignPlacements",
+      "file": "meta_CampaignPlacements.json",
+      "kind": "breakdown",
+      "grain": "account_id x campaign_id x segments_date x segments_publisher_platform x segments_platform_position x segments_device_platform x segments_impression_device",
+      "columns": 125
+    }
+  ]
+}

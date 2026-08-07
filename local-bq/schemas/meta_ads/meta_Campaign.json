@@ -1,0 +1,232 @@
+[
+  {
+    "name": "account_id",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "campaign_adlabels",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "campaign_bid_strategy",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "campaign_boosted_object_id",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "campaign_brand_lift_studies",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "campaign_budget_rebalance_flag",
+    "type": "BOOL",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "campaign_budget_remaining",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "campaign_buying_type",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "campaign_campaign_group_active_time",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "campaign_can_create_brand_lift_study",
+    "type": "BOOL",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "campaign_can_use_spend_cap",
+    "type": "BOOL",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "campaign_configured_status",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "campaign_created_time",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "campaign_daily_budget",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "campaign_effective_status",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "campaign_has_secondary_skadnetwork_reporting",
+    "type": "BOOL",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "campaign_id",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "campaign_is_adset_budget_sharing_enabled",
+    "type": "BOOL",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "campaign_is_budget_schedule_enabled",
+    "type": "BOOL",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "campaign_is_reels_trending_ads_enabled",
+    "type": "BOOL",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "campaign_is_skadnetwork_attribution",
+    "type": "BOOL",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "campaign_issues_info",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "campaign_last_budget_toggling_time",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "campaign_lifetime_budget",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "campaign_name",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "campaign_objective",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "campaign_pacing_type",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "campaign_primary_attribution",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "campaign_promoted_object_application_id",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "campaign_promoted_object_custom_event_type",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "campaign_promoted_object_object_store_url",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "campaign_promoted_object_page_id",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "campaign_promoted_object_pixel_id",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "campaign_smart_promotion_type",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "campaign_source_campaign_id",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "campaign_special_ad_categories",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "campaign_special_ad_category",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "campaign_special_ad_category_country",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "campaign_spend_cap",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "campaign_start_time",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "campaign_status",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "campaign_stop_time",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "campaign_topline_id",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "campaign_updated_time",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "_DATA_DATE",
+    "type": "DATE",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "_LATEST_DATE",
+    "type": "DATE",
+    "mode": "NULLABLE"
+  }
+]

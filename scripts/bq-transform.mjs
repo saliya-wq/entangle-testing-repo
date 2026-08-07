@@ -22,8 +22,11 @@ const sqlFiles = (await readdir(SQL_DIR)).filter((f) => f.endsWith(".sql")).sort
 for (const ds of CLIENTS) {
   for (const f of sqlFiles) {
     const sql = (await readFile(path.join(SQL_DIR, f), "utf8")).replaceAll("${DATASET}", ds);
-    await bq.query({ query: sql });
     const mart = f.replace(/\.sql$/, "");
+    /* The emulator rejects CREATE OR REPLACE on an existing table, so drop
+       first — harmless on real BigQuery, where CREATE OR REPLACE also works. */
+    await bq.dataset(ds).table(mart).delete().catch(() => {});
+    await bq.query({ query: sql });
     const [[{ n }]] = [await bq.query({ query: `SELECT COUNT(*) AS n FROM \`${ds}.${mart}\`` })].map((r) => r[0]);
     console.log(`✓ ${ds}.${mart}: ${n} rows`);
   }

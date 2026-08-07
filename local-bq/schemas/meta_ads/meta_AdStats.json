@@ -1,0 +1,772 @@
+[
+  {
+    "name": "account_currency",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "account_id",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "account_name",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "account_timezone_name",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "action_attribution_windows",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_id",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_name",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "adset_end",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "adset_id",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "adset_name",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "adset_optimization_goal",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "adset_start",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "attribution_setting",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "campaign_buying_type",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "campaign_end",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "campaign_id",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "campaign_name",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "campaign_objective",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "campaign_start",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "insights_level",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "labels",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "metrics_actions_per_impression",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_adjusted_offline_purchase",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_anchor_event_attribution_setting",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_app_store_clicks",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_attention_events_per_impression",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_attention_events_unq_per_reach",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_auction_bid",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_auction_competitiveness",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_auction_max_competitor_bid",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_call_to_action_clicks",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_canvas_avg_view_percent",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_canvas_avg_view_time",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_card_views",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_catalog_segment_value_mobile_purchase_roas",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_catalog_segment_value_omni_purchase_roas",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_catalog_segment_value_website_purchase_roas",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_clicks",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_conversion_rate_ranking",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_cost_per_15_sec_video_view",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_cost_per_2_sec_continuous_video_view",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_cost_per_completed_video_view",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_cost_per_dda_countby_convs",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_cost_per_dwell",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_cost_per_dwell_3_sec",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_cost_per_dwell_5_sec",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_cost_per_dwell_7_sec",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_cost_per_estimated_ad_recallers",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_cost_per_inline_link_click",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_cost_per_inline_post_engagement",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_cost_per_objective_result",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_cost_per_result",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_cost_per_thruplay",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_cost_per_total_action",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_cost_per_unique_click",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_cost_per_unique_inline_link_click",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_cpc",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_cpm",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_cpp",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_creative_diversity_label",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_creative_diversity_score",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_ctr",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_dda_countby_convs",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_dda_results",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_deeplink_clicks",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_dwell_3_sec",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_dwell_5_sec",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_dwell_7_sec",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_dwell_rate",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_engagement_rate_ranking",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_estimated_ad_recall_rate",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_estimated_ad_recall_rate_lower_bound",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_estimated_ad_recall_rate_upper_bound",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_estimated_ad_recallers",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_estimated_ad_recallers_lower_bound",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_estimated_ad_recallers_upper_bound",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_frequency",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_full_view_impressions",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_full_view_reach",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_impressions",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_impressions_auto_refresh",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_impressions_gross",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_inline_link_click_ctr",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_inline_link_clicks",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_inline_post_engagement",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_instagram_upcoming_event_reminders_set",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_instant_experience_clicks_to_open",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_instant_experience_clicks_to_start",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_landing_page_view_per_link_click",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_marketing_messages_delivered",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_marketing_messages_delivery_rate",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_marketing_messages_read_rate_benchmark",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_mobile_app_purchase_roas",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_newsfeed_avg_position",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_newsfeed_clicks",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_newsfeed_impressions",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_objective_result_rate",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_objective_results",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_opportunity_score_l4",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_performance_indicator",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_private_attribution_conversions",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_product_views",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_purchase_per_landing_page_view",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_purchase_roas",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_qualifying_question_qualify_answer_rate",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_quality_ranking",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_reach",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_result_rate",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_result_values_performance_indicator",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_results",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_shops_assisted_purchases",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_social_spend",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_spend",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_thumb_stops",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_today_spend",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_total_action_value",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_total_actions",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_total_card_view",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_total_unique_actions",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_unique_clicks",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_unique_ctr",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_unique_impressions",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_unique_inline_link_click_ctr",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_unique_inline_link_clicks",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_unique_link_clicks_ctr",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_unique_video_continuous_2_sec_watched_actions",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_unique_video_view_15_sec",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_video_15_sec_watched_actions",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_video_30_sec_watched_actions",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_video_6_sec_watched_actions",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_video_avg_time_watched_actions",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_video_complete_watched_actions",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_video_completed_view_or_15s_passed_actions",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_video_continuous_2_sec_watched_actions",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_video_p100_watched_actions",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_video_p25_watched_actions",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_video_p50_watched_actions",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_video_p75_watched_actions",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_video_p95_watched_actions",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_video_play_actions",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_video_thruplay_watched_actions",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_video_time_watched_actions",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_website_clicks",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_website_purchase_roas",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_wish_bid",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "segments_date",
+    "type": "DATE",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "segments_date_stop",
+    "type": "DATE",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "segments_impression_device",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "segments_device_platform",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "segments_platform_position",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "segments_publisher_platform",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "time_increment",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "_DATA_DATE",
+    "type": "DATE",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "_LATEST_DATE",
+    "type": "DATE",
+    "mode": "NULLABLE"
+  }
+]

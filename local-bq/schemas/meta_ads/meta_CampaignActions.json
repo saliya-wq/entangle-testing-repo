@@ -1,0 +1,602 @@
+[
+  {
+    "name": "account_currency",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "account_id",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "account_name",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "account_timezone_name",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "action_canvas_component_name",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "action_carousel_card_id",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "action_carousel_card_name",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "action_collection",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "action_converted_product_id",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "action_destination",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "action_device",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "action_reaction",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "action_target_id",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "action_type",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "action_video_sound",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "action_video_type",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "campaign_buying_type",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "campaign_id",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "campaign_name",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "campaign_objective",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "conversion_destination",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "standard_event_content_type",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_action_custom",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_action_inline",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_action_values",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_action_values_1d_click",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_action_values_1d_ev",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_action_values_1d_view",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_action_values_28d_click",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_action_values_28d_view",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_action_values_7d_click",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_action_values_7d_view",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_action_values_dda",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_action_values_default",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_actions",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_actions_1d_click",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_actions_1d_click_all_conversions",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_actions_1d_click_first_conversion",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_actions_1d_ev",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_actions_1d_sequenced",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_actions_1d_view",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_actions_1d_view_all_conversions",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_actions_1d_view_first_conversion",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_actions_28d_click",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_actions_28d_click_all_conversions",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_actions_28d_click_first_conversion",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_actions_28d_sequenced",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_actions_28d_view",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_actions_28d_view_all_conversions",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_actions_28d_view_first_conversion",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_actions_7d_click",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_actions_7d_click_all_conversions",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_actions_7d_click_first_conversion",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_actions_7d_sequenced",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_actions_7d_view",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_actions_7d_view_all_conversions",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_actions_7d_view_first_conversion",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_actions_dda",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_actions_default",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_actions_incrementality",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_actions_incrementality_all_conversions",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_actions_incrementality_first_conversion",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_actions_skan_click",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_actions_skan_view",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_ad_click_actions",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_ad_impression_actions",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_catalog_segment_actions",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_catalog_segment_value",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_catalog_segment_value_in_catalog_currency",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_catalog_segment_value_mobile_purchase_roas",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_catalog_segment_value_omni_purchase_roas",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_catalog_segment_value_website_purchase_roas",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_conversion_values",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_conversions",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_converted_product_quantity",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_converted_product_value",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_cost_per_15_sec_video_view",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_cost_per_2_sec_continuous_video_view",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_cost_per_action_type",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_cost_per_ad_click",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_cost_per_conversion",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_cost_per_one_thousand_ad_impression",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_cost_per_outbound_click",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_cost_per_thruplay",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_cost_per_unique_action_type",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_cost_per_unique_conversion",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_cost_per_unique_outbound_click",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_interactive_component_tap",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_mobile_app_purchase_roas",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_outbound_clicks",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_outbound_clicks_ctr",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_purchase_roas",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_unique_actions",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_unique_conversions",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_unique_outbound_clicks",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_unique_outbound_clicks_ctr",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_unique_video_view_15_sec",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_video_15_sec_watched_actions",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_video_30_sec_watched_actions",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_video_avg_time_watched_actions",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_video_continuous_2_sec_watched_actions",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_video_p100_watched_actions",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_video_p25_watched_actions",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_video_p50_watched_actions",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_video_p75_watched_actions",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_video_p95_watched_actions",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_video_play_actions",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_video_thruplay_watched_actions",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_video_time_watched_actions",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_website_ctr",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_website_purchase_roas",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "segments_action_attribution_windows",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "segments_action_report_time",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "segments_attribution_setting",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "segments_date",
+    "type": "DATE",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "segments_date_stop",
+    "type": "DATE",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "segments_level",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "segments_time_increment",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "_DATA_DATE",
+    "type": "DATE",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "_LATEST_DATE",
+    "type": "DATE",
+    "mode": "NULLABLE"
+  }
+]

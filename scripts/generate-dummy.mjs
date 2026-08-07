@@ -42,11 +42,11 @@ const CLIENTS = [
 
 /* Campaign portfolio — echoes the dashboard's sample campaigns so the UI reads coherently */
 const CAMPAIGNS = [
-  { idx: 1, name: "Search — Brand",        channel: "SEARCH",          bidding: "MANUAL_CPC",  imprBase: 1500,  ctr: 0.082, cpc: 1.15, cvr: 0.080, budget: 80 },
-  { idx: 2, name: "Search — Non-brand",    channel: "SEARCH",          bidding: "TARGET_CPA",  imprBase: 4200,  ctr: 0.031, cpc: 1.90, cvr: 0.038, budget: 200 },
-  { idx: 3, name: "Performance Max",       channel: "PERFORMANCE_MAX", bidding: "TARGET_ROAS", imprBase: 9000,  ctr: 0.024, cpc: 1.35, cvr: 0.042, budget: 230 },
-  { idx: 4, name: "Shopping",              channel: "SHOPPING",        bidding: "TARGET_ROAS", imprBase: 5200,  ctr: 0.032, cpc: 0.95, cvr: 0.028, budget: 130 },
-  { idx: 5, name: "Display — Remarketing", channel: "DISPLAY",         bidding: "MANUAL_CPC",  imprBase: 16000, ctr: 0.009, cpc: 0.45, cvr: 0.012, budget: 50, status: "PAUSED" },
+  { idx: 1, name: "Search — Brand",        channel: "SEARCH",          bidding: "MANUAL_CPC",  imprBase: 1500,  ctr: 0.082, cpc: 1.15, cvr: 0.016, budget: 80 },
+  { idx: 2, name: "Search — Non-brand",    channel: "SEARCH",          bidding: "TARGET_CPA",  imprBase: 4200,  ctr: 0.031, cpc: 1.90, cvr: 0.0076, budget: 200 },
+  { idx: 3, name: "Performance Max",       channel: "PERFORMANCE_MAX", bidding: "TARGET_ROAS", imprBase: 9000,  ctr: 0.024, cpc: 1.35, cvr: 0.0084, budget: 230 },
+  { idx: 4, name: "Shopping",              channel: "SHOPPING",        bidding: "TARGET_ROAS", imprBase: 5200,  ctr: 0.032, cpc: 0.95, cvr: 0.0056, budget: 130 },
+  { idx: 5, name: "Display — Remarketing", channel: "DISPLAY",         bidding: "MANUAL_CPC",  imprBase: 16000, ctr: 0.009, cpc: 0.45, cvr: 0.0024, budget: 50, status: "PAUSED" },
 ];
 
 const DOW = [1.05, 1.09, 1.07, 1.05, 1.0, 0.78, 0.72]; // Mon..Sun

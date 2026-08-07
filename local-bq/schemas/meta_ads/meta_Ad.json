@@ -1,0 +1,197 @@
+[
+  {
+    "name": "account_id",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_active_time",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_adlabels",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "ad_bid_amount",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_bid_info",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_bid_type",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_configured_status",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_conversion_domain",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_conversion_specs",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "ad_created_time",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_creative_asset_groups_spec",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_creative_id",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_demolink_hash",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_display_sequence",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_effective_status",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_engagement_audience",
+    "type": "BOOL",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_failed_delivery_checks",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "ad_id",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_is_autobid",
+    "type": "BOOL",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_issues_info",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "ad_last_updated_by_app_id",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_name",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_preview_shareable_link",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_priority",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_recommendations",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "ad_review_feedback",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_schedule_end_time",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_schedule_start_time",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_source_ad_id",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_special_ad_categories",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "ad_status",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_targeting_json",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_tracking_and_conversion_with_defaults",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_tracking_specs",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "ad_updated_time",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "adset_id",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "campaign_id",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "_DATA_DATE",
+    "type": "DATE",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "_LATEST_DATE",
+    "type": "DATE",
+    "mode": "NULLABLE"
+  }
+]
