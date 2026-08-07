@@ -78,7 +78,9 @@ function genClient(name: string, i: number): { client: ClientRec; subs: string[]
     id: slug, slug, name, initials: initialsOf(name), status,
     plan: pick(PLANS), industry: pick(INDUSTRIES), timezone: pick(TIMEZONES), currency: pick(CURRENCIES),
     website: slug + pick(TLDS), manager: pick(MANAGERS), contact: "hello@" + slug + ".com.au",
-    brandColor: pick(COLORS), f: +(0.2 + rnd() * 2.9).toFixed(2),
+    // The 3 canonical demo clients use FIXED factors matching the BigQuery seed
+    // (scripts/seed-bq.mjs) so Live (BQ) and sample reconcile at the 30d range.
+    brandColor: pick(COLORS), f: i < 3 ? [1, 0.42, 1.8][i] : +(0.2 + rnd() * 2.9).toFixed(2),
     aiInsights: i < 3, // opt-in: the 3 canonical demo clients start enabled; others off
   };
   // subscriptions: core always + random extras (speedToLead is core so it's on by default)
@@ -113,7 +115,7 @@ function seed(): OpsState {
   return { clients, users, subs, connections, targets, schedules, audit: [] };
 }
 
-const KEY = "dbm-ops-v5";
+const KEY = "dbm-ops-v6";
 export function loadOps(): OpsState {
   try { const raw = localStorage.getItem(KEY); if (raw) return JSON.parse(raw); } catch { /* ignore */ }
   const s = seed();

@@ -49,14 +49,17 @@ Read-only **`✨ AI on` / `AI off`** badge in the client-facing header reflectin
 ## V1.0.12 — Hide banner when AI is off
 When a client's AI toggle is off, the **AI Insights banner is now hidden entirely** (previously it still showed rules-based insights). The header on/off indicator still shows the status.
 
-## V1.0.13 — Demo data → BigQuery, and read it back *(current)*
+## V1.0.13 — Demo data → BigQuery, and read it back
 - **Push** (`npm run seed:bq` → `npm run load:bq`, both no-CLI Node scripts): loads the sample data into **per-client `demo_client_<slug>` datasets** (ISO 27001 dataset-per-tenant isolation), labeled `env=demo` with an `is_demo` column on every row — so the demo footprint is triple-tagged and removable in one command. This is a BigQuery **load job**, not Data Transfer Service.
 - **Read back:** `api/bq/[module].ts` (allowlist-gated, service-account via base64 `GCP_SA_KEY`, parameterised query) → `provider.ts` overlays BigQuery KPIs/paths onto the module when **Live** is on, falling back to sample when unconfigured.
 - Now running end-to-end against the real `entangle-signals` project.
+
+## V1.0.14 — Reconcile Live vs sample values *(current)*
+The 3 canonical demo clients now use **fixed** scale factors (Aqua Pulse 1, Care For You 0.42, MS Plus 1.8) instead of random, matching the BigQuery seed. So toggling **Live** at the default 30-day range now switches only the *source*, not the numbers — Live (BigQuery) and sample reconcile. (On other date ranges, sample still scales by the range factor while Live stays at the single BQ snapshot — expected, since only one snapshot was loaded.) Seed key → `dbm-ops-v6`.
 
 ---
 
 ### Notes
 - **Bug fixes:** V1.0.1 (blank screen) and V1.0.7 (CPM/CPC scaling). Everything else is feature work or refactors.
-- **Seed-key bumps** (re-seed browser `localStorage`): `dbm-ops-v3` (original) → `v4` (speed-to-lead default-on, V1.0.3) → `v5` (aiInsights field, V1.0.10).
+- **Seed-key bumps** (re-seed browser `localStorage`): `dbm-ops-v3` (original) → `v4` (speed-to-lead default-on, V1.0.3) → `v5` (aiInsights field, V1.0.10) → `v6` (fixed demo-client factors, V1.0.14).
 - **Pending action:** set `ANTHROPIC_API_KEY` in the Vercel project environment so opted-in clients get live Claude output; until then they gracefully show the `rules` fallback.
