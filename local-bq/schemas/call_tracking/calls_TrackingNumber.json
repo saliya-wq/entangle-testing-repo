@@ -1,0 +1,187 @@
+[
+  {
+    "name": "account_id",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "account_name",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "platform",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "number_id",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "number_phone",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "number_phone_formatted",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "number_name",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "number_type",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "number_is_pool",
+    "type": "BOOL",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "number_pool_id",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "number_pool_name",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "number_pool_size",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "number_status",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "number_is_active",
+    "type": "BOOL",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "number_activation_date",
+    "type": "DATE",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "number_cancel_date",
+    "type": "DATE",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "number_disabled_time",
+    "type": "TIMESTAMP",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "number_country",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "number_area",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "number_destination_number",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "number_destination_name",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "number_action",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "number_action_id",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "number_call_flow_name",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "number_whisper_message",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "number_sms_supported",
+    "type": "BOOL",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "number_swap_targets",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "number_web_code",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "number_web_name",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "attribution_source",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "attribution_medium",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "attribution_campaign",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "attribution_keyword",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "attribution_content",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "attribution_referrer_domain",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "_DATA_DATE",
+    "type": "DATE",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "_LATEST_DATE",
+    "type": "DATE",
+    "mode": "NULLABLE"
+  }
+]

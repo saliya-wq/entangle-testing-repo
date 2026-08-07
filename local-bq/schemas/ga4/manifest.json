@@ -1,0 +1,34 @@
+{
+  "generated": "2026-08-07",
+  "source": "https://support.google.com/analytics/answer/7029846",
+  "note": "GA4 native BigQuery Export - Google owns these shapes",
+  "tables": [
+    {
+      "name": "events_YYYYMMDD",
+      "file": "ga4_events.json",
+      "kind": "events",
+      "columns": 190,
+      "topLevelFields": 30,
+      "localTable": "ga4_events",
+      "maxDepth": 4
+    },
+    {
+      "name": "users_YYYYMMDD",
+      "file": "ga4_users.json",
+      "kind": "users",
+      "columns": 35,
+      "topLevelFields": 11,
+      "localTable": "ga4_users",
+      "maxDepth": 3
+    },
+    {
+      "name": "pseudonymous_users_YYYYMMDD",
+      "file": "ga4_pseudonymous_users.json",
+      "kind": "users",
+      "columns": 36,
+      "topLevelFields": 12,
+      "localTable": "ga4_pseudonymous_users",
+      "maxDepth": 3
+    }
+  ]
+}

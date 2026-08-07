@@ -1,0 +1,27 @@
+{
+  "generated": "2026-08-07",
+  "source": "WildJar + CallRail APIs (no native BQ export - schema designed by us)",
+  "tables": [
+    {
+      "name": "calls_Call",
+      "file": "calls_Call.json",
+      "kind": "fact",
+      "grain": "one row per call (inbound or outbound) across WildJar + CallRail; PK call_uid = platform || '|' || call_id; partition DATE(call_date), cluster (account_id, call_tracking_number, attribution_source); MUTABLE - MERGE on call_uid, never append-only",
+      "columns": 162
+    },
+    {
+      "name": "calls_TrackingNumber",
+      "file": "calls_TrackingNumber.json",
+      "kind": "snapshot",
+      "grain": "one row per tracking number per _DATA_DATE (daily snapshot); PK (platform, number_id, _DATA_DATE); filter _DATA_DATE = _LATEST_DATE for current pool state; join calls on call_tracking_number = number_phone",
+      "columns": 37
+    },
+    {
+      "name": "calls_DailyStats",
+      "file": "calls_DailyStats.json",
+      "kind": "stats",
+      "grain": "account_id x platform x segments_date x segments_source x segments_medium x segments_campaign x segments_tracking_number x segments_tracking_source x segments_direction x segments_device; recomputed from calls_Call over the trailing re-pull window, never incrementally added to",
+      "columns": 40
+    }
+  ]
+}

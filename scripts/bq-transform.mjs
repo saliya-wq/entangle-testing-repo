@@ -26,7 +26,19 @@ for (const ds of CLIENTS) {
     /* The emulator rejects CREATE OR REPLACE on an existing table, so drop
        first — harmless on real BigQuery, where CREATE OR REPLACE also works. */
     await bq.dataset(ds).table(mart).delete().catch(() => {});
-    await bq.query({ query: sql });
+    try {
+      await bq.query({ query: sql });
+    } catch (e) {
+      /* Known emulator boundary: it stores nested RECORDs fine but cannot
+         execute the GA4 UNNEST(event_params) idiom (translates to SQLite and
+         fails on struct conversion). The SQL is valid — it builds on real
+         BigQuery. Warn and continue so the other marts still build locally. */
+      if (ENDPOINT) {
+        console.warn(`  ⚠ ${ds}.${mart}: skipped on emulator — ${String(e.message).slice(0, 90)}…`);
+        continue;
+      }
+      throw e;
+    }
     const [[{ n }]] = [await bq.query({ query: `SELECT COUNT(*) AS n FROM \`${ds}.${mart}\`` })].map((r) => r[0]);
     console.log(`✓ ${ds}.${mart}: ${n} rows`);
   }

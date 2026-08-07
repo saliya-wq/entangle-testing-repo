@@ -9,3 +9,4 @@ dist-ssr
 *.docx
 .bq-demo
 local-bq/bin
+local-bq/dummy

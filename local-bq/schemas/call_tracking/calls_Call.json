@@ -1,0 +1,812 @@
+[
+  {
+    "name": "account_id",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "account_name",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "platform",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "call_uid",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "call_id",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "call_source_id",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "call_date",
+    "type": "DATE",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "call_start_time",
+    "type": "TIMESTAMP",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "call_end_time",
+    "type": "TIMESTAMP",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "call_start_time_local",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "call_end_time_local",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "call_timezone",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "call_hour_of_day",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "call_day_of_week",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "call_is_business_hours",
+    "type": "BOOL",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "call_created_time",
+    "type": "TIMESTAMP",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "call_direction",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "call_duration_seconds",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "call_talk_time_seconds",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "call_recording_duration_seconds",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "call_ring_time_seconds",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "call_has_recording",
+    "type": "BOOL",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "call_has_transcript",
+    "type": "BOOL",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "call_is_first_time_caller",
+    "type": "BOOL",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "call_prior_calls",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "call_total_calls",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "call_tracking_number",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "call_tracking_number_name",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "call_tracking_source_name",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "call_tracker_id",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "call_destination_number",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "call_caller_number",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "call_caller_name",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "call_caller_city",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "call_caller_state",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "call_caller_country",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "call_caller_postcode",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "call_caller_location",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "call_caller_line_type",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "call_ivr_id",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "call_ivr_name",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "call_ivr_option",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "call_ivr_action",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "call_ivr_action_id",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "call_ivr_path",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "call_ivr_remote_code",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "call_keypad_entries_json",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "call_branch_code",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "call_branch_name",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "call_agent_email",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "call_agent_name",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "call_agent_extension",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "call_channel",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "call_outbound_list",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "call_recording_url",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "call_recording_id",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "call_recording_player_url",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "call_recording_gcs_uri",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "attribution_source",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "attribution_medium",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "attribution_campaign",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "attribution_keyword",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "attribution_content",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "attribution_utm_source",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "attribution_utm_medium",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "attribution_utm_campaign",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "attribution_utm_term",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "attribution_utm_content",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "attribution_gclid",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "attribution_gbraid",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "attribution_wbraid",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "attribution_msclkid",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "attribution_fbclid",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "attribution_landing_page_url",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "attribution_landing_page_params_json",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "attribution_conversion_page_url",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "attribution_referrer_url",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "attribution_referrer_domain",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "attribution_visitor_id",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "attribution_session_id",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "attribution_person_id",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "attribution_cdp_id",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "attribution_visitor_ip",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "attribution_device",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "attribution_browser",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "attribution_ad_position",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "attribution_match_type",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "attribution_tracker_type",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "attribution_is_pool_number",
+    "type": "BOOL",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "attribution_first_touch_event_date",
+    "type": "DATE",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "attribution_first_touch_source",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "attribution_first_touch_medium",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "attribution_first_touch_campaign",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "attribution_first_touch_keyword",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "attribution_first_touch_landing_page_url",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "attribution_first_touch_referrer_url",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "attribution_first_touch_device",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "attribution_lead_created_event_date",
+    "type": "DATE",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "attribution_lead_created_source",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "attribution_lead_created_medium",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "attribution_lead_created_campaign",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "attribution_lead_created_keyword",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "attribution_lead_created_landing_page_url",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "attribution_lead_created_referrer_url",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "attribution_lead_created_device",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "attribution_qualified_event_date",
+    "type": "DATE",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "attribution_qualified_source",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "attribution_qualified_medium",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "attribution_qualified_campaign",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "attribution_qualified_keyword",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "attribution_qualified_landing_page_url",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "attribution_qualified_referrer_url",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "attribution_qualified_device",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "attribution_last_touch_event_date",
+    "type": "DATE",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "attribution_last_touch_source",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "attribution_last_touch_medium",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "attribution_last_touch_campaign",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "attribution_last_touch_keyword",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "attribution_last_touch_landing_page_url",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "attribution_last_touch_referrer_url",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "attribution_last_touch_device",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "outcome_status",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "outcome_status_raw",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "outcome_is_answered",
+    "type": "BOOL",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "outcome_is_missed",
+    "type": "BOOL",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "outcome_is_abandoned",
+    "type": "BOOL",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "outcome_is_voicemail",
+    "type": "BOOL",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "outcome_lead_status",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "outcome_is_qualified_lead",
+    "type": "BOOL",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "outcome_first_qualified_call_id",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "outcome_first_qualified_call_time",
+    "type": "TIMESTAMP",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "outcome_score",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "outcome_score_label",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "outcome_score_explanation",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "outcome_value",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "outcome_value_currency",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "outcome_tags",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "outcome_note",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "outcome_dtmf_digit",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "outcome_dtmf_name",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "outcome_lead_scorer_caller_digit",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "outcome_lead_scorer_agent_digit",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "outcome_sentiment",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "outcome_sentiment_positive_count",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "outcome_sentiment_neutral_count",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "outcome_sentiment_negative_count",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "outcome_summary",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "outcome_transcript_text",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "outcome_transcript_confidence",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "outcome_transcript_completed_time",
+    "type": "TIMESTAMP",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "outcome_keywords_spotted",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "outcome_highlights",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "outcome_speaker_percent_agent",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "outcome_speaker_percent_customer",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "outcome_timeline_url",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "outcome_modified_fields",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "wildjar_raw_json",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "callrail_raw_json",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "_ingested_at",
+    "type": "TIMESTAMP",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "_ingestion_source",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "_DATA_DATE",
+    "type": "DATE",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "_LATEST_DATE",
+    "type": "DATE",
+    "mode": "NULLABLE"
+  }
+]

@@ -1,0 +1,245 @@
+[
+  {
+    "name": "pseudo_user_id",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "stream_id",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "occurrence_date",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "last_updated_date",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "user_info",
+    "type": "RECORD",
+    "mode": "NULLABLE",
+    "fields": [
+      {
+        "name": "last_active_timestamp_micros",
+        "type": "INT64",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "user_first_touch_timestamp_micros",
+        "type": "INT64",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "first_purchase_date",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      }
+    ]
+  },
+  {
+    "name": "device",
+    "type": "RECORD",
+    "mode": "NULLABLE",
+    "fields": [
+      {
+        "name": "operating_system",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "category",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "mobile_brand_name",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "mobile_model_name",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "unified_screen_name",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      }
+    ]
+  },
+  {
+    "name": "geo",
+    "type": "RECORD",
+    "mode": "NULLABLE",
+    "fields": [
+      {
+        "name": "city",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "country",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "continent",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "region",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      }
+    ]
+  },
+  {
+    "name": "user_ltv",
+    "type": "RECORD",
+    "mode": "NULLABLE",
+    "fields": [
+      {
+        "name": "revenue_in_usd",
+        "type": "FLOAT64",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "sessions",
+        "type": "INT64",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "engagement_time_millis",
+        "type": "INT64",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "purchases",
+        "type": "INT64",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "engaged_sessions",
+        "type": "INT64",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "session_duration_micros",
+        "type": "INT64",
+        "mode": "NULLABLE"
+      }
+    ]
+  },
+  {
+    "name": "predictions",
+    "type": "RECORD",
+    "mode": "NULLABLE",
+    "fields": [
+      {
+        "name": "in_app_purchase_score_7d",
+        "type": "FLOAT64",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "purchase_score_7d",
+        "type": "FLOAT64",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "churn_score_7d",
+        "type": "FLOAT64",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "revenue_28d_in_usd",
+        "type": "FLOAT64",
+        "mode": "NULLABLE"
+      }
+    ]
+  },
+  {
+    "name": "privacy_info",
+    "type": "RECORD",
+    "mode": "NULLABLE",
+    "fields": [
+      {
+        "name": "is_ads_personalization_allowed",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "is_limited_ad_tracking",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      }
+    ]
+  },
+  {
+    "name": "audiences",
+    "type": "RECORD",
+    "mode": "REPEATED",
+    "fields": [
+      {
+        "name": "id",
+        "type": "INT64",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "name",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "membership_start_timestamp_micros",
+        "type": "INT64",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "membership_expiry_timestamp_micros",
+        "type": "INT64",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "npa",
+        "type": "BOOL",
+        "mode": "NULLABLE"
+      }
+    ]
+  },
+  {
+    "name": "user_properties",
+    "type": "RECORD",
+    "mode": "REPEATED",
+    "fields": [
+      {
+        "name": "key",
+        "type": "STRING",
+        "mode": "NULLABLE"
+      },
+      {
+        "name": "value",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+          {
+            "name": "string_value",
+            "type": "STRING",
+            "mode": "NULLABLE"
+          },
+          {
+            "name": "set_timestamp_micros",
+            "type": "INT64",
+            "mode": "NULLABLE"
+          }
+        ]
+      }
+    ]
+  }
+]

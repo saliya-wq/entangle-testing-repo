@@ -1,0 +1,202 @@
+[
+  {
+    "name": "account_id",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "account_name",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "platform",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "segments_date",
+    "type": "DATE",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "segments_source",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "segments_medium",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "segments_campaign",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "segments_tracking_number",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "segments_tracking_source",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "segments_direction",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "segments_device",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_total_calls",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_answered_calls",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_missed_calls",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_abandoned_calls",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_voicemail_calls",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_first_time_callers",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_repeat_callers",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_unique_callers",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_qualified_leads",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_unqualified_calls",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_business_hours_calls",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_after_hours_calls",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_recorded_calls",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_transcribed_calls",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_positive_sentiment_calls",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_neutral_sentiment_calls",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_negative_sentiment_calls",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_total_duration_seconds",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_average_duration_seconds",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_total_talk_time_seconds",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_average_talk_time_seconds",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_answer_rate",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_missed_rate",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_qualified_rate",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_average_score",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_total_value",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_average_value",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "_DATA_DATE",
+    "type": "DATE",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "_LATEST_DATE",
+    "type": "DATE",
+    "mode": "NULLABLE"
+  }
+]
