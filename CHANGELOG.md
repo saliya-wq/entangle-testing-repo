@@ -60,9 +60,13 @@ The 3 canonical demo clients now use **fixed** scale factors (Aqua Pulse 1, Care
 ## V1.0.15 — Range-aware Live data
 BigQuery now holds a **`range_key` dimension** — every KPI (and attribution path) is seeded once per date range (7d/30d/quarter/YTD), values `base × client.f × range.factor`. The `/api/bq` function filters `WHERE range_key = @range` and `provider.ts` passes the selected range. So changing the **date picker now updates the numbers in Live mode**, and Live matches sample on **every** range (not just 30d). BigQuery re-loaded (1,260 KPI rows + 144 path rows across the 3 demo datasets).
 
-## V1.0.16 — Granularity tooltips + visible daily detail *(current)*
+## V1.0.16 — Granularity tooltips + visible daily detail
 - **Tooltips:** the header D/W/M/Q/Y buttons now show proper hover labels (Daily/Weekly/Monthly/Quarterly/Annually) instead of the slow native `title`.
-- **Visible effect:** granularity previously only relabelled the x-axis — `resample()` interpolates, which preserves the line's shape, so coarser views looked identical. The **Daily** view now applies a deterministic weekday-seasonality pattern (weekend dips) so fine granularity is visibly detailed vs. the smooth coarser views. (Truly distinct per-bucket *aggregation* across all levels needs real daily time-series data from BigQuery — a future step; the current series is ~1 month of sample data.)
+- **Visible effect:** granularity previously only relabelled the x-axis — `resample()` interpolates, which preserves the line's shape, so coarser views looked identical. The **Daily** view now applies a deterministic weekday-seasonality pattern (weekend dips) so fine granularity is visibly detailed vs. the smooth coarser views.
+
+## V1.0.17 — Donut fill + granularity on time-series bars *(current)*
+- **Fit:** donut charts now use percentage radii so they scale to fill their card instead of floating as a small fixed circle.
+- **Granularity coverage:** time-series **bar** charts (e.g. "Net new per period", "Reach per post") now respond to D/W/M/Q/Y too — `GroupBar` re-buckets only when its x-axis is the shared time axis, so categorical bars (age/gender, by-channel, months) are correctly left alone. Note: **categorical charts (donuts by device/placement/category, demographics, funnels) don't respond to granularity by design — they have no time axis.**
 
 ---
 

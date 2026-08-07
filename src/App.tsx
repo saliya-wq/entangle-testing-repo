@@ -36,7 +36,7 @@ const LABELS: Record<string, string> = { campaign: "Campaign Performance", googl
 const VIEWS: Record<string, (p: { d: any; f: number }) => JSX.Element> = { campaign: CampaignView, googleAds: GoogleAdsView, fbAds: FbAdsView, fbPage: FbPageView, igOrganic: IgView, linkedin: LinkedInView, ga4: Ga4View, callTracking: CallTrackingView, pipeline: PipelineView, speedToLead: SpeedToLeadView, showRate: ShowRateView, attribution: AttributionView, yoy: YoyView, ecommerce: EcommerceView, payments: PaymentsView, cohort: CohortView, reports: ReportsView };
 
 /* App version — bump the patch (1.0.1, 1.0.2, …) on every release. */
-const VERSION = "1.0.16";
+const VERSION = "1.0.17";
 
 /* ---------- multi-tenant: roles, subscriptions, admin ---------- */
 const ALL_MODULES = NAV.flatMap((s) => s.items);

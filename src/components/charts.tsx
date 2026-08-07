@@ -7,6 +7,7 @@ import { chartColors, fmtVal, scale } from "@/lib/format";
 import { cn } from "@/lib/utils";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { applyGranularity, type Granularity } from "@/lib/timeseries";
+import { AX } from "@/data";
 
 /* Trend charts read the active granularity from here; the Portal provides it. */
 export const GranularityCtx = createContext<Granularity>("weekly");
@@ -144,7 +145,12 @@ export function BarH({ labels, data, color, height = 240 }: { labels: string[]; 
 /* ---------- Grouped vertical bar ---------- */
 export function GroupBar({ labels, groups, height = 260 }: { labels: string[]; groups: { name: string; data: number[] }[]; height?: number }) {
   const C = chartColors();
-  const rows = labels.map((l, i) => { const o: any = { name: l }; groups.forEach((g, gi) => (o["g" + gi] = g.data[i])); return o; });
+  const gran = useContext(GranularityCtx);
+  // Only re-bucket when the x-axis IS the time axis; leave categorical bars (age, channel, months) alone.
+  const isTime = labels.length === AX.length && labels.every((l, i) => l === AX[i]);
+  let L = labels, G = groups;
+  if (isTime && gran !== "weekly") { const a = applyGranularity(groups, gran); L = a.labels; G = a.series; }
+  const rows = L.map((l, i) => { const o: any = { name: l }; G.forEach((gr, gi) => (o["g" + gi] = gr.data[i])); return o; });
   return (
     <ResponsiveContainer width="100%" height={height}>
       <BarChart data={rows} margin={{ left: -12, right: 8, top: 8 }}>
@@ -152,7 +158,7 @@ export function GroupBar({ labels, groups, height = 260 }: { labels: string[]; g
         <XAxis dataKey="name" {...axis} />
         <YAxis {...axis} />
         <Tooltip cursor={{ fill: "hsl(var(--muted))" }} content={<ChartTip />} />
-        {groups.map((g, i) => <Bar key={i} dataKey={"g" + i} name={g.name} fill={C[i]} radius={[4, 4, 0, 0]} maxBarSize={22} />)}
+        {G.map((gr, i) => <Bar key={i} dataKey={"g" + i} name={gr.name} fill={C[i]} radius={[4, 4, 0, 0]} maxBarSize={22} />)}
       </BarChart>
     </ResponsiveContainer>
   );
@@ -165,7 +171,7 @@ export function Donut({ labels, data, height = 240 }: { labels: string[]; data: 
   return (
     <ResponsiveContainer width="100%" height={height}>
       <PieChart>
-        <Pie data={rows} dataKey="value" nameKey="name" innerRadius={62} outerRadius={92} paddingAngle={2} stroke="hsl(var(--card))" strokeWidth={2}>
+        <Pie data={rows} dataKey="value" nameKey="name" innerRadius="56%" outerRadius="88%" paddingAngle={2} stroke="hsl(var(--card))" strokeWidth={2}>
           {rows.map((_, i) => <Cell key={i} fill={C[i % C.length]} />)}
         </Pie>
         <Tooltip content={<ChartTip />} />
