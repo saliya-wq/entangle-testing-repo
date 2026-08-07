@@ -1,0 +1,342 @@
+[
+  {
+    "name": "organization_id",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "organization_urn",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "organization_name",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_click_count",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_click_through_rate",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_comment_count",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_comment_summary_count",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_comment_summary_top_level_count",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_engagement",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_engagement_rate",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_impression_count",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_like_count",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_reactions_appreciation",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_reactions_empathy",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_reactions_interest",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_reactions_like",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_reactions_maybe",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_reactions_praise",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_reactions_total",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_share_count",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_total_engagements",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_unique_impressions_count",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "post_article_description",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "post_article_source_url",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "post_article_thumbnail_urn",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "post_article_title",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "post_author_urn",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "post_comments_state",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "post_container_urn",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "post_content_call_to_action_label",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "post_content_landing_page",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "post_created",
+    "type": "TIMESTAMP",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "post_date",
+    "type": "DATE",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "post_dsc_ad_account_urn",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "post_dsc_ad_type",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "post_dsc_status",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "post_feed_distribution",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "post_hashtags",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "post_id",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "post_is_dsc",
+    "type": "BOOL",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "post_is_edited_by_author",
+    "type": "BOOL",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "post_is_reshare",
+    "type": "BOOL",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "post_is_reshare_disabled_by_author",
+    "type": "BOOL",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "post_is_targeted",
+    "type": "BOOL",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "post_last_modified",
+    "type": "TIMESTAMP",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "post_lifecycle_state",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "post_media_alt_text",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "post_media_count",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "post_media_title",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "post_media_type",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "post_media_urn",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "post_media_urns",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "post_mentioned_organization_urns",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "post_permalink",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "post_poll_options",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "post_poll_question",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "post_published",
+    "type": "TIMESTAMP",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "post_reshare_parent_urn",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "post_reshare_root_urn",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "post_target_entities_json",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "post_text",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "post_text_length",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "post_third_party_distribution_channels",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "post_urn",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "post_urn_type",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "post_visibility",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "_DATA_DATE",
+    "type": "DATE",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "_LATEST_DATE",
+    "type": "DATE",
+    "mode": "NULLABLE"
+  }
+]

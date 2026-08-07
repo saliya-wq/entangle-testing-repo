@@ -1,0 +1,227 @@
+[
+  {
+    "name": "organization_id",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "organization_urn",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "organization_name",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "li_alternative_names",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "li_auto_created",
+    "type": "BOOL",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "li_cover_photo_url",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "li_cover_photo_urn",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "li_default_locale_country",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "li_default_locale_language",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "li_founded_on",
+    "type": "DATE",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "li_founded_on_year",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "li_hq_city",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "li_hq_country",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "li_hq_geo_urn",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "li_hq_geographic_area",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "li_hq_line1",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "li_hq_postal_code",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "li_industry_names",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "li_industry_urns",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "li_is_admin_access",
+    "type": "BOOL",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "li_is_school",
+    "type": "BOOL",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "li_localized_description",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "li_localized_specialties",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "li_localized_website",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "li_locations_count",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "li_locations_json",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "li_logo_url",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "li_logo_urn",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "li_organization_status",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "li_organization_type",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "li_page_url",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "li_parent_organization_urn",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "li_parent_relationship_status",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "li_parent_relationship_type",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "li_pinned_post_urn",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "li_primary_industry_name",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "li_primary_organization_type",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "li_staff_count_range",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "li_staff_count_range_max",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "li_staff_count_range_min",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "li_vanity_name",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "li_version_tag",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_follower_count",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "_DATA_DATE",
+    "type": "DATE",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "_LATEST_DATE",
+    "type": "DATE",
+    "mode": "NULLABLE"
+  }
+]

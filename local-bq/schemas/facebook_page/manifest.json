@@ -1,0 +1,36 @@
+{
+  "generated": "2026-08-07",
+  "source": "Meta Graph API v25/v26 - Page node, Page Insights (/{page-id}/insights), Page Post node and Post Insights (/{post-id}/insights)",
+  "note": "no native BigQuery export - schema designed by us",
+  "totalColumns": 138,
+  "tables": [
+    {
+      "name": "fbpage_Page",
+      "file": "fbpage_Page.json",
+      "kind": "snapshot",
+      "grain": "one row per page per day (current state = _DATA_DATE = _LATEST_DATE)",
+      "columns": 29
+    },
+    {
+      "name": "fbpage_DailyStats",
+      "file": "fbpage_DailyStats.json",
+      "kind": "stats",
+      "grain": "page x day x period",
+      "columns": 39
+    },
+    {
+      "name": "fbpage_Post",
+      "file": "fbpage_Post.json",
+      "kind": "post",
+      "grain": "one row per post per _DATA_DATE snapshot (lifetime metrics restated)",
+      "columns": 60
+    },
+    {
+      "name": "fbpage_Demographics",
+      "file": "fbpage_Demographics.json",
+      "kind": "demographics",
+      "grain": "page x day x segment_type x segment_value",
+      "columns": 10
+    }
+  ]
+}

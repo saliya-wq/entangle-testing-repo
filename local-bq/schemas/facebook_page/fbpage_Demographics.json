@@ -1,0 +1,52 @@
+[
+  {
+    "name": "page_id",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "page_name",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_value",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "segments_date",
+    "type": "DATE",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "segments_metric_name",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "segments_period",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "segments_segment_type",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "segments_segment_value",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "_DATA_DATE",
+    "type": "DATE",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "_LATEST_DATE",
+    "type": "DATE",
+    "mode": "NULLABLE"
+  }
+]

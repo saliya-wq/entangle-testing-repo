@@ -1,0 +1,302 @@
+[
+  {
+    "name": "page_id",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "post_id",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "post_attachment_media_type",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "post_attachment_target_url",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "post_attachment_title",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "post_created_time",
+    "type": "TIMESTAMP",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "post_date",
+    "type": "DATE",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "post_from_id",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "post_from_name",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "post_full_picture",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "post_icon",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "post_is_expired",
+    "type": "BOOL",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "post_is_hidden",
+    "type": "BOOL",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "post_is_published",
+    "type": "BOOL",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "post_message",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "post_message_tags",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "post_permalink_url",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "post_promotable_id",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "post_status_type",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "post_story",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "post_updated_time",
+    "type": "TIMESTAMP",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_activity_by_action_type_comment",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_activity_by_action_type_like",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_activity_by_action_type_share",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_clicks",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_clicks_by_type_link_clicks",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_clicks_by_type_other_clicks",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_clicks_by_type_photo_view",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_clicks_by_type_video_play",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_comments_count",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_impressions",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_impressions_fan",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_impressions_nonviral",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_impressions_organic",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_impressions_paid",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_impressions_viral",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_likes_count",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_media_view",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_reactions_anger_total",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_reactions_haha_total",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_reactions_like_total",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_reactions_love_total",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_reactions_sorry_total",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_reactions_wow_total",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_shares_count",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_total_media_view_unique",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_video_avg_time_watched",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_video_complete_views_30s",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_video_length",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_video_view_time",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_video_views",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_video_views_15s",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_video_views_60s_excludes_shorter",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_video_views_autoplayed",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_video_views_clicked_to_play",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_video_views_organic",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_video_views_paid",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_video_views_sound_on",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "_DATA_DATE",
+    "type": "DATE",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "_LATEST_DATE",
+    "type": "DATE",
+    "mode": "NULLABLE"
+  }
+]

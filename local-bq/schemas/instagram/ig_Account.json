@@ -1,0 +1,72 @@
+[
+  {
+    "name": "ig_user_id",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ig_legacy_user_id",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ig_username",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ig_name",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ig_biography",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ig_website",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ig_profile_picture_url",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ig_account_type",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ig_shopping_product_tag_eligibility",
+    "type": "BOOL",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_followers_count",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_follows_count",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_media_count",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "_DATA_DATE",
+    "type": "DATE",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "_LATEST_DATE",
+    "type": "DATE",
+    "mode": "NULLABLE"
+  }
+]

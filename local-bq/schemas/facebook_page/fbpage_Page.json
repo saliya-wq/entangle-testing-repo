@@ -1,0 +1,147 @@
+[
+  {
+    "name": "page_id",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "page_about",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "page_category",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "page_category_list",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "page_cover_url",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "page_description",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "page_emails",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "page_fan_count",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "page_followers_count",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "page_is_published",
+    "type": "BOOL",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "page_link",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "page_location_city",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "page_location_country",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "page_location_state",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "page_location_street",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "page_location_zip",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "page_name",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "page_new_like_count",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "page_overall_star_rating",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "page_phone",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "page_picture_url",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "page_rating_count",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "page_talking_about_count",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "page_username",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "page_verification_status",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "page_website",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "page_were_here_count",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "_DATA_DATE",
+    "type": "DATE",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "_LATEST_DATE",
+    "type": "DATE",
+    "mode": "NULLABLE"
+  }
+]

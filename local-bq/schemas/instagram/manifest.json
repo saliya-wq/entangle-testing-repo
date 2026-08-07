@@ -1,0 +1,36 @@
+{
+  "generated": "2026-08-07",
+  "source": "Instagram Platform API (Instagram Graph API / Instagram API with Instagram Login) v23.0 - IG User node, IG User Insights, IG Media node, IG Media Insights",
+  "note": "no native BigQuery export - schema designed by us",
+  "totalColumns": 116,
+  "tables": [
+    {
+      "name": "ig_Account",
+      "file": "ig_Account.json",
+      "kind": "snapshot",
+      "grain": "one row per Instagram professional account per pull day (_DATA_DATE); current state = _DATA_DATE = _LATEST_DATE",
+      "columns": 14
+    },
+    {
+      "name": "ig_DailyStats",
+      "file": "ig_DailyStats.json",
+      "kind": "stats",
+      "grain": "one row per Instagram account per day (segments_date = _DATA_DATE)",
+      "columns": 39
+    },
+    {
+      "name": "ig_Media",
+      "file": "ig_Media.json",
+      "kind": "post",
+      "grain": "one row per IG media per pull day (post_id x _DATA_DATE); latest state = _DATA_DATE = _LATEST_DATE",
+      "columns": 54
+    },
+    {
+      "name": "ig_Demographics",
+      "file": "ig_Demographics.json",
+      "kind": "demographics",
+      "grain": "one row per account x pull day x demographic metric x segment_type x segment_value",
+      "columns": 9
+    }
+  ]
+}

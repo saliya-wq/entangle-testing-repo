@@ -1,0 +1,272 @@
+[
+  {
+    "name": "ig_user_id",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ig_username",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "post_id",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "post_shortcode",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "post_owner_id",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "post_caption",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "post_media_type",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "post_media_product_type",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "post_media_url",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "post_thumbnail_url",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "post_permalink",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "post_alt_text",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "post_media_audio_type",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "post_is_shared_to_feed",
+    "type": "BOOL",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "post_is_comment_enabled",
+    "type": "BOOL",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "post_is_ai_generated",
+    "type": "BOOL",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "post_children_ids",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "post_collaborator_usernames",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "post_timestamp",
+    "type": "TIMESTAMP",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "post_date",
+    "type": "DATE",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_comments",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_crossposted_views",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_facebook_views",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_follows",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_ig_reels_avg_watch_time",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_ig_reels_video_view_total_time",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_likes",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_link_clicks",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_navigation",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_navigation_swipe_forward",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_navigation_tap_back",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_navigation_tap_exit",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_navigation_tap_forward",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_profile_activity",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_profile_activity_bio_link_clicked",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_profile_activity_call",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_profile_activity_direction",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_profile_activity_email",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_profile_activity_other",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_profile_activity_text",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_profile_visits",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_reach",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_reels_skip_rate",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_replies",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_reposts",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_saved",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_shares",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_total_comments",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_total_interactions",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_total_likes",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_total_views",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_views",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "_DATA_DATE",
+    "type": "DATE",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "_LATEST_DATE",
+    "type": "DATE",
+    "mode": "NULLABLE"
+  }
+]

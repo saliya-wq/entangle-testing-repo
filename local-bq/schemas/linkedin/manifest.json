@@ -1,0 +1,36 @@
+{
+  "generated": "2026-08-07",
+  "source": "LinkedIn Community Management / Marketing API (versioned REST, Linkedin-Version YYYYMM, default moniker 202607) - organizations + organizationsLookup, networkSizes, organizationalEntityShareStatistics, organizationPageStatistics, organizationalEntityFollowerStatistics, posts (rest/posts, replaces ugcPosts), socialMetadata (replaces socialActions)",
+  "note": "no native BigQuery export - schema designed by us",
+  "totalColumns": 170,
+  "tables": [
+    {
+      "name": "li_Organization",
+      "file": "li_Organization.json",
+      "kind": "snapshot",
+      "grain": "one row per organization per _DATA_DATE (daily snapshot of GET /rest/organizations/{id} + GET /rest/networkSizes/{urn}?edgeType=COMPANY_FOLLOWED_BY_MEMBER); PK (organization_id, _DATA_DATE); filter _DATA_DATE = _LATEST_DATE for current page state; metrics_follower_count is the only measure and is a point-in-time level, never a sum",
+      "columns": 45
+    },
+    {
+      "name": "li_DailyStats",
+      "file": "li_DailyStats.json",
+      "kind": "stats",
+      "grain": "organization_id x segments_date (DAY granularity); one row assembled from three time-bound endpoints - organizationalEntityShareStatistics.totalShareStatistics, organizationPageStatistics.totalPageStatistics (views + clicks), organizationalEntityFollowerStatistics.followerGains; _DATA_DATE = segments_date; restated over a trailing re-pull window, MERGE on (organization_id, segments_date)",
+      "columns": 42
+    },
+    {
+      "name": "li_FollowerStats",
+      "file": "li_FollowerStats.json",
+      "kind": "demographics",
+      "grain": "organization_id x segments_type x segments_value per _DATA_DATE; lifetime follower demographics from organizationalEntityFollowerStatistics called WITHOUT timeIntervals; segments_type in (SENIORITY, INDUSTRY, FUNCTION, STAFF_COUNT_RANGE, GEO, GEO_COUNTRY, ASSOCIATION_TYPE); each facet is capped at the top 100 values by LinkedIn; PK (organization_id, segments_type, segments_value, _DATA_DATE)",
+      "columns": 15
+    },
+    {
+      "name": "li_Post",
+      "file": "li_Post.json",
+      "kind": "post",
+      "grain": "one row per post (urn:li:share:{id} or urn:li:ugcPost:{id}) per _DATA_DATE; post attributes from GET /rest/posts?q=author, lifetime-to-date statistics from organizationalEntityShareStatistics with shares=/ugcPosts=, reactions and comment counts from socialMetadata; PK (post_urn, _DATA_DATE); statistics are cumulative lifetime values as at _DATA_DATE, not daily deltas",
+      "columns": 68
+    }
+  ]
+}

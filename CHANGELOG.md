@@ -64,7 +64,14 @@ BigQuery now holds a **`range_key` dimension** — every KPI (and attribution pa
 - **Tooltips:** the header D/W/M/Q/Y buttons now show proper hover labels (Daily/Weekly/Monthly/Quarterly/Annually) instead of the slow native `title`.
 - **Visible effect:** granularity previously only relabelled the x-axis — `resample()` interpolates, which preserves the line's shape, so coarser views looked identical. The **Daily** view now applies a deterministic weekday-seasonality pattern (weekend dips) so fine granularity is visibly detailed vs. the smooth coarser views.
 
-## V1.0.24 — Call tracking on BigQuery *(current)*
+## V1.0.25 — Organic social: LinkedIn, Facebook Page, Instagram — the platform set is complete *(current)*
+The last three platforms, in one pass: **12 tables / 424 columns** across `facebook_page`, `instagram` and `linkedin` (each: entity snapshot, daily stats, per-post, audience) — **137 tables per client dataset**, 118,520 rows, **7 marts per client**. Modules wired: **Facebook Page** (46,989 followers, +1,237 net, 4.71% engagement), **Instagram** (29,185 followers, follower vs non-follower reach split, Reels), **LinkedIn** (3,674 followers with the seniority/industry/function/company-size breakdowns that are its real value).
+
+Deprecated metrics deliberately excluded and documented: Meta's 2024 Page Insights pruning, and Instagram's `impressions` → `views` migration — modelling dead metrics would produce tables that can never be filled.
+
+**All 7 platforms now serve from per-client BigQuery marts.**
+
+## V1.0.24 — Call tracking on BigQuery
 Fourth platform. **3 call-tracking tables / 239 columns** designed from the WildJar + CallRail APIs (no native BQ export — our shapes): `calls_Call` (**one row per call** — 162 columns of identity, routing, a 63-field attribution block, and outcome/quality incl. transcript, sentiment, tags, qualification), `calls_TrackingNumber` (daily pool snapshot, so calls join to their number's configured source) and `calls_DailyStats`. 6,573 dummy rows with business-hours weighting, dispositions, and a tracking-number pool whose numbers map to the **same Google/Meta campaigns** as the other platforms. `fact_calls_daily` + the **Call Tracking** module (416 calls · 303 answered · 15.6% miss rate · 131 qualified, by source, plus the individual recent calls).
 
 **Mutability modelled properly:** unlike ad stats, call records keep changing after the call — tags, disposition, qualification and transcription land later. The generator reflects that (recent calls are legitimately un-enriched and show "Pending"), and the docs specify **MERGE on call id over a trailing window**, never blind-append. `calls_Call` is a mutable fact, so the `_DATA_DATE = _LATEST_DATE` snapshot filter must never be applied to it.
