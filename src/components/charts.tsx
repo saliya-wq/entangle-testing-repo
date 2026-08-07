@@ -207,18 +207,18 @@ export function Donut({ labels, data, height = 240 }: { labels: string[]; data: 
   );
 }
 
-export function DonutLegend({ labels, data, money }: { labels: string[]; data: number[]; money?: boolean }) {
+export function DonutLegend({ labels, data, money, count }: { labels: string[]; data: number[]; money?: boolean; count?: boolean }) {
   const C = chartColors();
   const total = data.reduce((a, b) => a + b, 0);
+  const fmt = (v: number) =>
+    money ? "$" + v.toLocaleString("en-AU") : count ? v.toLocaleString("en-AU") : Math.round((v / total) * 100) + "%";
   return (
     <div className="mt-3 space-y-2">
       {labels.map((l, i) => (
         <div key={i} className="flex items-center gap-2.5 text-sm">
           <span className="h-2.5 w-2.5 rounded-sm" style={{ background: C[i % C.length] }} />
           <span className="text-muted-foreground">{l}</span>
-          <span className="ml-auto font-medium tabular-nums">
-            {money ? "$" + data[i].toLocaleString("en-AU") : Math.round((data[i] / total) * 100) + "%"}
-          </span>
+          <span className="ml-auto font-medium tabular-nums">{fmt(data[i])}</span>
         </div>
       ))}
     </div>

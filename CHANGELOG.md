@@ -64,7 +64,10 @@ BigQuery now holds a **`range_key` dimension** — every KPI (and attribution pa
 - **Tooltips:** the header D/W/M/Q/Y buttons now show proper hover labels (Daily/Weekly/Monthly/Quarterly/Annually) instead of the slow native `title`.
 - **Visible effect:** granularity previously only relabelled the x-axis — `resample()` interpolates, which preserves the line's shape, so coarser views looked identical. The **Daily** view now applies a deterministic weekday-seasonality pattern (weekend dips) so fine granularity is visibly detailed vs. the smooth coarser views.
 
-## V1.0.18 — Live charts respond to the date range + no-blank-chart hardening *(current)*
+## V1.0.19 — "By device" donuts respond to the date range *(current)*
+The device-share donuts ("Clicks by device" on Google Ads, "Sessions by device" on GA4) now show **absolute click/session counts** in the legend (total × device share, scaled by the client × range factor) instead of only a fixed percentage — so the numbers move with the date picker (e.g. Mobile 8,094 at 30d → 51,802 at YTD). The **ring proportions stay constant by design** — a device *mix* is range-invariant (Mobile is ~57% of clicks regardless of window); only the volume scales. `DonutLegend` gained a `count` display mode.
+
+## V1.0.18 — Live charts respond to the date range + no-blank-chart hardening
 - **Charts render reliably:** replaced Recharts `ResponsiveContainer` with a measured `ChartBox` that renders a chart only once its container has a real width (and re-measures on resize). Fixes charts occasionally painting blank when mounted inside a hidden tab.
 - **Live charts now respond to the date picker:** BigQuery marts now hold **base** values and the app applies the client × date-range factor at read time — so in Live mode *both* the KPI cards and the charts scale with the range (previously only cards did). Live and sample now match on every range. KPI numbers are unchanged (e.g. Total Ad Spend still 9,641 → 257,088 across ranges); they're just computed client-side from a BigQuery base rather than stored per-range. BigQuery re-loaded (315 base KPI rows + 36 path rows). *(In a real deployment, range aggregation moves server-side — SQL over dated rows — once real daily data lands.)*
 
