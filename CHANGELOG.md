@@ -64,7 +64,10 @@ BigQuery now holds a **`range_key` dimension** — every KPI (and attribution pa
 - **Tooltips:** the header D/W/M/Q/Y buttons now show proper hover labels (Daily/Weekly/Monthly/Quarterly/Annually) instead of the slow native `title`.
 - **Visible effect:** granularity previously only relabelled the x-axis — `resample()` interpolates, which preserves the line's shape, so coarser views looked identical. The **Daily** view now applies a deterministic weekday-seasonality pattern (weekend dips) so fine granularity is visibly detailed vs. the smooth coarser views.
 
-## V1.0.19 — "By device" donuts respond to the date range *(current)*
+## V1.0.20 — Dashboard reads real windowed data from the local BigQuery replica *(current)*
+The local-first redesign's first end-to-end slice: `npm run bq:local` + `bq:init` + `bq:seed-local` + `bq:transform` build a full Google Ads DTS replica (109 tables) with realistic dummy data on a localhost BigQuery emulator; `local-bq/sql/fact_ads_campaign_daily.sql` builds the mart; `npm run dev:api` serves `/api/bq/*` from it with **real date-range SQL and real period-over-period deltas** (no scaling factors); Vite proxies `/api` in dev. `provider.ts` honours a `real_window` marker — mart data renders with `f=1`, the deployed demo API keeps its base+factor behaviour. Google Ads + Campaign modules now render fully from the mart in local dev (`LIVE · BigQuery mart`).
+
+## V1.0.19 — "By device" donuts respond to the date range
 The device-share donuts ("Clicks by device" on Google Ads, "Sessions by device" on GA4) now show **absolute click/session counts** in the legend (total × device share, scaled by the client × range factor) instead of only a fixed percentage — so the numbers move with the date picker (e.g. Mobile 8,094 at 30d → 51,802 at YTD). The **ring proportions stay constant by design** — a device *mix* is range-invariant (Mobile is ~57% of clicks regardless of window); only the volume scales. `DonutLegend` gained a `count` display mode.
 
 ## V1.0.18 — Live charts respond to the date range + no-blank-chart hardening

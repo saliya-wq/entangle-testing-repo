@@ -74,17 +74,20 @@ async function liveKpis(moduleKey: string, range: DateRange, conns: Connection[]
   return null;
 }
 
-/** BigQuery marts overlay (headline KPIs + attribution paths for the demo datasets).
+/** BigQuery marts overlay. Two backends share this seam:
+    - demo /api/bq (Vercel): returns BASE kpis → caller scales by client × range factor
+    - local dev-api → emulator marts: returns REAL windowed data (real_window: true) → f must stay 1
     Returns null if BQ isn't configured/reachable or has no rows for this client+module. */
-async function liveBq(moduleKey: string, clientSlug: string): Promise<{ kpis: any[]; paths?: any[] } | null> {
+const OVERLAY_KEYS = ["kpis", "paths", "campaigns", "devices", "base", "mix", "channels", "trend"] as const;
+async function liveBq(moduleKey: string, clientSlug: string, rangeKey: string): Promise<{ overlay: any; realWindow: boolean } | null> {
   try {
-    const r = await fetch(liveConfig.base + `/api/bq/${moduleKey}?client=${encodeURIComponent(clientSlug)}`);
+    const r = await fetch(liveConfig.base + `/api/bq/${moduleKey}?client=${encodeURIComponent(clientSlug)}&range=${encodeURIComponent(rangeKey)}`);
     if (!r.ok) return null;
     const data = await r.json();
     if (!Array.isArray(data?.kpis) || !data.kpis.length) return null;
-    const overlay: { kpis: any[]; paths?: any[] } = { kpis: data.kpis };
-    if (Array.isArray(data.paths)) overlay.paths = data.paths;
-    return overlay;
+    const overlay: any = {};
+    for (const k of OVERLAY_KEYS) if (data[k] != null) overlay[k] = data[k];
+    return { overlay, realWindow: !!data.real_window };
   } catch {
     return null;
   }
@@ -93,10 +96,14 @@ async function liveBq(moduleKey: string, clientSlug: string): Promise<{ kpis: an
 /** Async entry point used by the UI. */
 export async function getModuleDataAsync(client: ClientRec, moduleKey: string, range: DateRange, live: boolean, conns: Connection[]): Promise<ModuleResult> {
   if (live) {
-    // 1. BigQuery marts (demo data lives in demo_client_<slug>). BQ holds BASE values;
-    //    the client × date-range factor is applied here so BOTH cards and charts respond to the range.
-    const bq = await liveBq(moduleKey, client.slug);
-    if (bq) return { mod: moduleKey, d: { ...DATA[moduleKey], ...bq }, f: client.f * range.factor, freshness: "LIVE · BigQuery", source: "bq", live: true };
+    // 1. BigQuery marts. real_window data is already aggregated for the selected
+    //    range (f = 1); demo base data is scaled by the client × range factor.
+    const bq = await liveBq(moduleKey, client.slug, range.key);
+    if (bq) {
+      const f = bq.realWindow ? 1 : client.f * range.factor;
+      const freshness = bq.realWindow ? "LIVE · BigQuery mart" : "LIVE · BigQuery";
+      return { mod: moduleKey, d: { ...DATA[moduleKey], ...bq.overlay }, f, freshness, source: "bq", live: true };
+    }
     // 2. Platform snapshot KPIs (Meta / GA4 / Google) for the mapped modules.
     try {
       const kpis = await liveKpis(moduleKey, range, conns);
