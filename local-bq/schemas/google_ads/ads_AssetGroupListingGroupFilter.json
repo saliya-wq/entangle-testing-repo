@@ -1,0 +1,87 @@
+[
+  {
+    "name": "asset_group_listing_group_filter_asset_group",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "asset_group_listing_group_filter_case_value_product_category_category_id",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "asset_group_listing_group_filter_case_value_product_category_level",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "asset_group_listing_group_filter_case_value_product_brand_value",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "asset_group_listing_group_filter_case_value_product_channel_channel",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "asset_group_listing_group_filter_case_value_product_condition_condition",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "asset_group_listing_group_filter_case_value_product_custom_attribute_index",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "asset_group_listing_group_filter_case_value_product_custom_attribute_value",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "asset_group_listing_group_filter_case_value_product_item_id_value",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "asset_group_listing_group_filter_case_value_product_type_level",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "asset_group_listing_group_filter_case_value_product_type_value",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "asset_group_listing_group_filter_id",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "asset_group_listing_group_filter_parent_listing_group_filter",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "asset_group_listing_group_filter_type",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "asset_group_listing_group_filter_listing_source",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "_DATA_DATE",
+    "type": "DATE",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "_LATEST_DATE",
+    "type": "DATE",
+    "mode": "NULLABLE"
+  }
+]

@@ -1,0 +1,147 @@
+[
+  {
+    "name": "ad_group_id",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_group_status",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "campaign_id",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "click_view_ad_group_ad",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "click_view_area_of_interest_city",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "click_view_area_of_interest_country",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "click_view_area_of_interest_metro",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "click_view_area_of_interest_most_specific",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "click_view_area_of_interest_region",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "click_view_gclid",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "click_view_keyword",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "click_view_keyword_info_match_type",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "click_view_keyword_info_text",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "click_view_location_of_presence_city",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "click_view_location_of_presence_country",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "click_view_location_of_presence_metro",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "click_view_location_of_presence_most_specific",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "click_view_location_of_presence_region",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "click_view_page_number",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "customer_descriptive_name",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "customer_id",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "metrics_clicks",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "segments_ad_network_type",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "segments_click_type",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "segments_date",
+    "type": "DATE",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "segments_device",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "segments_slot",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "_DATA_DATE",
+    "type": "DATE",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "_LATEST_DATE",
+    "type": "DATE",
+    "mode": "NULLABLE"
+  }
+]

@@ -8,3 +8,4 @@ dist-ssr
 .env*
 *.docx
 .bq-demo
+local-bq/bin

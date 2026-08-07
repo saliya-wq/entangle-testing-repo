@@ -1,0 +1,57 @@
+[
+  {
+    "name": "ad_group_bid_modifier_ad_group",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_group_bid_modifier_base_ad_group",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_group_bid_modifier_bid_modifier",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_group_bid_modifier_bid_modifier_source",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_group_bid_modifier_criterion_id",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_group_bid_modifier_device_type",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_group_bid_modifier_resource_name",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_group_id",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_group_name",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "_DATA_DATE",
+    "type": "DATE",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "_LATEST_DATE",
+    "type": "DATE",
+    "mode": "NULLABLE"
+  }
+]

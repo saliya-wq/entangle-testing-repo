@@ -1,0 +1,47 @@
+[
+  {
+    "name": "asset_group_asset_asset",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "asset_group_asset_asset_group",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "asset_group_asset_field_type",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "asset_group_asset_policy_summary_approval_status",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "asset_group_asset_policy_summary_policy_topic_entries",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "asset_group_asset_policy_summary_review_status",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "asset_group_asset_source",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "_DATA_DATE",
+    "type": "DATE",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "_LATEST_DATE",
+    "type": "DATE",
+    "mode": "NULLABLE"
+  }
+]

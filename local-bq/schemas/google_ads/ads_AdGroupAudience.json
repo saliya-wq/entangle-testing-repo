@@ -1,0 +1,107 @@
+[
+  {
+    "name": "ad_group_base_ad_group",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_group_campaign",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_group_criterion_bid_modifier",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_group_criterion_criterion_id",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_group_criterion_effective_cpc_bid_micros",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_group_criterion_effective_cpc_bid_source",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_group_criterion_effective_cpm_bid_micros",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_group_criterion_effective_cpm_bid_source",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_group_criterion_final_mobile_urls",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "ad_group_criterion_final_urls",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "ad_group_criterion_keyword_text",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_group_criterion_status",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_group_id",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_group_targeting_setting_target_restrictions",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "ad_group_tracking_url_template",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_group_url_custom_parameters",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "campaign_base_campaign",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "campaign_bidding_strategy",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "customer_id",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "_DATA_DATE",
+    "type": "DATE",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "_LATEST_DATE",
+    "type": "DATE",
+    "mode": "NULLABLE"
+  }
+]

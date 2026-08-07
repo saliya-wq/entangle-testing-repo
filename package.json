@@ -8,7 +8,11 @@
     "build": "vite build",
     "preview": "vite preview",
     "seed:bq": "node scripts/seed-bq.mjs",
-    "load:bq": "node scripts/load-bq.mjs"
+    "load:bq": "node scripts/load-bq.mjs",
+    "bq:local": "./local-bq/bin/bigquery-emulator --project=entangle-local --port=9050",
+    "bq:init": "node scripts/bq-local-init.mjs",
+    "gen:dummy": "node scripts/generate-dummy.mjs",
+    "bq:seed-local": "node scripts/generate-dummy.mjs && node scripts/bq-local-load.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.115.0",

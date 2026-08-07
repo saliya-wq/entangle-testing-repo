@@ -1,0 +1,52 @@
+[
+  {
+    "name": "campaign_id",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "campaign_label_campaign",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "campaign_label_label",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "campaign_label_resource_name",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "campaign_name",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "label_id",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "label_name",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "label_resource_name",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "_DATA_DATE",
+    "type": "DATE",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "_LATEST_DATE",
+    "type": "DATE",
+    "mode": "NULLABLE"
+  }
+]

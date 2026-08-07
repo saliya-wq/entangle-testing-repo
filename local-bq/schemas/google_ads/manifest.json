@@ -1,0 +1,660 @@
+{
+  "generated": "2026-08-07",
+  "source": "https://docs.cloud.google.com/bigquery/docs/google-ads-transformation",
+  "tables": [
+    {
+      "name": "ads_AccountBasicStats",
+      "file": "ads_AccountBasicStats.json",
+      "kind": "stats",
+      "columns": 15
+    },
+    {
+      "name": "ads_AccountConversionStats",
+      "file": "ads_AccountConversionStats.json",
+      "kind": "stats",
+      "columns": 19
+    },
+    {
+      "name": "ads_AccountNonClickStats",
+      "file": "ads_AccountNonClickStats.json",
+      "kind": "stats",
+      "columns": 31
+    },
+    {
+      "name": "ads_AccountStats",
+      "file": "ads_AccountStats.json",
+      "kind": "stats",
+      "columns": 34
+    },
+    {
+      "name": "ads_Ad",
+      "file": "ads_Ad.json",
+      "kind": "snapshot",
+      "columns": 79
+    },
+    {
+      "name": "ads_AdBasicStats",
+      "file": "ads_AdBasicStats.json",
+      "kind": "stats",
+      "columns": 21
+    },
+    {
+      "name": "ads_AdConversionStats",
+      "file": "ads_AdConversionStats.json",
+      "kind": "stats",
+      "columns": 25
+    },
+    {
+      "name": "ads_AdCrossDeviceConversionStats",
+      "file": "ads_AdCrossDeviceConversionStats.json",
+      "kind": "stats",
+      "columns": 23
+    },
+    {
+      "name": "ads_AdCrossDeviceStats",
+      "file": "ads_AdCrossDeviceStats.json",
+      "kind": "stats",
+      "columns": 38
+    },
+    {
+      "name": "ads_AdGroup",
+      "file": "ads_AdGroup.json",
+      "kind": "snapshot",
+      "columns": 23
+    },
+    {
+      "name": "ads_AdGroupAdLabel",
+      "file": "ads_AdGroupAdLabel.json",
+      "kind": "snapshot",
+      "columns": 10
+    },
+    {
+      "name": "ads_AdGroupAudience",
+      "file": "ads_AdGroupAudience.json",
+      "kind": "snapshot",
+      "columns": 21
+    },
+    {
+      "name": "ads_AdGroupAudienceBasicStats",
+      "file": "ads_AdGroupAudienceBasicStats.json",
+      "kind": "stats",
+      "columns": 20
+    },
+    {
+      "name": "ads_AdGroupAudienceConversionStats",
+      "file": "ads_AdGroupAudienceConversionStats.json",
+      "kind": "stats",
+      "columns": 27
+    },
+    {
+      "name": "ads_AdGroupAudienceNonClickStats",
+      "file": "ads_AdGroupAudienceNonClickStats.json",
+      "kind": "stats",
+      "columns": 22
+    },
+    {
+      "name": "ads_AdGroupAudienceStats",
+      "file": "ads_AdGroupAudienceStats.json",
+      "kind": "stats",
+      "columns": 44
+    },
+    {
+      "name": "ads_AdGroupBasicStats",
+      "file": "ads_AdGroupBasicStats.json",
+      "kind": "stats",
+      "columns": 19
+    },
+    {
+      "name": "ads_AdGroupBidModifier",
+      "file": "ads_AdGroupBidModifier.json",
+      "kind": "snapshot",
+      "columns": 11
+    },
+    {
+      "name": "ads_AdGroupConversionStats",
+      "file": "ads_AdGroupConversionStats.json",
+      "kind": "stats",
+      "columns": 23
+    },
+    {
+      "name": "ads_AdGroupCriterion",
+      "file": "ads_AdGroupCriterion.json",
+      "kind": "snapshot",
+      "columns": 14
+    },
+    {
+      "name": "ads_AdGroupCriterionLabel",
+      "file": "ads_AdGroupCriterionLabel.json",
+      "kind": "snapshot",
+      "columns": 9
+    },
+    {
+      "name": "ads_AdGroupCrossDeviceConversionStats",
+      "file": "ads_AdGroupCrossDeviceConversionStats.json",
+      "kind": "stats",
+      "columns": 21
+    },
+    {
+      "name": "ads_AdGroupCrossDeviceStats",
+      "file": "ads_AdGroupCrossDeviceStats.json",
+      "kind": "stats",
+      "columns": 51
+    },
+    {
+      "name": "ads_AdGroupLabel",
+      "file": "ads_AdGroupLabel.json",
+      "kind": "snapshot",
+      "columns": 10
+    },
+    {
+      "name": "ads_AdGroupStats",
+      "file": "ads_AdGroupStats.json",
+      "kind": "stats",
+      "columns": 45
+    },
+    {
+      "name": "ads_AdStats",
+      "file": "ads_AdStats.json",
+      "kind": "stats",
+      "columns": 46
+    },
+    {
+      "name": "ads_AgeRange",
+      "file": "ads_AgeRange.json",
+      "kind": "snapshot",
+      "columns": 23
+    },
+    {
+      "name": "ads_AgeRangeBasicStats",
+      "file": "ads_AgeRangeBasicStats.json",
+      "kind": "stats",
+      "columns": 27
+    },
+    {
+      "name": "ads_AgeRangeConversionStats",
+      "file": "ads_AgeRangeConversionStats.json",
+      "kind": "stats",
+      "columns": 27
+    },
+    {
+      "name": "ads_AgeRangeNonClickStats",
+      "file": "ads_AgeRangeNonClickStats.json",
+      "kind": "stats",
+      "columns": 26
+    },
+    {
+      "name": "ads_AgeRangeStats",
+      "file": "ads_AgeRangeStats.json",
+      "kind": "stats",
+      "columns": 48
+    },
+    {
+      "name": "ads_Asset",
+      "file": "ads_Asset.json",
+      "kind": "snapshot",
+      "columns": 8
+    },
+    {
+      "name": "ads_AssetGroup",
+      "file": "ads_AssetGroup.json",
+      "kind": "snapshot",
+      "columns": 8
+    },
+    {
+      "name": "ads_AssetGroupAsset",
+      "file": "ads_AssetGroupAsset.json",
+      "kind": "snapshot",
+      "columns": 9
+    },
+    {
+      "name": "ads_AssetGroupListingGroupFilter",
+      "file": "ads_AssetGroupListingGroupFilter.json",
+      "kind": "snapshot",
+      "columns": 17
+    },
+    {
+      "name": "ads_AssetGroupProductGroupStats",
+      "file": "ads_AssetGroupProductGroupStats.json",
+      "kind": "stats",
+      "columns": 23
+    },
+    {
+      "name": "ads_AssetGroupSignal",
+      "file": "ads_AssetGroupSignal.json",
+      "kind": "snapshot",
+      "columns": 5
+    },
+    {
+      "name": "ads_Audience",
+      "file": "ads_Audience.json",
+      "kind": "snapshot",
+      "columns": 8
+    },
+    {
+      "name": "ads_BidGoal",
+      "file": "ads_BidGoal.json",
+      "kind": "snapshot",
+      "columns": 16
+    },
+    {
+      "name": "ads_BidGoalConversionStats",
+      "file": "ads_BidGoalConversionStats.json",
+      "kind": "stats",
+      "columns": 23
+    },
+    {
+      "name": "ads_BidGoalStats",
+      "file": "ads_BidGoalStats.json",
+      "kind": "stats",
+      "columns": 26
+    },
+    {
+      "name": "ads_Budget",
+      "file": "ads_Budget.json",
+      "kind": "snapshot",
+      "columns": 15
+    },
+    {
+      "name": "ads_BudgetStats",
+      "file": "ads_BudgetStats.json",
+      "kind": "stats",
+      "columns": 40
+    },
+    {
+      "name": "ads_Campaign",
+      "file": "ads_Campaign.json",
+      "kind": "snapshot",
+      "columns": 29
+    },
+    {
+      "name": "ads_CampaignAssetStats",
+      "file": "ads_CampaignAssetStats.json",
+      "kind": "stats",
+      "columns": 30
+    },
+    {
+      "name": "ads_CampaignAudience",
+      "file": "ads_CampaignAudience.json",
+      "kind": "snapshot",
+      "columns": 7
+    },
+    {
+      "name": "ads_CampaignAudienceBasicStats",
+      "file": "ads_CampaignAudienceBasicStats.json",
+      "kind": "stats",
+      "columns": 18
+    },
+    {
+      "name": "ads_CampaignAudienceConversionStats",
+      "file": "ads_CampaignAudienceConversionStats.json",
+      "kind": "stats",
+      "columns": 25
+    },
+    {
+      "name": "ads_CampaignAudienceNonClickStats",
+      "file": "ads_CampaignAudienceNonClickStats.json",
+      "kind": "stats",
+      "columns": 20
+    },
+    {
+      "name": "ads_CampaignAudienceStats",
+      "file": "ads_CampaignAudienceStats.json",
+      "kind": "stats",
+      "columns": 42
+    },
+    {
+      "name": "ads_CampaignBasicStats",
+      "file": "ads_CampaignBasicStats.json",
+      "kind": "stats",
+      "columns": 17
+    },
+    {
+      "name": "ads_CampaignConversionStats",
+      "file": "ads_CampaignConversionStats.json",
+      "kind": "stats",
+      "columns": 20
+    },
+    {
+      "name": "ads_CampaignCookieStats",
+      "file": "ads_CampaignCookieStats.json",
+      "kind": "stats",
+      "columns": 16
+    },
+    {
+      "name": "ads_CampaignCriterion",
+      "file": "ads_CampaignCriterion.json",
+      "kind": "snapshot",
+      "columns": 12
+    },
+    {
+      "name": "ads_CampaignCrossDeviceConversionStats",
+      "file": "ads_CampaignCrossDeviceConversionStats.json",
+      "kind": "stats",
+      "columns": 20
+    },
+    {
+      "name": "ads_CampaignCrossDeviceStats",
+      "file": "ads_CampaignCrossDeviceStats.json",
+      "kind": "stats",
+      "columns": 54
+    },
+    {
+      "name": "ads_CampaignLabel",
+      "file": "ads_CampaignLabel.json",
+      "kind": "snapshot",
+      "columns": 10
+    },
+    {
+      "name": "ads_CampaignLocationTargetStats",
+      "file": "ads_CampaignLocationTargetStats.json",
+      "kind": "stats",
+      "columns": 38
+    },
+    {
+      "name": "ads_CampaignStats",
+      "file": "ads_CampaignStats.json",
+      "kind": "stats",
+      "columns": 43
+    },
+    {
+      "name": "ads_ClickStats",
+      "file": "ads_ClickStats.json",
+      "kind": "stats",
+      "columns": 29
+    },
+    {
+      "name": "ads_Customer",
+      "file": "ads_Customer.json",
+      "kind": "snapshot",
+      "columns": 9
+    },
+    {
+      "name": "ads_DisplayVideoAutomaticPlacementsStats",
+      "file": "ads_DisplayVideoAutomaticPlacementsStats.json",
+      "kind": "stats",
+      "columns": 24
+    },
+    {
+      "name": "ads_DisplayVideoKeywordStats",
+      "file": "ads_DisplayVideoKeywordStats.json",
+      "kind": "stats",
+      "columns": 28
+    },
+    {
+      "name": "ads_DisplayVideoTopicStats",
+      "file": "ads_DisplayVideoTopicStats.json",
+      "kind": "stats",
+      "columns": 21
+    },
+    {
+      "name": "ads_Gender",
+      "file": "ads_Gender.json",
+      "kind": "snapshot",
+      "columns": 24
+    },
+    {
+      "name": "ads_GenderBasicStats",
+      "file": "ads_GenderBasicStats.json",
+      "kind": "stats",
+      "columns": 27
+    },
+    {
+      "name": "ads_GenderConversionStats",
+      "file": "ads_GenderConversionStats.json",
+      "kind": "stats",
+      "columns": 27
+    },
+    {
+      "name": "ads_GenderNonClickStats",
+      "file": "ads_GenderNonClickStats.json",
+      "kind": "stats",
+      "columns": 26
+    },
+    {
+      "name": "ads_GenderStats",
+      "file": "ads_GenderStats.json",
+      "kind": "stats",
+      "columns": 48
+    },
+    {
+      "name": "ads_GeoConversionStats",
+      "file": "ads_GeoConversionStats.json",
+      "kind": "stats",
+      "columns": 33
+    },
+    {
+      "name": "ads_GeoStats",
+      "file": "ads_GeoStats.json",
+      "kind": "stats",
+      "columns": 47
+    },
+    {
+      "name": "ads_HourlyAccountConversionStats",
+      "file": "ads_HourlyAccountConversionStats.json",
+      "kind": "stats",
+      "columns": 19
+    },
+    {
+      "name": "ads_HourlyAccountStats",
+      "file": "ads_HourlyAccountStats.json",
+      "kind": "stats",
+      "columns": 35
+    },
+    {
+      "name": "ads_HourlyAdGroupConversionStats",
+      "file": "ads_HourlyAdGroupConversionStats.json",
+      "kind": "stats",
+      "columns": 23
+    },
+    {
+      "name": "ads_HourlyAdGroupStats",
+      "file": "ads_HourlyAdGroupStats.json",
+      "kind": "stats",
+      "columns": 39
+    },
+    {
+      "name": "ads_HourlyBidGoalStats",
+      "file": "ads_HourlyBidGoalStats.json",
+      "kind": "stats",
+      "columns": 25
+    },
+    {
+      "name": "ads_HourlyCampaignConversionStats",
+      "file": "ads_HourlyCampaignConversionStats.json",
+      "kind": "stats",
+      "columns": 21
+    },
+    {
+      "name": "ads_HourlyCampaignStats",
+      "file": "ads_HourlyCampaignStats.json",
+      "kind": "stats",
+      "columns": 37
+    },
+    {
+      "name": "ads_Keyword",
+      "file": "ads_Keyword.json",
+      "kind": "snapshot",
+      "columns": 34
+    },
+    {
+      "name": "ads_KeywordBasicStats",
+      "file": "ads_KeywordBasicStats.json",
+      "kind": "stats",
+      "columns": 20
+    },
+    {
+      "name": "ads_KeywordConversionStats",
+      "file": "ads_KeywordConversionStats.json",
+      "kind": "stats",
+      "columns": 24
+    },
+    {
+      "name": "ads_KeywordCrossDeviceConversionStats",
+      "file": "ads_KeywordCrossDeviceConversionStats.json",
+      "kind": "stats",
+      "columns": 22
+    },
+    {
+      "name": "ads_KeywordCrossDeviceStats",
+      "file": "ads_KeywordCrossDeviceStats.json",
+      "kind": "stats",
+      "columns": 46
+    },
+    {
+      "name": "ads_KeywordStats",
+      "file": "ads_KeywordStats.json",
+      "kind": "stats",
+      "columns": 46
+    },
+    {
+      "name": "ads_LandingPageStats",
+      "file": "ads_LandingPageStats.json",
+      "kind": "stats",
+      "columns": 21
+    },
+    {
+      "name": "ads_LocationBasedCampaignCriterion",
+      "file": "ads_LocationBasedCampaignCriterion.json",
+      "kind": "snapshot",
+      "columns": 7
+    },
+    {
+      "name": "ads_LocationsDistanceStats",
+      "file": "ads_LocationsDistanceStats.json",
+      "kind": "stats",
+      "columns": 19
+    },
+    {
+      "name": "ads_LocationsUserLocationsStats",
+      "file": "ads_LocationsUserLocationsStats.json",
+      "kind": "stats",
+      "columns": 30
+    },
+    {
+      "name": "ads_PaidOrganicStats",
+      "file": "ads_PaidOrganicStats.json",
+      "kind": "stats",
+      "columns": 25
+    },
+    {
+      "name": "ads_ParentalStatus",
+      "file": "ads_ParentalStatus.json",
+      "kind": "snapshot",
+      "columns": 21
+    },
+    {
+      "name": "ads_ParentalStatusBasicStats",
+      "file": "ads_ParentalStatusBasicStats.json",
+      "kind": "stats",
+      "columns": 27
+    },
+    {
+      "name": "ads_ParentalStatusConversionStats",
+      "file": "ads_ParentalStatusConversionStats.json",
+      "kind": "stats",
+      "columns": 27
+    },
+    {
+      "name": "ads_ParentalStatusNonClickStats",
+      "file": "ads_ParentalStatusNonClickStats.json",
+      "kind": "stats",
+      "columns": 27
+    },
+    {
+      "name": "ads_ParentalStatusStats",
+      "file": "ads_ParentalStatusStats.json",
+      "kind": "stats",
+      "columns": 48
+    },
+    {
+      "name": "ads_Placement",
+      "file": "ads_Placement.json",
+      "kind": "snapshot",
+      "columns": 24
+    },
+    {
+      "name": "ads_PlacementBasicStats",
+      "file": "ads_PlacementBasicStats.json",
+      "kind": "stats",
+      "columns": 27
+    },
+    {
+      "name": "ads_PlacementConversionStats",
+      "file": "ads_PlacementConversionStats.json",
+      "kind": "stats",
+      "columns": 27
+    },
+    {
+      "name": "ads_PlacementNonClickStats",
+      "file": "ads_PlacementNonClickStats.json",
+      "kind": "stats",
+      "columns": 26
+    },
+    {
+      "name": "ads_PlacementStats",
+      "file": "ads_PlacementStats.json",
+      "kind": "stats",
+      "columns": 47
+    },
+    {
+      "name": "ads_ProductGroupStats",
+      "file": "ads_ProductGroupStats.json",
+      "kind": "stats",
+      "columns": 32
+    },
+    {
+      "name": "ads_SearchQueryConversionStats",
+      "file": "ads_SearchQueryConversionStats.json",
+      "kind": "stats",
+      "columns": 29
+    },
+    {
+      "name": "ads_SearchQueryStats",
+      "file": "ads_SearchQueryStats.json",
+      "kind": "stats",
+      "columns": 52
+    },
+    {
+      "name": "ads_ShoppingProductConversionStats",
+      "file": "ads_ShoppingProductConversionStats.json",
+      "kind": "stats",
+      "columns": 48
+    },
+    {
+      "name": "ads_ShoppingProductStats",
+      "file": "ads_ShoppingProductStats.json",
+      "kind": "stats",
+      "columns": 58
+    },
+    {
+      "name": "ads_Video",
+      "file": "ads_Video.json",
+      "kind": "snapshot",
+      "columns": 9
+    },
+    {
+      "name": "ads_VideoBasicStats",
+      "file": "ads_VideoBasicStats.json",
+      "kind": "stats",
+      "columns": 18
+    },
+    {
+      "name": "ads_VideoConversionStats",
+      "file": "ads_VideoConversionStats.json",
+      "kind": "stats",
+      "columns": 23
+    },
+    {
+      "name": "ads_VideoNonClickStats",
+      "file": "ads_VideoNonClickStats.json",
+      "kind": "stats",
+      "columns": 32
+    },
+    {
+      "name": "ads_VideoStats",
+      "file": "ads_VideoStats.json",
+      "kind": "stats",
+      "columns": 27
+    }
+  ]
+}

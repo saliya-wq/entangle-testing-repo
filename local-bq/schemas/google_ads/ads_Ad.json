@@ -1,0 +1,397 @@
+[
+  {
+    "name": "ad_group_ad_ad_added_by_google_ads",
+    "type": "BOOL",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_group_ad_policy_summary_approval_status",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_group_id",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_group_ad_ad_app_ad_descriptions",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "ad_group_ad_ad_app_ad_headlines",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "ad_group_ad_ad_app_ad_html5_media_bundles",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "ad_group_ad_ad_app_ad_images",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "ad_group_ad_ad_app_ad_mandatory_ad_text",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_group_ad_ad_app_ad_youtube_videos",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "ad_group_ad_ad_call_ad_phone_number",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_group_ad_ad_device_preference",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_group_ad_ad_display_url",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_group_ad_ad_expanded_dynamic_search_ad_description",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_group_ad_ad_expanded_dynamic_search_ad_description2",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_group_ad_ad_expanded_text_ad_description",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_group_ad_ad_expanded_text_ad_description2",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_group_ad_ad_expanded_text_ad_headline_part1",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_group_ad_ad_expanded_text_ad_headline_part2",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_group_ad_ad_expanded_text_ad_headline_part3",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_group_ad_ad_expanded_text_ad_path1",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_group_ad_ad_expanded_text_ad_path2",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_group_ad_ad_final_app_urls",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "ad_group_ad_ad_final_mobile_urls",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "ad_group_ad_ad_final_urls",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "ad_group_ad_ad_group",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_group_ad_ad_id",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_group_ad_ad_image_ad_image_url",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_group_ad_ad_image_ad_mime_type",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_group_ad_ad_image_ad_name",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_group_ad_ad_image_ad_pixel_height",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_group_ad_ad_image_ad_pixel_width",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_group_ad_ad_legacy_responsive_display_ad_accent_color",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_group_ad_ad_legacy_responsive_display_ad_allow_flexible_color",
+    "type": "BOOL",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_group_ad_ad_legacy_responsive_display_ad_business_name",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_group_ad_ad_legacy_responsive_display_ad_call_to_action_text",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_group_ad_ad_legacy_responsive_display_ad_description",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_group_ad_ad_legacy_responsive_display_ad_format_setting",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_group_ad_ad_legacy_responsive_display_ad_logo_image",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_group_ad_ad_legacy_responsive_display_ad_long_headline",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_group_ad_ad_legacy_responsive_display_ad_main_color",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_group_ad_ad_legacy_responsive_display_ad_marketing_image",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_group_ad_ad_legacy_responsive_display_ad_price_prefix",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_group_ad_ad_legacy_responsive_display_ad_promo_text",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_group_ad_ad_legacy_responsive_display_ad_short_headline",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_group_ad_ad_legacy_responsive_display_ad_square_logo_image",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_group_ad_ad_legacy_responsive_display_ad_square_marketing_image",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_group_ad_ad_name",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_group_ad_ad_responsive_display_ad_accent_color",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_group_ad_ad_responsive_display_ad_business_name",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_group_ad_ad_responsive_display_ad_call_to_action_text",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_group_ad_ad_responsive_display_ad_descriptions",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "ad_group_ad_ad_responsive_display_ad_format_setting",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_group_ad_ad_responsive_display_ad_headlines",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "ad_group_ad_ad_responsive_display_ad_logo_images",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "ad_group_ad_ad_responsive_display_ad_long_headline",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_group_ad_ad_responsive_display_ad_main_color",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_group_ad_ad_responsive_display_ad_marketing_images",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "ad_group_ad_ad_responsive_display_ad_price_prefix",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_group_ad_ad_responsive_display_ad_promo_text",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_group_ad_ad_responsive_display_ad_square_logo_images",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "ad_group_ad_ad_responsive_display_ad_square_marketing_images",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "ad_group_ad_ad_responsive_display_ad_youtube_videos",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "ad_group_ad_ad_responsive_search_ad_descriptions",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "ad_group_ad_ad_responsive_search_ad_headlines",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "ad_group_ad_ad_responsive_search_ad_path1",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_group_ad_ad_responsive_search_ad_path2",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_group_ad_ad_strength",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_group_ad_ad_system_managed_resource_source",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_group_ad_ad_text_ad_description1",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_group_ad_ad_text_ad_description2",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_group_ad_ad_text_ad_headline",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_group_ad_ad_tracking_url_template",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_group_ad_ad_type",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "ad_group_ad_ad_url_custom_parameters",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "ad_group_ad_status",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "campaign_id",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "customer_id",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "_DATA_DATE",
+    "type": "DATE",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "_LATEST_DATE",
+    "type": "DATE",
+    "mode": "NULLABLE"
+  }
+]

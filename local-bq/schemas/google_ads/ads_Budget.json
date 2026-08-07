@@ -1,0 +1,77 @@
+[
+  {
+    "name": "campaign_budget_amount_micros",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "campaign_budget_delivery_method",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "campaign_budget_explicitly_shared",
+    "type": "BOOL",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "campaign_budget_has_recommended_budget",
+    "type": "BOOL",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "campaign_budget_id",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "campaign_budget_name",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "campaign_budget_period",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "campaign_budget_recommended_budget_amount_micros",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "campaign_budget_reference_count",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "campaign_budget_status",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "campaign_budget_total_amount_micros",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "customer_descriptive_name",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "customer_id",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "_DATA_DATE",
+    "type": "DATE",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "_LATEST_DATE",
+    "type": "DATE",
+    "mode": "NULLABLE"
+  }
+]

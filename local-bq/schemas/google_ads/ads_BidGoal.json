@@ -1,0 +1,82 @@
+[
+  {
+    "name": "bidding_strategy_id",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "bidding_strategy_name",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "bidding_strategy_status",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "bidding_strategy_target_cpa_cpc_bid_ceiling_micros",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "bidding_strategy_target_cpa_cpc_bid_floor_micros",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "bidding_strategy_target_cpa_target_cpa_micros",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "bidding_strategy_target_roas_cpc_bid_ceiling_micros",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "bidding_strategy_target_roas_cpc_bid_floor_micros",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "bidding_strategy_target_roas_target_roas",
+    "type": "FLOAT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "bidding_strategy_target_spend_cpc_bid_ceiling_micros",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "bidding_strategy_target_spend_target_spend_micros",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "bidding_strategy_type",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "customer_descriptive_name",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "customer_id",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "_DATA_DATE",
+    "type": "DATE",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "_LATEST_DATE",
+    "type": "DATE",
+    "mode": "NULLABLE"
+  }
+]

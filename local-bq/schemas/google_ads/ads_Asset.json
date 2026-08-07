@@ -1,0 +1,42 @@
+[
+  {
+    "name": "asset_name",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "asset_id",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "asset_source",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "asset_final_urls",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "asset_type",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "segments_conversion_action",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "_DATA_DATE",
+    "type": "DATE",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "_LATEST_DATE",
+    "type": "DATE",
+    "mode": "NULLABLE"
+  }
+]

@@ -1,0 +1,42 @@
+[
+  {
+    "name": "audience_description",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "audience_dimensions",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "audience_exclusion_dimension",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "audience_id",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "audience_name",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "audience_status",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "_DATA_DATE",
+    "type": "DATE",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "_LATEST_DATE",
+    "type": "DATE",
+    "mode": "NULLABLE"
+  }
+]

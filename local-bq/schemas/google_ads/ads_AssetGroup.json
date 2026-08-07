@@ -1,0 +1,42 @@
+[
+  {
+    "name": "asset_group_campaign",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "asset_group_final_mobile_urls",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "asset_group_final_urls",
+    "type": "STRING",
+    "mode": "REPEATED"
+  },
+  {
+    "name": "asset_group_id",
+    "type": "INT64",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "asset_group_name",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "asset_group_status",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "_DATA_DATE",
+    "type": "DATE",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "_LATEST_DATE",
+    "type": "DATE",
+    "mode": "NULLABLE"
+  }
+]
