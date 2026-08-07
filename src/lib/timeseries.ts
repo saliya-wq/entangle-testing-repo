@@ -48,8 +48,22 @@ export function resample(values: number[], target: number): number[] {
   });
 }
 
-/** Transform trend series to the given granularity (new labels + resampled data). */
+// Weekday seasonality (Mon…Sun) applied at DAILY granularity so the fine view
+// shows realistic weekend dips — otherwise interpolation preserves the line's
+// shape and coarser views look identical apart from the x-axis labels.
+const DOW = [1.04, 1.08, 1.06, 1.05, 1.02, 0.82, 0.78];
+
+/** Transform trend series to the given granularity (new labels + resampled data).
+    At daily granularity, adds a deterministic weekday pattern for visible detail. */
 export function applyGranularity(series: { name: string; data: number[] }[], g: Granularity) {
   const labels = granularityLabels(g);
-  return { labels, series: series.map((s) => ({ name: s.name, data: resample(s.data, labels.length) })) };
+  const n = labels.length;
+  return {
+    labels,
+    series: series.map((s) => {
+      let data = resample(s.data, n);
+      if (g === "daily") data = data.map((v, i) => Math.round(v * DOW[i % 7]));
+      return { name: s.name, data };
+    }),
+  };
 }

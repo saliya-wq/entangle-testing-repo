@@ -36,7 +36,7 @@ const LABELS: Record<string, string> = { campaign: "Campaign Performance", googl
 const VIEWS: Record<string, (p: { d: any; f: number }) => JSX.Element> = { campaign: CampaignView, googleAds: GoogleAdsView, fbAds: FbAdsView, fbPage: FbPageView, igOrganic: IgView, linkedin: LinkedInView, ga4: Ga4View, callTracking: CallTrackingView, pipeline: PipelineView, speedToLead: SpeedToLeadView, showRate: ShowRateView, attribution: AttributionView, yoy: YoyView, ecommerce: EcommerceView, payments: PaymentsView, cohort: CohortView, reports: ReportsView };
 
 /* App version — bump the patch (1.0.1, 1.0.2, …) on every release. */
-const VERSION = "1.0.15";
+const VERSION = "1.0.16";
 
 /* ---------- multi-tenant: roles, subscriptions, admin ---------- */
 const ALL_MODULES = NAV.flatMap((s) => s.items);
@@ -368,11 +368,12 @@ function Portal({ user, ops, setOps, onLogout, theme, setTheme }: { user: any; o
               <DateRangePicker range={range} compare={compare} onRange={setRange} onCompare={setCompare} />
             )}
             {mod !== "__admin__" && (
-              <div className="flex overflow-hidden rounded-lg border" title="Chart granularity">
+              <div className="flex rounded-lg border" role="group" aria-label="Chart granularity">
                 {GRANULARITIES.map((gr) => (
-                  <button key={gr.key} onClick={() => setGranularity(gr.key)} title={gr.label}
-                    className={cn("h-9 w-8 text-xs font-semibold transition-colors", granularity === gr.key ? "bg-primary text-primary-foreground" : "hover:bg-muted")}>
+                  <button key={gr.key} onClick={() => setGranularity(gr.key)} aria-label={gr.label}
+                    className={cn("group relative h-9 w-8 text-xs font-semibold transition-colors first:rounded-l-lg last:rounded-r-lg", granularity === gr.key ? "bg-primary text-primary-foreground" : "hover:bg-muted")}>
                     {gr.short}
+                    <span className="pointer-events-none absolute left-1/2 top-full z-50 mt-1.5 -translate-x-1/2 whitespace-nowrap rounded-md border bg-popover px-2 py-1 text-[11px] font-medium text-popover-foreground opacity-0 shadow-md transition-opacity group-hover:opacity-100">{gr.label}</span>
                   </button>
                 ))}
               </div>
